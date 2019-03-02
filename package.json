@@ -7,9 +7,11 @@
   "private": true,
   "dependencies": {
     "@types/graphql": "^14.0.7",
+    "@types/tedious": "^2.6.1",
     "apollo-server": "^2.4.8",
     "express": "^4.16.2",
-    "graphql": "^14.1.1"
+    "graphql": "^14.1.1",
+    "tedious": "^5.0.3"
   },
   "devDependencies": {
     "@types/node": "^11.10.4",

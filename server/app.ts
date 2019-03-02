@@ -3,7 +3,28 @@ import txt  from './Text_Files/alpha.txt';
 import content from './Gql_Files/first.gql';
 import {ApolloServer, gql} from 'apollo-server';
 
-const some ='some'
+import * as tedious from 'tedious'
+const Connection = tedious.Connection;
+
+  var config = {
+    server: "mssq",
+    options: {encrypt: true},
+    authentication: {
+      type: "default"
+  }
+}
+
+  const connection = new Connection(config);
+
+  connection.on('connect', (err) => {
+      executeStatement();
+    }
+  );
+
+  function executeStatement() {
+   let request = new Request("select 42, 'hello world'");
+  }
+
 
 const typeDefs = gql(content);
 
