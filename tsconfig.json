@@ -1,20 +1,23 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "outDir": "./dist",
-        "sourceMap": true,
-        "resolveJsonModule": true
-
-    },
-    "include": [
-        "src/**/*"
+  "compileOnSave": false,
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "declaration": false,
+    "outDir": "./dist/out-files",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
     ],
-    "exclude": [
-        "node_modules",
-        "**/*.spec.ts",
-        "common/**/*"
+    "lib": [
+      "es2017",
+      "dom"
     ]
+  },
+  "exclude":[
+    "server"
+  ]
 }

@@ -1,0 +1,11614 @@
+TABLE
+0,1
+""
+VECTORS
+0,1160
+""
+TUPLES
+0,4
+""
+DATA
+0,0
+""
+-1,0
+BOT
+1,0
+"A1_KBA_Wolno"
+1,0
+"M     107.1"
+1,0
+"BOOL"
+1,0
+"Kba Pracuje wolniej niz wykladnie"
+-1,0
+BOT
+1,0
+"A1_Netto_New_Value"
+1,0
+"MD    214"
+1,0
+"DINT"
+1,0
+"A1 nowa wartosc licznika netto"
+-1,0
+BOT
+1,0
+"A1_Netto_Value"
+1,0
+"MD    210"
+1,0
+"DINT"
+1,0
+"A1 wartosc licznika netto"
+-1,0
+BOT
+1,0
+"A1_Set_Counter_Netto"
+1,0
+"M     200.0"
+1,0
+"BOOL"
+1,0
+"Ustawienie licznika netto wykladania A1"
+-1,0
+BOT
+1,0
+"A1_Set_Counter_Waste"
+1,0
+"M     200.2"
+1,0
+"BOOL"
+1,0
+"Ustawienie licznika maku wykladania A1"
+-1,0
+BOT
+1,0
+"A1_SW_Gate_Netto"
+1,0
+"M     200.1"
+1,0
+"BOOL"
+1,0
+"brama software na licznik netto A1"
+-1,0
+BOT
+1,0
+"A1_SW_Gate_Waste"
+1,0
+"M     200.3"
+1,0
+"BOOL"
+1,0
+"Brama software na licznik maku A1"
+-1,0
+BOT
+1,0
+"A1_Waste_New_Value"
+1,0
+"MD    222"
+1,0
+"DINT"
+1,0
+"A1  nowa wartosc licznika maku"
+-1,0
+BOT
+1,0
+"A1_Waste_Value"
+1,0
+"MD    218"
+1,0
+"DINT"
+1,0
+"A1 wartosc licznika maku"
+-1,0
+BOT
+1,0
+"A2_KBA_Wolno"
+1,0
+"M     107.0"
+1,0
+"BOOL"
+1,0
+"Kba pracuje wolniej niz wykladanie"
+-1,0
+BOT
+1,0
+"A2_Netto_New_Value"
+1,0
+"MD    230"
+1,0
+"DINT"
+1,0
+"A2 nowa wartosc licznika netto"
+-1,0
+BOT
+1,0
+"A2_Netto_Value"
+1,0
+"MD    226"
+1,0
+"DINT"
+1,0
+"A2 wartosc licznika netto"
+-1,0
+BOT
+1,0
+"A2_Set_Counter_Netto"
+1,0
+"M     200.4"
+1,0
+"BOOL"
+1,0
+"Ustawienie licznika netto wykladania A2"
+-1,0
+BOT
+1,0
+"A2_Set_Counter_Waste"
+1,0
+"M     200.6"
+1,0
+"BOOL"
+1,0
+"Ustawienie licznika maku wykladania A2"
+-1,0
+BOT
+1,0
+"A2_SW_Gate_Netto"
+1,0
+"M     200.5"
+1,0
+"BOOL"
+1,0
+"brama software na licznik netto  A2"
+-1,0
+BOT
+1,0
+"A2_SW_Gate_Waste"
+1,0
+"M     200.7"
+1,0
+"BOOL"
+1,0
+"Brama software na licznik maku A2"
+-1,0
+BOT
+1,0
+"A2_Waste_New_Value"
+1,0
+"MD    238"
+1,0
+"DINT"
+1,0
+"A2  nowa wartosc licznika maku"
+-1,0
+BOT
+1,0
+"A2_Waste_Value"
+1,0
+"MD    234"
+1,0
+"DINT"
+1,0
+"A2 wartosc licznika maku"
+-1,0
+BOT
+1,0
+"AG_SEND"
+1,0
+"FC     59"
+1,0
+"FC     59"
+1,0
+"AG SEND"
+-1,0
+BOT
+1,0
+"Aktywacja_Prze_Na_A1"
+1,0
+"M     711.0"
+1,0
+"BOOL"
+1,0
+"Aktywacja przenieniesienia stanu przyciskow na A1"
+-1,0
+BOT
+1,0
+"Aktywacja_Prze_Na_A2"
+1,0
+"M     811.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Analog_A1"
+1,0
+"PQW   384"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Analog_A2"
+1,0
+"PQW   344"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Analog_na_M"
+1,0
+"FC   1075"
+1,0
+"FC   1075"
+1,0
+"Konwersja analogu na m/min"
+-1,0
+BOT
+1,0
+"Backup_Auto_Wymuszenie"
+1,0
+"M      35.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Backup_jest_Aktywny"
+1,0
+"M     106.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Backup_Jest_Mozliwy"
+1,0
+"M     106.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Backup_Moz_Na_St_A2"
+1,0
+"M     520.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Backup_Moz_Na_St_Odwr_A1"
+1,0
+"M     520.4"
+1,0
+"BOOL"
+1,0
+"Backup na stacje odwracajaca A1 mozliwy"
+-1,0
+BOT
+1,0
+"Backup_Mozliwy"
+1,0
+"M      30.0"
+1,0
+"BOOL"
+1,0
+"Backup mozyliwy; true;zwrotnica dolna gora"
+-1,0
+BOT
+1,0
+"Backup_St_Odwr_A1_Pow"
+1,0
+"M     521.1"
+1,0
+"BOOL"
+1,0
+"Powrot z backup -u"
+-1,0
+BOT
+1,0
+"Backup_St_Odwr_A2"
+1,0
+"M     520.6"
+1,0
+"BOOL"
+1,0
+"Backup gdy stacja odwracajaca zajeta"
+-1,0
+BOT
+1,0
+"Backup_Warunkowy_A2"
+1,0
+"M      33.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Backup_Z_OP"
+1,0
+"FC     65"
+1,0
+"FC     65"
+1,0
+"Sterowanie backup i visu op"
+-1,0
+BOT
+1,0
+"Bajt_pom_1"
+1,0
+"MB    185"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bandy_Para"
+1,0
+"DB   1001"
+1,0
+"DB   1001"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit Shift Register"
+1,0
+"FC     90"
+1,0
+"FC     90"
+1,0
+"Bit shift register"
+-1,0
+BOT
+1,0
+"Bit_Bezp_Lancucha_A1"
+1,0
+"M     302.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Bezp_Lancucha_A2"
+1,0
+"M     300.1"
+1,0
+"BOOL"
+1,0
+"Lancucha A2 bezpieczny (Brak Bledow)"
+-1,0
+BOT
+1,0
+"Bit_bezpieczenstwa_Tasm"
+1,0
+"M     100.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Maku_Hmi_T_A1"
+1,0
+"M     469.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Maku_Hmi_T_A2"
+1,0
+"M     269.0"
+1,0
+"BOOL"
+1,0
+"Bit makulatury z Hmi"
+-1,0
+BOT
+1,0
+"Bit_Pom_Lan_A1_1"
+1,0
+"M     302.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Pom_Lan_A1_2"
+1,0
+"M     302.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Pom_Lan_A2_1"
+1,0
+"M     300.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Pom_Lan_A2_2"
+1,0
+"M     300.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Pracy_A1"
+1,0
+"M      20.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_pracy_A1_Lan"
+1,0
+"M     302.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Pracy_A2"
+1,0
+"M      20.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_pracy_A2_Lan"
+1,0
+"M     300.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Pracy_Tasm_A1"
+1,0
+"M     100.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_pracy_tasm_A2"
+1,0
+"M     100.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Stop_A1"
+1,0
+"M      33.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bit_Stop_A2"
+1,0
+"M      33.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Bramy_A1_D"
+1,0
+"M     391.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Bramy_A1_G"
+1,0
+"M     391.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Bramy_A2_D"
+1,0
+"M     381.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Bramy_A2_G"
+1,0
+"M     381.0"
+1,0
+"BOOL"
+1,0
+"Blad bramy czujnik poz. Gornej bramy"
+-1,0
+BOT
+1,0
+"Blad_Fal_A1_Tasma_1"
+1,0
+"M     102.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Fal_A1_Tasma_2"
+1,0
+"M     102.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Fal_A1_Tasma_3"
+1,0
+"M     102.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Fal_A2_Tasma_1"
+1,0
+"M     101.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Fal_A2_Tasma_2"
+1,0
+"M     101.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Fal_A2_Tasma_3"
+1,0
+"M     101.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Fal_Tasm_A1"
+1,0
+"M     102.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Fal_Tasm_A2"
+1,0
+"M     101.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Lamp_St_Odb_A1"
+1,0
+"M     305.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Lamp_St_Odb_A2"
+1,0
+"M     305.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Lamp_St_Pob_A1"
+1,0
+"M     305.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Lamp_St_Pob_A2"
+1,0
+"M     305.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Tasmy_G_Maku"
+1,0
+"I      18.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Tor_1"
+1,0
+"M    1300.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blad_Tor_2"
+1,0
+"M    1400.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bledy_Profibus"
+1,0
+"DB    122"
+1,0
+"DB    122"
+1,0
+"Blok bledow profibus"
+-1,0
+BOT
+1,0
+"Bledy_RS"
+1,0
+"DB   1119"
+1,0
+"DB   1119"
+1,0
+"Bledy linie RS"
+-1,0
+BOT
+1,0
+"BLKMOV"
+1,0
+"SFC    20"
+1,0
+"SFC    20"
+1,0
+"Copy Variables"
+-1,0
+BOT
+1,0
+"Blok_bledow"
+1,0
+"DB    119"
+1,0
+"DB    119"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_Bledow_RS"
+1,0
+"FC   1119"
+1,0
+"FC   1119"
+1,0
+"Funkcja wyswietlajaca bledy"
+-1,0
+BOT
+1,0
+"Blok_Pomocniczy"
+1,0
+"DB     10"
+1,0
+"DB     10"
+1,0
+"Blok bitow pomocniczych"
+-1,0
+BOT
+1,0
+"Blok_Pomocniczy_Get"
+1,0
+"DB    332"
+1,0
+"FB     14"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_Pomocniczy_Get_2"
+1,0
+"DB    333"
+1,0
+"FB     14"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_Pusty_Enkodera"
+1,0
+"DB    506"
+1,0
+"DB    506"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_Pusty_Klucza"
+1,0
+"DB    507"
+1,0
+"DB    507"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_RPM_A1"
+1,0
+"DB    201"
+1,0
+"DB    201"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_RPM_A2"
+1,0
+"DB    200"
+1,0
+"DB    200"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_TAKTU_LAN_A1"
+1,0
+"DB    203"
+1,0
+"DB    203"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_TAKTU_LAN_A2"
+1,0
+"DB    202"
+1,0
+"DB    202"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blok_z_Kba"
+1,0
+"DB    331"
+1,0
+"DB    331"
+1,0
+""
+-1,0
+BOT
+1,0
+"Blokada_Stacji"
+1,0
+"M    1404.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Brak_Powietrza_A1"
+1,0
+"M     301.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Brak_Powietrza_A2"
+1,0
+"M     301.1"
+1,0
+"BOOL"
+1,0
+"Aktywny stanem niskim"
+-1,0
+BOT
+1,0
+"Brak_Produktu_A1"
+1,0
+"M     110.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Brak_Produktu_A2"
+1,0
+"M     110.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Brak_Produktu_Lan_A1"
+1,0
+"M     477.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Brak_Produktu_Lan_A2"
+1,0
+"M     277.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bramka_A1_Lan"
+1,0
+"M     390.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bramka_A1_Maku"
+1,0
+"M     391.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bramka_A1_Produkt"
+1,0
+"M     391.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bramka_A2_Lan"
+1,0
+"M     380.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bramka_A2_Maku"
+1,0
+"M     381.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bramka_A2_Produkt"
+1,0
+"M     381.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Bramka_RS_Gora"
+1,0
+"I       2.6"
+1,0
+"BOOL"
+1,0
+"Czujnik bramki gora s48"
+-1,0
+BOT
+1,0
+"Buffer Storage (FIFO)"
+1,0
+"FC     92"
+1,0
+"FC     92"
+1,0
+"Buffer storage (fist in first out)"
+-1,0
+BOT
+1,0
+"Cisnienie_Odb_A1_Ok"
+1,0
+"I       4.7"
+1,0
+"BOOL"
+1,0
+"Cisnienie powietrza OK s. 47"
+-1,0
+BOT
+1,0
+"Cisnienie_Odb_A2_Ok"
+1,0
+"I       1.7"
+1,0
+"BOOL"
+1,0
+"Cisnienie powietrza OK s. 47"
+-1,0
+BOT
+1,0
+"Clock_FC"
+1,0
+"FC      9"
+1,0
+"FC      9"
+1,0
+""
+-1,0
+BOT
+1,0
+"CNT_CHANTYPE"
+1,0
+"UDT     1"
+1,0
+"UDT     1"
+1,0
+"Data type for counter channel"
+-1,0
+BOT
+1,0
+"CNT_CHANTYPE1"
+1,0
+"UDT     2"
+1,0
+"UDT     2"
+1,0
+"Data type for counter channel"
+-1,0
+BOT
+1,0
+"CNT_CTL1"
+1,0
+"FC     20"
+1,0
+"FC     20"
+1,0
+"Control counter module FM 350-1/450-1 (supports isochrone mode)"
+-1,0
+BOT
+1,0
+"CNT_CTRL"
+1,0
+"FC      0"
+1,0
+"FC      0"
+1,0
+"Control counter module FM 350-1/450-1"
+-1,0
+BOT
+1,0
+"COMPLETE RESTART"
+1,0
+"OB    100"
+1,0
+"OB    100"
+1,0
+"Complete Restart"
+-1,0
+BOT
+1,0
+"Count_FC"
+1,0
+"FC     10"
+1,0
+"FC     10"
+1,0
+""
+-1,0
+BOT
+1,0
+"COUNTER_CONTROL"
+1,0
+"FC      2"
+1,0
+"FC      2"
+1,0
+"Funkcja_Licznika"
+-1,0
+BOT
+1,0
+"CTU"
+1,0
+"SFB     0"
+1,0
+"SFB     0"
+1,0
+"Count Up"
+-1,0
+BOT
+1,0
+"CTUD"
+1,0
+"SFB     2"
+1,0
+"SFB     2"
+1,0
+"Count Up / Down"
+-1,0
+BOT
+1,0
+"CYC_INT5"
+1,0
+"OB     35"
+1,0
+"OB     35"
+1,0
+"Cyclic Interrupt 5"
+-1,0
+BOT
+1,0
+"CYCL_EXC"
+1,0
+"OB      1"
+1,0
+"OB      1"
+1,0
+"Cycle Execution"
+-1,0
+BOT
+1,0
+"CYCL_FLT"
+1,0
+"OB     80"
+1,0
+"OB     80"
+1,0
+"Cycle Time Fault"
+-1,0
+BOT
+1,0
+"Czas_bledu_Get_1"
+1,0
+"T      40"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Czuj_Maku_A1"
+1,0
+"I      17.5"
+1,0
+"BOOL"
+1,0
+"Czujnik Makulatury A1 str 11"
+-1,0
+BOT
+1,0
+"Czuj_Maku_A2"
+1,0
+"I      17.4"
+1,0
+"BOOL"
+1,0
+"Czujnik Makulatury A2 str 11"
+-1,0
+BOT
+1,0
+"Czuj_Zwrotnica_A1_Dol"
+1,0
+"I      17.3"
+1,0
+"BOOL"
+1,0
+"Czujnik zwrotnica A1 w dole str 11"
+-1,0
+BOT
+1,0
+"Czuj_Zwrotnica_A2_Dol"
+1,0
+"I      17.1"
+1,0
+"BOOL"
+1,0
+"Czujnik zwrotnica A2 w dole str 11"
+-1,0
+BOT
+1,0
+"Czuj_Zwrtonica_A1_Gora"
+1,0
+"I      17.2"
+1,0
+"BOOL"
+1,0
+"Czujnik zwrotnica A1  w gorze str 11"
+-1,0
+BOT
+1,0
+"Czuj_Zwrtonica_A2_Gora"
+1,0
+"I      17.0"
+1,0
+"BOOL"
+1,0
+"Czujnik zwrotnica A2  w gorze str 11"
+-1,0
+BOT
+1,0
+"Czujnik_Bramka_A1_Dol"
+1,0
+"I       5.1"
+1,0
+"BOOL"
+1,0
+"Czujnik bramki dol s48"
+-1,0
+BOT
+1,0
+"Czujnik_Bramka_A1_Gora"
+1,0
+"I       5.6"
+1,0
+"BOOL"
+1,0
+"Czujnik bramki gora s48"
+-1,0
+BOT
+1,0
+"Czujnik_Bramka_A2_Dol"
+1,0
+"I       2.1"
+1,0
+"BOOL"
+1,0
+"Czujnik bramki dol s48"
+-1,0
+BOT
+1,0
+"Dane_Ukladarka"
+1,0
+"DB    302"
+1,0
+"DB    302"
+1,0
+""
+-1,0
+BOT
+1,0
+"DB_Smarowanie_Wykladania"
+1,0
+"DB    700"
+1,0
+"DB    700"
+1,0
+""
+-1,0
+BOT
+1,0
+"Dobre_Calosc_Falz_Zew"
+1,0
+"M     400.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Dobre_Falz_Zew_"
+1,0
+"M     703.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Dobre_Na_Zew_Falz"
+1,0
+"M     703.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"DP: STATUS ALARM"
+1,0
+"OB     55"
+1,0
+"OB     55"
+1,0
+"DP: Status Alarm"
+-1,0
+BOT
+1,0
+"DPWR_DAT"
+1,0
+"SFC    15"
+1,0
+"SFC    15"
+1,0
+"Write Consistent Data to a Standard DP Slave"
+-1,0
+BOT
+1,0
+"Edge_Backup"
+1,0
+"M      35.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Edge_Backup_St_Odwr_A2"
+1,0
+"M     520.5"
+1,0
+"BOOL"
+1,0
+"Zbocze"
+-1,0
+BOT
+1,0
+"Err_Zapis_FC120"
+1,0
+"M       4.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Error_Get_1"
+1,0
+"M     331.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Error_Get_2"
+1,0
+"M     331.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Estop_Falz"
+1,0
+"I      16.2"
+1,0
+"BOOL"
+1,0
+"Obwod bezpieczenstwa Falz str 10"
+-1,0
+BOT
+1,0
+"ESTOP_Lan_Odb_A1"
+1,0
+"I       5.3"
+1,0
+"BOOL"
+1,0
+"E-Stop (false ok) na odbiorze  s48"
+-1,0
+BOT
+1,0
+"ESTOP_Lan_Odb_A2"
+1,0
+"I       2.3"
+1,0
+"BOOL"
+1,0
+"E-Stop (false ok) na odbiorze s48"
+-1,0
+BOT
+1,0
+"ESTOP_Lan_Pob_A1"
+1,0
+"I       5.5"
+1,0
+"BOOL"
+1,0
+"E-Stop (false ok)na pobraniu s48"
+-1,0
+BOT
+1,0
+"ESTOP_Lan_Pob_A2"
+1,0
+"I       2.5"
+1,0
+"BOOL"
+1,0
+"E-Stop (false ok)na pobraniu s48"
+-1,0
+BOT
+1,0
+"Estop_Pulpit"
+1,0
+"I      16.1"
+1,0
+"BOOL"
+1,0
+"Obwod bezpieczenstwa Pulpit str 10"
+-1,0
+BOT
+1,0
+"F_Max_Fal"
+1,0
+"MD    190"
+1,0
+"REAL"
+1,0
+"Czestotliwosc max falownikow"
+-1,0
+BOT
+1,0
+"Fal_Lenze"
+1,0
+"FC     11"
+1,0
+"FC     11"
+1,0
+"Sterowanie falownikiem Lenze"
+-1,0
+BOT
+1,0
+"Fal_Tasm_A1_Gotowe"
+1,0
+"M     102.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Fal_Tasm_A2_Gotowe"
+1,0
+"M     101.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Fal_Tasma_1_A1_gotowy"
+1,0
+"M     102.0"
+1,0
+"BOOL"
+1,0
+"Gotowosc falownika A2 Tasma 1"
+-1,0
+BOT
+1,0
+"Fal_Tasma_1_A2_gotowy"
+1,0
+"M     101.0"
+1,0
+"BOOL"
+1,0
+"Gotowosc falownika A2 Tasma 1"
+-1,0
+BOT
+1,0
+"Fal_Tasma_2_A1_gotowy"
+1,0
+"M     102.2"
+1,0
+"BOOL"
+1,0
+"Gotowosc falownika A2 Tasma 2"
+-1,0
+BOT
+1,0
+"Fal_Tasma_2_A2_gotowy"
+1,0
+"M     101.2"
+1,0
+"BOOL"
+1,0
+"Gotowosc falownika A2 Tasma 2"
+-1,0
+BOT
+1,0
+"Fal_Tasma_3_A1_gotowy"
+1,0
+"M     102.4"
+1,0
+"BOOL"
+1,0
+"Gotowosc falownika A2 Tasma 3"
+-1,0
+BOT
+1,0
+"Fal_Tasma_3_A2_gotowy"
+1,0
+"M     101.4"
+1,0
+"BOOL"
+1,0
+"Gotowosc falownika A2 Tasma 3"
+-1,0
+BOT
+1,0
+"Falowniki Tor 1"
+1,0
+"FC   1010"
+1,0
+"FC   1010"
+1,0
+"Funkcja zarzadzajaca programem"
+-1,0
+BOT
+1,0
+"Falowniki_Tor_1_2"
+1,0
+"FC   1013"
+1,0
+"FC   1013"
+1,0
+"Wspolna czesc lini"
+-1,0
+BOT
+1,0
+"Falowniki_Tor1"
+1,0
+"FC   1011"
+1,0
+"FC   1011"
+1,0
+""
+-1,0
+BOT
+1,0
+"Falowniki_Tor2"
+1,0
+"FC   1012"
+1,0
+"FC   1012"
+1,0
+""
+-1,0
+BOT
+1,0
+"FC_Horn"
+1,0
+"FC     75"
+1,0
+"FC     75"
+1,0
+"Funkcja sterujaca sygnalem dzwiekowym"
+-1,0
+BOT
+1,0
+"FC_Szybkiego_licznika"
+1,0
+"FC    101"
+1,0
+"FC    101"
+1,0
+"Funkcja szybkiego licznika"
+-1,0
+BOT
+1,0
+"FC_Takty"
+1,0
+"FC     83"
+1,0
+"FC     83"
+1,0
+"Funkcja odczytujaca i kontrolujaca Takty"
+-1,0
+BOT
+1,0
+"FIFO_DLA_DB"
+1,0
+"FC    600"
+1,0
+"FC    600"
+1,0
+"Funkcja  Przesuwajaca blok w gore"
+-1,0
+BOT
+1,0
+"Filtr_Rejestru"
+1,0
+"FC    507"
+1,0
+"FC    507"
+1,0
+""
+-1,0
+BOT
+1,0
+"Filtr_wzbudzenia_A1"
+1,0
+"T      41"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Filtr_wzbudzenia_A2"
+1,0
+"T      42"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"FREQ_MES"
+1,0
+"SFB    30"
+1,0
+"SFB    30"
+1,0
+"Frequency Meter (Integrated Function, CPU 312 IFM, 314 IFM)"
+-1,0
+BOT
+1,0
+"Funkcja_Analogu"
+1,0
+"FC     72"
+1,0
+"FC     72"
+1,0
+"Funkcja konwertujaca sygnal analogowy"
+-1,0
+BOT
+1,0
+"Funkcja_Hamujaca"
+1,0
+"FC   1076"
+1,0
+"FC   1076"
+1,0
+"Funkcja hamowania analogowego"
+-1,0
+BOT
+1,0
+"Funkcja_Lamp"
+1,0
+"FC     55"
+1,0
+"FC     55"
+1,0
+"Funkcja zarzadzajaca lampami"
+-1,0
+BOT
+1,0
+"Funkcja_Lamp_bledu"
+1,0
+"FC     30"
+1,0
+"FC     30"
+1,0
+"wyswietlanie bledu lamp"
+-1,0
+BOT
+1,0
+"Funkcja_OFFSET"
+1,0
+"FC   1063"
+1,0
+"FC   1063"
+1,0
+"Kontrola offsetu"
+-1,0
+BOT
+1,0
+"Funkcja_Reg_2"
+1,0
+"FC      5"
+1,0
+"FC      5"
+1,0
+"Funkcja registra do wywolania cyklicznego"
+-1,0
+BOT
+1,0
+"Funkcja_registra_db"
+1,0
+"FC      4"
+1,0
+"FC      4"
+1,0
+"Funkcja realizujaca register na bloku db"
+-1,0
+BOT
+1,0
+"Funkcja_Smarowania"
+1,0
+"FB    700"
+1,0
+"FB    700"
+1,0
+"Funkcja_Ksztaltu_Smarowania"
+-1,0
+BOT
+1,0
+"Funkcja_Start_Toru"
+1,0
+"FC   1071"
+1,0
+"FC   1071"
+1,0
+""
+-1,0
+BOT
+1,0
+"Funkcja_Startu_Lancucha"
+1,0
+"FC     71"
+1,0
+"FC     71"
+1,0
+"Funkcja realizuje start lancucha"
+-1,0
+BOT
+1,0
+"Funkcja_Taktu"
+1,0
+"FC      7"
+1,0
+"FC      7"
+1,0
+"Wirutalny uklad taktujacy"
+-1,0
+BOT
+1,0
+"Funkcja_Taktu_2"
+1,0
+"FC      8"
+1,0
+"FC      8"
+1,0
+""
+-1,0
+BOT
+1,0
+"Funkcja_Zegara"
+1,0
+"FC     51"
+1,0
+"FC     51"
+1,0
+"Funkcja zegara"
+-1,0
+BOT
+1,0
+"GD_Data_MPI"
+1,0
+"DB    301"
+1,0
+"DB    301"
+1,0
+"Blok globalny do wymiany po MPI"
+-1,0
+BOT
+1,0
+"GET"
+1,0
+"SFB    14"
+1,0
+"SFB    14"
+1,0
+"Read Data From a Remote CPU"
+-1,0
+BOT
+1,0
+"Get_function"
+1,0
+"FB     14"
+1,0
+"FB     14"
+1,0
+""
+-1,0
+BOT
+1,0
+"Gotowosc_Lancucha_A1"
+1,0
+"T      73"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Gotowosc_Lancucha_A2"
+1,0
+"T      71"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"H_Motor_Maku_A1"
+1,0
+"M     390.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"H_Motor_Maku_A2"
+1,0
+"M     380.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"H_Odciag_Rs"
+1,0
+"M    1009.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"H_Tasma_1_A1"
+1,0
+"M      31.3"
+1,0
+"BOOL"
+1,0
+"Tasma 1 A1 adres 9"
+-1,0
+BOT
+1,0
+"H_Tasma_1_A2"
+1,0
+"M      31.0"
+1,0
+"BOOL"
+1,0
+"Tasma 1 A2 adres 6"
+-1,0
+BOT
+1,0
+"H_Tasma_2_A1"
+1,0
+"M      31.4"
+1,0
+"BOOL"
+1,0
+"Tasma 2 A1 adres 10"
+-1,0
+BOT
+1,0
+"H_Tasma_2_A2"
+1,0
+"M      31.1"
+1,0
+"BOOL"
+1,0
+"Tasma 2 A2 adres 7"
+-1,0
+BOT
+1,0
+"H_Tasma_3_A1"
+1,0
+"M      31.5"
+1,0
+"BOOL"
+1,0
+"Tasma 3 A1 adres 11"
+-1,0
+BOT
+1,0
+"H_Tasma_3_A2"
+1,0
+"M      31.2"
+1,0
+"BOOL"
+1,0
+"Tasma 3 A2 adres 8"
+-1,0
+BOT
+1,0
+"H1005.1"
+1,0
+"M    1005.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"H1303.4"
+1,0
+"M    1303.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"H1403.4"
+1,0
+"M    1403.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HB1345"
+1,0
+"MB   1345"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HB1445"
+1,0
+"MB   1445"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_1_Blad_A1_ODB"
+1,0
+"M      37.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_1_Blad_A2_ODB"
+1,0
+"M      37.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_2_Blad_A1_ODB"
+1,0
+"M      37.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_2_Blad_A2_ODB"
+1,0
+"M      37.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_700.5"
+1,0
+"M     700.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_702.0"
+1,0
+"M     702.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_800.5"
+1,0
+"M     800.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_802.0"
+1,0
+"M     802.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_805.0"
+1,0
+"M     805.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Backup_1"
+1,0
+"M      30.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Byte_FC73_A1"
+1,0
+"MB    332"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Byte_FC73_A2"
+1,0
+"MB    322"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Edge_A1_1"
+1,0
+"M     391.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Edge_A2_1"
+1,0
+"M     381.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Lampka_Start_A1"
+1,0
+"M     302.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Lampka_Start_A2"
+1,0
+"M     300.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M1.1"
+1,0
+"M       1.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M1.2"
+1,0
+"M       1.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M109.1"
+1,0
+"M     109.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M109.3"
+1,0
+"M     109.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M110.2"
+1,0
+"M     110.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M110.3"
+1,0
+"M     110.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M110.4"
+1,0
+"M     110.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M110.5"
+1,0
+"M     110.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M2.1"
+1,0
+"M       2.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M2.2"
+1,0
+"M       2.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M250.0"
+1,0
+"M     250.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M250.1"
+1,0
+"M     250.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M250.3"
+1,0
+"M     250.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M250.5"
+1,0
+"M     250.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M250.6"
+1,0
+"M     250.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M250.7"
+1,0
+"M     250.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M32.6"
+1,0
+"M      32.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M34.1"
+1,0
+"M      34.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M34.3"
+1,0
+"M      34.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M37_6"
+1,0
+"M      37.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M37_7"
+1,0
+"M      37.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M38.2"
+1,0
+"M      38.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M38.3"
+1,0
+"M      38.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M38.5"
+1,0
+"M      38.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M38.6"
+1,0
+"M      38.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M39.2"
+1,0
+"M      39.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M39.4"
+1,0
+"M      39.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M40.0"
+1,0
+"M      40.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M40.1"
+1,0
+"M      40.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M402.0"
+1,0
+"M     402.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M402.1"
+1,0
+"M     402.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M402.2"
+1,0
+"M     402.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M402.3"
+1,0
+"M     402.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M402.4"
+1,0
+"M     402.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M450.0"
+1,0
+"M     450.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M450.1"
+1,0
+"M     450.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M450.3"
+1,0
+"M     450.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M450.5"
+1,0
+"M     450.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M450.6"
+1,0
+"M     450.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M450.7"
+1,0
+"M     450.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M600.1"
+1,0
+"M     600.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M600.2"
+1,0
+"M     600.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M600.3"
+1,0
+"M     600.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M600.4"
+1,0
+"M     600.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M601.1"
+1,0
+"M     601.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M601.3"
+1,0
+"M     601.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M602.0"
+1,0
+"M     602.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M602.2"
+1,0
+"M     602.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M603.0"
+1,0
+"M     603.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M603.1"
+1,0
+"M     603.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M702.1"
+1,0
+"M     702.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M702.4"
+1,0
+"M     702.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M703.0"
+1,0
+"M     703.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M704.1"
+1,0
+"M     704.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M704.2"
+1,0
+"M     704.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M705.0"
+1,0
+"M     705.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M706.0"
+1,0
+"M     706.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M706.1"
+1,0
+"M     706.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M706.2"
+1,0
+"M     706.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M706.4"
+1,0
+"M     706.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M707.0"
+1,0
+"M     707.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M710.2"
+1,0
+"M     710.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M710.3"
+1,0
+"M     710.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M711.1"
+1,0
+"M     711.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M711.2"
+1,0
+"M     711.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M802.1"
+1,0
+"M     802.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M802.4"
+1,0
+"M     802.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M803.0"
+1,0
+"M     803.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M804.1"
+1,0
+"M     804.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M804.2"
+1,0
+"M     804.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M806.0"
+1,0
+"M     806.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M806.1"
+1,0
+"M     806.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M806.2"
+1,0
+"M     806.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M806.4"
+1,0
+"M     806.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M807.0"
+1,0
+"M     807.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M810.2"
+1,0
+"M     810.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M810.3"
+1,0
+"M     810.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M811.1"
+1,0
+"M     811.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_M811.2"
+1,0
+"M     811.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Maku_od_Z_A1"
+1,0
+"M     390.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Maku_od_Z_A2"
+1,0
+"M     380.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Maku_Zaraz_FAB"
+1,0
+"M     400.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MB1322"
+1,0
+"MB   1322"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MD260"
+1,0
+"MD    260"
+1,0
+"DWORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MD460"
+1,0
+"MD    460"
+1,0
+"DWORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW264"
+1,0
+"MW    264"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Mw266"
+1,0
+"MW    266"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW346"
+1,0
+"MW    346"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW348"
+1,0
+"MW    348"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW350"
+1,0
+"MW    350"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW352"
+1,0
+"MW    352"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW354"
+1,0
+"MW    354"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW356"
+1,0
+"MW    356"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW464"
+1,0
+"MW    464"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW466"
+1,0
+"MW    466"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW720"
+1,0
+"MW    720"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Mw740"
+1,0
+"MW    740"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW744"
+1,0
+"MW    744"
+1,0
+"INT"
+1,0
+"Help FC509 A2"
+-1,0
+BOT
+1,0
+"Help_MW746"
+1,0
+"MW    746"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW750"
+1,0
+"MW    750"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW752"
+1,0
+"MW    754"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW756"
+1,0
+"MW    756"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW782"
+1,0
+"MW    854"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW820"
+1,0
+"MW    820"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW840"
+1,0
+"MW    840"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW844"
+1,0
+"MW    844"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW846"
+1,0
+"MW    846"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW850"
+1,0
+"MW    850"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_MW856"
+1,0
+"MW    856"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Pierwszy_Start"
+1,0
+"M    1301.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Produkcja"
+1,0
+"M    1404.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Przelaczenie"
+1,0
+"M    1401.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_R_Wymuszenie_A1"
+1,0
+"M     390.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_R_Wymuszenie_A2"
+1,0
+"M     380.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Serwis_Tor_1"
+1,0
+"M    1004.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Serwis_Tor_2"
+1,0
+"M    1006.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T30"
+1,0
+"T      30"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T31"
+1,0
+"T      31"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T50"
+1,0
+"T      50"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T51"
+1,0
+"T      51"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T80"
+1,0
+"T      80"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T81"
+1,0
+"T      81"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T82"
+1,0
+"T      82"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T83"
+1,0
+"T      83"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T84"
+1,0
+"T      84"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T85"
+1,0
+"T      85"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T86"
+1,0
+"T      86"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_T87"
+1,0
+"T      87"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Word_Maku_Zaraz"
+1,0
+"MW    404"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Help_Word_MW358"
+1,0
+"MW    358"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"HM_1300.2"
+1,0
+"M    1300.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HM1001.2"
+1,0
+"M    1001.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HM1004.1"
+1,0
+"M    1004.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HM1300.1"
+1,0
+"M    1300.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMB1040"
+1,0
+"MB   1040"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMB1140"
+1,0
+"MB   1140"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMB1150"
+1,0
+"MB   1150"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMB1302"
+1,0
+"MB   1302"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Backup_Predkosc"
+1,0
+"FC    530"
+1,0
+"FC    530"
+1,0
+"Kontrola predkosci Backup"
+-1,0
+BOT
+1,0
+"HMI_Bit_ost_Lan_A1"
+1,0
+"M     473.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Bit_ost_Lan_A2"
+1,0
+"M     273.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Hmi_Bit_Szary_Tasm_A1"
+1,0
+"M     483.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Hmi_Bit_Szary_Tasm_A2"
+1,0
+"M     283.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_DB_Maska_Tasm_A1"
+1,0
+"DB    551"
+1,0
+"DB    551"
+1,0
+"Maska dla tasm A1 oraz przesuniecie Taktu"
+-1,0
+BOT
+1,0
+"HMI_DB_Maska_Tasm_A2"
+1,0
+"DB    550"
+1,0
+"DB    550"
+1,0
+"Wartosci maski oraz przesuniecia taktu dla tasmy A2"
+-1,0
+BOT
+1,0
+"HMI_Lan_A1_Bajt_0"
+1,0
+"MB    470"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_A1_Bajt_1"
+1,0
+"MB    471"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_A1_Bajt_2"
+1,0
+"MB    472"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_A1_Bajt_3"
+1,0
+"MB    473"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_A2_Bajt_0"
+1,0
+"MB    270"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_A2_Bajt_1"
+1,0
+"MB    271"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_A2_Bajt_2"
+1,0
+"MB    272"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_A2_Bajt_3"
+1,0
+"MB    273"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_Szary_A1_Bajt_0"
+1,0
+"MB    474"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_Szary_A1_Bajt_1"
+1,0
+"MB    475"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_Szary_A1_Bajt_2"
+1,0
+"MB    476"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_Szary_A1_Bajt_3"
+1,0
+"MB    477"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_Szary_A2_Bajt_0"
+1,0
+"MB    274"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_Szary_A2_Bajt_1"
+1,0
+"MB    275"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_Szary_A2_Bajt_2"
+1,0
+"MB    276"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Lan_Szary_A2_Bajt_3"
+1,0
+"MB    277"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Maska_Tasm"
+1,0
+"FC    518"
+1,0
+"FC    518"
+1,0
+"Tworzenie maski na rejestr HMI"
+-1,0
+BOT
+1,0
+"HMI_Meldunki"
+1,0
+"FC    119"
+1,0
+"FC    119"
+1,0
+"Funkcja wysylajaca informacje o bledach"
+-1,0
+BOT
+1,0
+"HMI_Okreslenie_Taktu"
+1,0
+"FC    515"
+1,0
+"FC    515"
+1,0
+"Okreslenie ksztaltu taktu tasm na Hmi"
+-1,0
+BOT
+1,0
+"HMI_PARA"
+1,0
+"FC    120"
+1,0
+"FC    120"
+1,0
+"Parametry maszynowe HMI"
+-1,0
+BOT
+1,0
+"HMI_Reg_Lan"
+1,0
+"FC    512"
+1,0
+"FC    512"
+1,0
+"Rejestr HMI dla lancucha"
+-1,0
+BOT
+1,0
+"HMI_Reg_Szary_Tasm"
+1,0
+"FC    513"
+1,0
+"FC    513"
+1,0
+"Wyglad szarego koloru przy rejestrze tasm"
+-1,0
+BOT
+1,0
+"HMI_Rejestr_16_Bit_Tasm"
+1,0
+"FC    519"
+1,0
+"FC    519"
+1,0
+"Rejestr 16-bitowy tasm Hmi"
+-1,0
+BOT
+1,0
+"HMI_Rejestr_Szary_A1"
+1,0
+"MW    482"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Rejestr_Szary_A2"
+1,0
+"MW    282"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Hmi_Rejestr_Tasm_A1"
+1,0
+"MW    468"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Hmi_Rejestr_Tasm_A2"
+1,0
+"MW    268"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_RS"
+1,0
+"DB   1000"
+1,0
+"DB   1000"
+1,0
+"Blok danych HMI rs"
+-1,0
+BOT
+1,0
+"HMI_Takt_Lan_A1"
+1,0
+"M     450.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Takt_Lan_A2"
+1,0
+"M     250.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HMI_Takt_Tasm"
+1,0
+"FC    516"
+1,0
+"FC    516"
+1,0
+"Funkcja konwerujaca takt tasm na takt tasm HMI"
+-1,0
+BOT
+1,0
+"HMI_Visu"
+1,0
+"FC    520"
+1,0
+"FC    520"
+1,0
+"Wizualizacja Rejstru i bitow HMI"
+-1,0
+BOT
+1,0
+"Hmi_Wym_Back_NA_A1"
+1,0
+"M      39.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Hmi_Wym_Back_NA_A2"
+1,0
+"M      39.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Hold_Stop_Tor_1"
+1,0
+"M    1303.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Hold_Stop_Tor_2"
+1,0
+"M    1403.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Horn_A1_Blokada"
+1,0
+"M     306.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Horn_A2_Blokada"
+1,0
+"M     306.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Horn_Bit_A1"
+1,0
+"M     302.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Horn_Bit_A2"
+1,0
+"M     300.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Horn_Na_Odb_A1"
+1,0
+"Q       3.2"
+1,0
+"BOOL"
+1,0
+"Horn rezerwa s50"
+-1,0
+BOT
+1,0
+"Horn_Na_Odb_A2"
+1,0
+"Q       1.2"
+1,0
+"BOOL"
+1,0
+"Horn rezerwa s50"
+-1,0
+BOT
+1,0
+"Horn_Na_Pob_A1"
+1,0
+"Q      22.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Horn_Na_Pob_A2"
+1,0
+"Q      22.1"
+1,0
+"BOOL"
+1,0
+"Silnik Ustawienia Wlotu A1 str 9"
+-1,0
+BOT
+1,0
+"Horn_Tor_1_Zator"
+1,0
+"M    1303.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Horn_Tor_2_Zator"
+1,0
+"M    1403.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Horn_Wspolny_A2A1"
+1,0
+"Q      23.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"HW_INT0"
+1,0
+"OB     40"
+1,0
+"OB     40"
+1,0
+"Hardware Interrupt 0"
+-1,0
+BOT
+1,0
+"Hz_To_Analog"
+1,0
+"FC     73"
+1,0
+"FC     73"
+1,0
+"Relacja predkosci tasm do predkosci lancucha"
+-1,0
+BOT
+1,0
+"i_Preselekcja_St_Odwr_A1"
+1,0
+"I       3.4"
+1,0
+"BOOL"
+1,0
+"s46"
+-1,0
+BOT
+1,0
+"i_Rezerwa_3_A1"
+1,0
+"I       3.7"
+1,0
+"BOOL"
+1,0
+"s46"
+-1,0
+BOT
+1,0
+"i_Rezerwa_3_A2"
+1,0
+"I       0.7"
+1,0
+"BOOL"
+1,0
+"s46"
+-1,0
+BOT
+1,0
+"i_St_Odwr_Maku_A2"
+1,0
+"I       0.4"
+1,0
+"BOOL"
+1,0
+"sygnal maku od stacji odwracajacej s46"
+-1,0
+BOT
+1,0
+"IDB_Smarowanie_A1"
+1,0
+"DB    702"
+1,0
+"FB    700"
+1,0
+""
+-1,0
+BOT
+1,0
+"IDB_Smarowanie_A2"
+1,0
+"DB    701"
+1,0
+"FB    700"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ilosc_Taktow_na_Maku"
+1,0
+"FC    506"
+1,0
+"FC    506"
+1,0
+""
+-1,0
+BOT
+1,0
+"Impuls_Start_Tasm"
+1,0
+"M      33.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Interfejs_Panelu"
+1,0
+"DB    300"
+1,0
+"DB    300"
+1,0
+""
+-1,0
+BOT
+1,0
+"Kasowanie_Enk_Lan_A1"
+1,0
+"M     602.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Kasowanie_Enk_Lan_A2"
+1,0
+"M     602.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Kba_Nowy_Start_A1"
+1,0
+"M     109.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Kba_Nowy_Start_A2"
+1,0
+"M     109.0"
+1,0
+"BOOL"
+1,0
+"Kba nowy start na A2"
+-1,0
+BOT
+1,0
+"Kba_produkuje_A1"
+1,0
+"M     100.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Kba_produkuje_A2"
+1,0
+"M     100.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Klucz_do_Lan_A1"
+1,0
+"DB    505"
+1,0
+"DB    505"
+1,0
+"Rozkaz do lancucha A1"
+-1,0
+BOT
+1,0
+"Klucz_do_Lan_A2"
+1,0
+"DB    503"
+1,0
+"DB    503"
+1,0
+""
+-1,0
+BOT
+1,0
+"Komunikacja_Wykl_AB"
+1,0
+"FC    333"
+1,0
+"FC    333"
+1,0
+"Komunikacja wykladanie A B"
+-1,0
+BOT
+1,0
+"Komunikacja_z_KBA_A"
+1,0
+"FC    331"
+1,0
+"FC    331"
+1,0
+"Komunikacja Warsztat KBA strona A"
+-1,0
+BOT
+1,0
+"Komunikacja_z_KBA_B"
+1,0
+"FC    332"
+1,0
+"FC    332"
+1,0
+"Komunikacja warsztat Kba wykladanie B"
+-1,0
+BOT
+1,0
+"Kon_Taktu_Lan_A1_Ok"
+1,0
+"M     601.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Kon_Taktu_Lan_A2_Ok"
+1,0
+"M     601.0"
+1,0
+"BOOL"
+1,0
+"Kontrola taktu lancucha ok"
+-1,0
+BOT
+1,0
+"Kon_Taktu_Tasm_A1_OK"
+1,0
+"M     601.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Kon_Taktu_Tasm_A2_OK"
+1,0
+"M     601.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Koniec_Get_1"
+1,0
+"M     331.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Kontrola_Taktow_Lan"
+1,0
+"FC     84"
+1,0
+"FC     84"
+1,0
+"Kontrola taktow lancucha"
+-1,0
+BOT
+1,0
+"Kontrola_Taktow_Tasm"
+1,0
+"FC     85"
+1,0
+"FC     85"
+1,0
+"Funkcja kontrolujaca Takt tasm"
+-1,0
+BOT
+1,0
+"Konw_Predk_HMI"
+1,0
+"FC     74"
+1,0
+"FC     74"
+1,0
+"Konwersja predkosci HMI na lancuch"
+-1,0
+BOT
+1,0
+"Kotrola_Tasm_Wykl"
+1,0
+"FC     62"
+1,0
+"FC     62"
+1,0
+"Kontrola tasm wykladania"
+-1,0
+BOT
+1,0
+"L_RS_Serwis_Tor_1"
+1,0
+"Q      43.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"L_RS_Serwis_Tor_2"
+1,0
+"Q      43.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Lampa_Blad_Odb_A1"
+1,0
+"Q       3.0"
+1,0
+"BOOL"
+1,0
+"Lamka Blad odbior s50"
+-1,0
+BOT
+1,0
+"Lampa_Blad_Odb_A2"
+1,0
+"Q       1.0"
+1,0
+"BOOL"
+1,0
+"Lamka Blad odbior s50"
+-1,0
+BOT
+1,0
+"Lampa_Blad_Pob_A1"
+1,0
+"Q      22.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Lampa_Blad_Pob_A2"
+1,0
+"Q      22.0"
+1,0
+"BOOL"
+1,0
+"Blad lampy na wlocie lancucha"
+-1,0
+BOT
+1,0
+"Lampa_Maku_Odb_A1"
+1,0
+"Q       3.4"
+1,0
+"BOOL"
+1,0
+"Lampa blad A2 odbior s50"
+-1,0
+BOT
+1,0
+"Lampa_Maku_Odb_A2"
+1,0
+"Q       1.4"
+1,0
+"BOOL"
+1,0
+"Lampa blad A2 odbior s50"
+-1,0
+BOT
+1,0
+"Lampa_Pulpit_Maku_A1"
+1,0
+"Q      24.4"
+1,0
+"BOOL"
+1,0
+"Lama biala str 43"
+-1,0
+BOT
+1,0
+"Lampa_Pulpit_Maku_A2"
+1,0
+"Q      24.5"
+1,0
+"BOOL"
+1,0
+"Lampa biala str 43"
+-1,0
+BOT
+1,0
+"Lampka_Backup_Dol"
+1,0
+"Q      21.3"
+1,0
+"BOOL"
+1,0
+"Lampka Backup Dol str 8"
+-1,0
+BOT
+1,0
+"Lampka_Backup_Gora"
+1,0
+"Q      21.2"
+1,0
+"BOOL"
+1,0
+"Lampka Backup Gora str 8"
+-1,0
+BOT
+1,0
+"Lampka_Maku"
+1,0
+"Q      21.5"
+1,0
+"BOOL"
+1,0
+"Lampka Maku str 8"
+-1,0
+BOT
+1,0
+"Lampka_Maku_Pulpit_A1"
+1,0
+"Q      23.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Lampka_Maku_Pulpit_A2"
+1,0
+"Q      23.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Lampka_Maku_Teraz_A1"
+1,0
+"Q      20.4"
+1,0
+"BOOL"
+1,0
+"Lampka Maku od Teraz A1 pulpit str 7"
+-1,0
+BOT
+1,0
+"Lampka_Maku_Teraz_A2_P"
+1,0
+"Q      20.1"
+1,0
+"BOOL"
+1,0
+"Lampka Maku od Teraz A2 pulpit str 7"
+-1,0
+BOT
+1,0
+"Lampka_Maku_Zaraz_A1"
+1,0
+"Q      20.5"
+1,0
+"BOOL"
+1,0
+"Lampka Maku od Zaraz A1 pulpit str 7"
+-1,0
+BOT
+1,0
+"Lampka_Maku_Zaraz_A2"
+1,0
+"Q      20.2"
+1,0
+"BOOL"
+1,0
+"Lampka Maku od Zaraz A2 pulpit str 7"
+-1,0
+BOT
+1,0
+"Lampka_PB_Dol_Odb_A1"
+1,0
+"Q       2.5"
+1,0
+"BOOL"
+1,0
+"Lampka Bramka dol  Odb s49"
+-1,0
+BOT
+1,0
+"Lampka_PB_Dol_Odb_A2"
+1,0
+"Q       0.5"
+1,0
+"BOOL"
+1,0
+"Lampka Bramka dol  Odb s49"
+-1,0
+BOT
+1,0
+"Lampka_PB_Gora_Odb_A1"
+1,0
+"Q       2.3"
+1,0
+"BOOL"
+1,0
+"Lampka Bramka gora  Odb s49"
+-1,0
+BOT
+1,0
+"Lampka_PB_Gora_Odb_A2"
+1,0
+"Q       0.3"
+1,0
+"BOOL"
+1,0
+"Lampka Bramka gora  Odb s49"
+-1,0
+BOT
+1,0
+"Lampka_PB_Start_Odb_A1"
+1,0
+"Q       2.1"
+1,0
+"BOOL"
+1,0
+"Lampka start od lancucha s49"
+-1,0
+BOT
+1,0
+"Lampka_PB_Start_Odb_A2"
+1,0
+"Q       0.1"
+1,0
+"BOOL"
+1,0
+"Lampka start od lancucha s49"
+-1,0
+BOT
+1,0
+"Lampka_PB_Wymus_Odb_A1"
+1,0
+"Q       2.7"
+1,0
+"BOOL"
+1,0
+"Lampka wymuszenia  odb s49"
+-1,0
+BOT
+1,0
+"Lampka_PB_Wymus_Odb_A2"
+1,0
+"Q       0.7"
+1,0
+"BOOL"
+1,0
+"Lampka wymuszenia  odb s49"
+-1,0
+BOT
+1,0
+"Lampka_Start_Lan_A1"
+1,0
+"Q      20.7"
+1,0
+"BOOL"
+1,0
+"Lampka Start Lancucha A1 str 7"
+-1,0
+BOT
+1,0
+"Lampka_Start_Lan_A2"
+1,0
+"Q      20.6"
+1,0
+"BOOL"
+1,0
+"Lampka Start Lancucha A2 str 7"
+-1,0
+BOT
+1,0
+"Lampka_Start_Tasma_A1"
+1,0
+"Q      20.3"
+1,0
+"BOOL"
+1,0
+"Lampka Start Tasma A1 pulpit str 7"
+-1,0
+BOT
+1,0
+"Lampka_Start_Tasma_A1_F"
+1,0
+"Q      21.1"
+1,0
+"BOOL"
+1,0
+"Lampka Start Tasma A1 Falz str 8"
+-1,0
+BOT
+1,0
+"Lampka_Start_Tasma_A2_F"
+1,0
+"Q      21.0"
+1,0
+"BOOL"
+1,0
+"Lampka Start Tasma A2 Falz str 8"
+-1,0
+BOT
+1,0
+"Lampka_Start_Tasma_A2_P"
+1,0
+"Q      20.0"
+1,0
+"BOOL"
+1,0
+"Lampka Start Tasma A2 pulpit str 7"
+-1,0
+BOT
+1,0
+"Lampka_Wymuszenie"
+1,0
+"Q      21.4"
+1,0
+"BOOL"
+1,0
+"Lampka Wymusznie str 8"
+-1,0
+BOT
+1,0
+"Lampy_Kasetowe"
+1,0
+"FC   1055"
+1,0
+"FC   1055"
+1,0
+""
+-1,0
+BOT
+1,0
+"Lan_A1_Ma_Rozkaz"
+1,0
+"M     401.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Lan_A1_Wszystko_OK"
+1,0
+"M     304.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Lan_A2_Ma_Rozkaz"
+1,0
+"M     401.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Lan_A2_Wszystko_OK"
+1,0
+"M     304.0"
+1,0
+"BOOL"
+1,0
+"Lancuch wszytkie obwody ok"
+-1,0
+BOT
+1,0
+"Liczenie_Produkcji"
+1,0
+"FC    100"
+1,0
+"FC    100"
+1,0
+"Funkcja liczaca egzemplarze"
+-1,0
+BOT
+1,0
+"Licznik_Maku_A1"
+1,0
+"DB    104"
+1,0
+"DB    104"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_Maku_A2"
+1,0
+"DB    102"
+1,0
+"DB    102"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_Produkcji_A1"
+1,0
+"DB    103"
+1,0
+"DB    103"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_Produkcji_A2"
+1,0
+"DB    101"
+1,0
+"DB    101"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_roboczogodzin"
+1,0
+"Q      43.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_Stop_Tor_1"
+1,0
+"MD    252"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_War_Start_Tor_1"
+1,0
+"MD    240"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_War_Stop_Tor_1"
+1,0
+"MD    248"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_zapisow_maku_A1"
+1,0
+"MW    852"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Licznik_zapisow_maku_A2"
+1,0
+"MW    752"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Brama_dol_A1"
+1,0
+"M     390.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Brama_dol_A2"
+1,0
+"M     380.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Brama_gora_A1"
+1,0
+"M     390.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Brama_gora_A2"
+1,0
+"M     380.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Drzwi_Otw_A1"
+1,0
+"M     307.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Drzwi_Otw_A2"
+1,0
+"M     307.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Horn_Na_0db_A1"
+1,0
+"M     309.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Horn_Na_0db_A2"
+1,0
+"M     308.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Lampka_Maku_A1"
+1,0
+"M     392.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Lampka_Maku_A2"
+1,0
+"M     382.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_PB_Dobre_Falz_A1"
+1,0
+"M     810.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_PB_Dobre_Falz_A2"
+1,0
+"M     710.0"
+1,0
+"BOOL"
+1,0
+"Marka jest wynikiem zbocza"
+-1,0
+BOT
+1,0
+"M_PB_HMI_Backup_A1"
+1,0
+"M      39.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_PB_HMI_Backup_A2"
+1,0
+"M      39.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Reczne_Wymusznie_A1"
+1,0
+"M     390.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Reczne_Wymusznie_A2"
+1,0
+"M     380.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Stop_Tasm_A1"
+1,0
+"M      36.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Stop_Tasm_A2"
+1,0
+"M      36.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Takt_Pulpit_A1"
+1,0
+"M       2.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Takt_Pulpit_A2"
+1,0
+"M       1.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Zar_Predkosc"
+1,0
+"M    1007.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Zator_Lan_A1"
+1,0
+"M     303.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Zator_Lan_A2"
+1,0
+"M     303.0"
+1,0
+"BOOL"
+1,0
+"Zator I2.0 lub I18.0"
+-1,0
+BOT
+1,0
+"M_Zez_Od_KBA_Na_A1"
+1,0
+"M     108.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M_Zez_Od_KBA_Na_A2"
+1,0
+"M     108.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M1400.1"
+1,0
+"M    1400.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M1400.2"
+1,0
+"M    1400.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"M201.0"
+1,0
+"M     201.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"m201.1"
+1,0
+"M     201.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"m201.2"
+1,0
+"M     201.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"m201.3"
+1,0
+"M     201.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"m201.4"
+1,0
+"M     201.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"m201.5"
+1,0
+"M     201.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"m201.6"
+1,0
+"M     201.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"m201.7"
+1,0
+"M     201.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Automat"
+1,0
+"FC    501"
+1,0
+"FC    501"
+1,0
+"Funkcja tworzaca rejestr maku w auto"
+-1,0
+BOT
+1,0
+"Maku_Def_Point_A1"
+1,0
+"M     805.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Def_Point_A2"
+1,0
+"M     705.1"
+1,0
+"BOOL"
+1,0
+"Maku w punkcie zdefiniowanym"
+-1,0
+BOT
+1,0
+"Maku_Falz_Zew_Teraz"
+1,0
+"M     700.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Falz_Zew_Zaraz"
+1,0
+"M     400.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_G2_St_Odw_A1"
+1,0
+"I       3.1"
+1,0
+"BOOL"
+1,0
+"s46 I3.1 Maku na stacji odwracajacej G2"
+-1,0
+BOT
+1,0
+"Maku_G2_St_Odw_A2"
+1,0
+"I       0.1"
+1,0
+"BOOL"
+1,0
+"s46 Makulatura na stacji odwracajacej brama 2"
+-1,0
+BOT
+1,0
+"Maku_Od_Zaraz_Falz_Zew"
+1,0
+"M     400.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Teraz_A1"
+1,0
+"M     800.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Teraz_A2"
+1,0
+"M     700.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Teraz_i_Zaraz"
+1,0
+"FC    500"
+1,0
+"FC    500"
+1,0
+"Funkcja obsuguje kasety obslugi"
+-1,0
+BOT
+1,0
+"Maku_Teraz_na_FB"
+1,0
+"M     700.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Teraz_Na_Lan_A1"
+1,0
+"M     801.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Teraz_Na_Lan_A2"
+1,0
+"M     701.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Z_A2A1_A1"
+1,0
+"M     400.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Zaraz_A1"
+1,0
+"M     401.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Zaraz_A2"
+1,0
+"M     401.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_zaraz_do_FB"
+1,0
+"M     400.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maku_Zaraz_FAB"
+1,0
+"M     400.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Mapa_Bramy"
+1,0
+"DB    121"
+1,0
+"DB    121"
+1,0
+""
+-1,0
+BOT
+1,0
+"Marka_Przejsciowa"
+1,0
+"M       0.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Maszyna_Rot_Praca"
+1,0
+"M      34.0"
+1,0
+"BOOL"
+1,0
+"Maszyna rotacyjna pracuje"
+-1,0
+BOT
+1,0
+"Max_Wyst_A2"
+1,0
+"MD   1318"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"MB1041"
+1,0
+"MB   1041"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"MB1160"
+1,0
+"MB   1160"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"MB1161"
+1,0
+"MB   1161"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"MB1230"
+1,0
+"MB   1230"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"MB1402"
+1,0
+"MB   1402"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Miganie_Strzalka_Dol_A1"
+1,0
+"M     391.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Miganie_Strzalka_Dol_A2"
+1,0
+"M     381.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Miganie_Strzalka_G_A1"
+1,0
+"M     391.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Miganie_Strzalka_G_A2"
+1,0
+"M     381.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Min_Wyst_A2"
+1,0
+"MD   1314"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"MOD_ERR"
+1,0
+"OB    122"
+1,0
+"OB    122"
+1,0
+"Module Access Error"
+-1,0
+BOT
+1,0
+"Mod_Maku_Teraz_A1"
+1,0
+"M     804.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Mod_Maku_Teraz_A2"
+1,0
+"M     704.0"
+1,0
+"BOOL"
+1,0
+"Modulowny maku teraz tasma A2"
+-1,0
+BOT
+1,0
+"MRS_Obwody_Bezp_Ok"
+1,0
+"M    1001.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"MRS_Tor_1_Brak_Zatoru"
+1,0
+"M    1002.0"
+1,0
+"BOOL"
+1,0
+"Tor 1 bez zatorow"
+-1,0
+BOT
+1,0
+"MRS_Tor_2_Brak_Zatoru"
+1,0
+"M    1002.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"MSK_FLT"
+1,0
+"SFC    36"
+1,0
+"SFC    36"
+1,0
+"Mask Synchronous Errors"
+-1,0
+BOT
+1,0
+"N1303.1"
+1,0
+"M    1303.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"N1401.1"
+1,0
+"M    1401.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"N1401.2"
+1,0
+"M    1401.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"N1401.3"
+1,0
+"M    1401.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"N1403.2"
+1,0
+"M    1403.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Nadpisz_Bity_Rejestru"
+1,0
+"FC    503"
+1,0
+"FC    503"
+1,0
+"Nadpisz bity w zakresie rejestru"
+-1,0
+BOT
+1,0
+"Naliczanie_Tor_1"
+1,0
+"MD    244"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Napedy_Tor_1_ok"
+1,0
+"M    1004.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Napedy_Tor_2_ok"
+1,0
+"M    1006.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"NM1301.7"
+1,0
+"M    1301.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"NM1401.7"
+1,0
+"M    1401.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"NM202.1"
+1,0
+"M     202.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"OB1_MAX_CYCLE"
+1,0
+"MW     24"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"OB1_MIN_CYCLE"
+1,0
+"MW     22"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"OB1_PREV_CYCLE"
+1,0
+"MW     20"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Obw_Bezp_Lan_OK_A1"
+1,0
+"I       5.7"
+1,0
+"BOOL"
+1,0
+"Obwod bezpieczenistwa Lancucha ok s48"
+-1,0
+BOT
+1,0
+"Obw_Bezp_Lan_OK_A2"
+1,0
+"I       2.7"
+1,0
+"BOOL"
+1,0
+"Obwod bezpieczenistwa Lancucha ok s48"
+-1,0
+BOT
+1,0
+"Obw_bezp_Tasm_Ok"
+1,0
+"I      16.0"
+1,0
+"BOOL"
+1,0
+"Obwod bezpieczenstwa tasm OK str 10"
+-1,0
+BOT
+1,0
+"Ochrona_Przed_Wylaczenie"
+1,0
+"M       5.0"
+1,0
+"BOOL"
+1,0
+"Marka chroni przed wylaczeniem lini"
+-1,0
+BOT
+1,0
+"Odczyt_Bitu_Z_Rejestru"
+1,0
+"FC    504"
+1,0
+"FC    504"
+1,0
+""
+-1,0
+BOT
+1,0
+"Odczyt_Predk_Enkodera"
+1,0
+"FC    110"
+1,0
+"FC    110"
+1,0
+"Przetworzenie RMP na Hz"
+-1,0
+BOT
+1,0
+"Odczyt_Predk_Kba"
+1,0
+"FC     61"
+1,0
+"FC     61"
+1,0
+""
+-1,0
+BOT
+1,0
+"Offset_ADD_UM_Tor_2"
+1,0
+"I      37.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Offset_ADD_Zak_Tor_1"
+1,0
+"I      37.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Offset_Lancucha_A1"
+1,0
+"MW    330"
+1,0
+"INT"
+1,0
+"Wartosc offsetu dla lancucha A1"
+-1,0
+BOT
+1,0
+"Offset_Lancucha_A2"
+1,0
+"MW    320"
+1,0
+"INT"
+1,0
+"Wartosc offsetu dla lancucha A2"
+-1,0
+BOT
+1,0
+"Offset_SUB_UM_Tor_2"
+1,0
+"I      37.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Offset_SUB_Zak_Tor_1"
+1,0
+"I      37.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Offset_Tasm_A1"
+1,0
+"MW    182"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Offset_Tasm_A2"
+1,0
+"MW    180"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Old_New_Pattern"
+1,0
+"UDT   105"
+1,0
+"UDT   105"
+1,0
+""
+-1,0
+BOT
+1,0
+"old_Read_bit_in_db"
+1,0
+"FC      3"
+1,0
+"FC      3"
+1,0
+"Odczytanie numeru bitu w bloku danych"
+-1,0
+BOT
+1,0
+"On_OFF_Backup"
+1,0
+"M      30.2"
+1,0
+"BOOL"
+1,0
+"Przycisk on/off backup"
+-1,0
+BOT
+1,0
+"Opoz_Aktywacji_PB"
+1,0
+"FC    401"
+1,0
+"FC    401"
+1,0
+"Funkcja opoznia aktywacje przyciskow po backupie"
+-1,0
+BOT
+1,0
+"Opoz_Deaktywacji_PB"
+1,0
+"FC    400"
+1,0
+"FC    400"
+1,0
+"Funkcja opoznia deaktywacje przyciskow"
+-1,0
+BOT
+1,0
+"Opoz_Konca_Maku"
+1,0
+"FC    509"
+1,0
+"FC    509"
+1,0
+"Opoznienie konca makulatury"
+-1,0
+BOT
+1,0
+"Opoz_przela_Zaworu_A1"
+1,0
+"T      20"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoz_przela_Zaworu_A2"
+1,0
+"T      10"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoz_Zat_Silnika_Maku_A1"
+1,0
+"T      21"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoz_Zat_Silnika_Maku_A2"
+1,0
+"T      11"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_Startu_A1"
+1,0
+"T      72"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_Startu_A2"
+1,0
+"T      70"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_Wyl_Band_A1"
+1,0
+"MW    232"
+1,0
+"S5TIME"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_Wyl_Band_A2"
+1,0
+"MW    230"
+1,0
+"S5TIME"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_Wyl_Tas_A1"
+1,0
+"M     103.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_Wyl_Tas_A2"
+1,0
+"M     103.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_Zatoru_A1"
+1,0
+"T       2"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_zatoru_A2"
+1,0
+"T       3"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Opoznienie_Zmiana_Predk"
+1,0
+"MW    234"
+1,0
+"S5TIME"
+1,0
+""
+-1,0
+BOT
+1,0
+"Oproznianie_Lini"
+1,0
+"FB   1030"
+1,0
+"FB   1030"
+1,0
+""
+-1,0
+BOT
+1,0
+"Parametryzowanie_Band"
+1,0
+"FC   1101"
+1,0
+"FC   1101"
+1,0
+"Funkcja zarzadzajaca programem"
+-1,0
+BOT
+1,0
+"PB_Backup_Dol"
+1,0
+"I      16.4"
+1,0
+"BOOL"
+1,0
+"Przycisk backup Dol Falz str 10"
+-1,0
+BOT
+1,0
+"PB_Backup_Gora"
+1,0
+"I      16.3"
+1,0
+"BOOL"
+1,0
+"Przycisk backup Gora Falz str 10"
+-1,0
+BOT
+1,0
+"PB_Backup_Wymuszenie"
+1,0
+"I      16.5"
+1,0
+"BOOL"
+1,0
+"Przycisk backup Wymuszenie str 10"
+-1,0
+BOT
+1,0
+"PB_Brama_Maku_D_Odb_A1"
+1,0
+"I       4.3"
+1,0
+"BOOL"
+1,0
+"Przycisk Brama Maku Dol s.47"
+-1,0
+BOT
+1,0
+"PB_Brama_Maku_D_Odb_A2"
+1,0
+"I       1.3"
+1,0
+"BOOL"
+1,0
+"Przycisk Brama Maku Dol s.47"
+-1,0
+BOT
+1,0
+"PB_Brama_Maku_G_Odb_A1"
+1,0
+"I       4.1"
+1,0
+"BOOL"
+1,0
+"Przycisk Brama Maku Gora  s.47"
+-1,0
+BOT
+1,0
+"PB_Brama_Maku_G_Odb_A2"
+1,0
+"I       1.1"
+1,0
+"BOOL"
+1,0
+"Przycisk Brama Maku Gora  s.47"
+-1,0
+BOT
+1,0
+"PB_Dobre_Egz_Falz_A"
+1,0
+"I      13.0"
+1,0
+"BOOL"
+1,0
+"Dobre egzeplarze A2 i A1 str 7"
+-1,0
+BOT
+1,0
+"PB_Dobre_Egz_Falz_AB"
+1,0
+"I      13.3"
+1,0
+"BOOL"
+1,0
+"Dobre egzeplarze Falz A i B  str 7"
+-1,0
+BOT
+1,0
+"PB_Maku_od_Teraz_A1"
+1,0
+"I      12.6"
+1,0
+"BOOL"
+1,0
+"Maku A1 od punktu na pulpicie str 6"
+-1,0
+BOT
+1,0
+"PB_Maku_od_Teraz_A2"
+1,0
+"I      12.2"
+1,0
+"BOOL"
+1,0
+"Maku A2 od punktu na pulpicie str 6"
+-1,0
+BOT
+1,0
+"PB_Maku_od_Teraz_Falz_A"
+1,0
+"I      13.1"
+1,0
+"BOOL"
+1,0
+"Maku A1 i A2  od punktu na pulpicie str 7"
+-1,0
+BOT
+1,0
+"PB_Maku_od_Teraz_Falz_AB"
+1,0
+"I      13.4"
+1,0
+"BOOL"
+1,0
+"Maku Falz A i B od punktu na pulpicie str 7"
+-1,0
+BOT
+1,0
+"PB_Maku_od_Zaraz_A1"
+1,0
+"I      12.7"
+1,0
+"BOOL"
+1,0
+"Maku A1 na odbierniu z Lancucha str 6"
+-1,0
+BOT
+1,0
+"PB_Maku_od_Zaraz_A2"
+1,0
+"I      12.3"
+1,0
+"BOOL"
+1,0
+"Maku A2 na odbierniu z Lancucha str 6"
+-1,0
+BOT
+1,0
+"PB_Maku_od_Zaraz_Falz_A"
+1,0
+"I      13.2"
+1,0
+"BOOL"
+1,0
+"Maku A1 i A2 na odbierniu z Lancucha str 7"
+-1,0
+BOT
+1,0
+"PB_Maku_od_Zaraz_Falz_AB"
+1,0
+"I      13.5"
+1,0
+"BOOL"
+1,0
+"Maku Falz A i B na odbierniu z Lancucha str 7"
+-1,0
+BOT
+1,0
+"PB_Offset_Lan_A1_Dod"
+1,0
+"I      14.6"
+1,0
+"BOOL"
+1,0
+"Offset Lancucha A1 dodatni str 8"
+-1,0
+BOT
+1,0
+"PB_Offset_Lan_A1_Odj"
+1,0
+"I      14.7"
+1,0
+"BOOL"
+1,0
+"Offset Lancucha A1 odjemny str 8"
+-1,0
+BOT
+1,0
+"PB_Offset_Lan_A2_Dod"
+1,0
+"I      14.2"
+1,0
+"BOOL"
+1,0
+"Offset Lancucha A2  dodatni str 8"
+-1,0
+BOT
+1,0
+"PB_Offset_Lan_A2_Odj"
+1,0
+"I      14.3"
+1,0
+"BOOL"
+1,0
+"Offset Lancucha A2 odjemny str 8"
+-1,0
+BOT
+1,0
+"PB_Offset_Tasm_A1_Dod"
+1,0
+"I      15.6"
+1,0
+"BOOL"
+1,0
+"Offset tasm A1  dodatni Falz str 9"
+-1,0
+BOT
+1,0
+"PB_Offset_Tasm_A1_Odj"
+1,0
+"I      15.7"
+1,0
+"BOOL"
+1,0
+"Offset tasm A1 odjemny Falz str 9"
+-1,0
+BOT
+1,0
+"PB_Offset_Tasm_A2_Dod"
+1,0
+"I      15.2"
+1,0
+"BOOL"
+1,0
+"Offset tasm A2  dodatni Falz str 9"
+-1,0
+BOT
+1,0
+"PB_Offset_Tasm_A2_Odj"
+1,0
+"I      15.3"
+1,0
+"BOOL"
+1,0
+"Offset tasm A2  odjemny Falz str 9"
+-1,0
+BOT
+1,0
+"PB_Przyrzad_Dol"
+1,0
+"I      16.7"
+1,0
+"BOOL"
+1,0
+"Przyrzad dol backup niemozliwy str 10"
+-1,0
+BOT
+1,0
+"PB_Przyrzad_Gora"
+1,0
+"I      16.6"
+1,0
+"BOOL"
+1,0
+"Przyrzad gora backup mozliwy str 10"
+-1,0
+BOT
+1,0
+"PB_Start_Lan_A1_Pob"
+1,0
+"I      14.4"
+1,0
+"BOOL"
+1,0
+"Start Lancucha A1 na Pobraniu str 8"
+-1,0
+BOT
+1,0
+"PB_Start_Lan_A2_Odb"
+1,0
+"I       1.4"
+1,0
+"BOOL"
+1,0
+"Start Lancucha  na odbiorze s.47"
+-1,0
+BOT
+1,0
+"PB_Start_Lan_A2_Pob"
+1,0
+"I      14.0"
+1,0
+"BOOL"
+1,0
+"Start Lancucha A2 na Pobraniu str 8"
+-1,0
+BOT
+1,0
+"PB_Start_Lan_Odb_A1"
+1,0
+"I       4.4"
+1,0
+"BOOL"
+1,0
+"Start Lancucha na odbiorze s.47"
+-1,0
+BOT
+1,0
+"PB_Start_Tasm_A1_Falz"
+1,0
+"I      15.4"
+1,0
+"BOOL"
+1,0
+"Strat tasm A1 Falz str 9"
+-1,0
+BOT
+1,0
+"PB_Start_Tasm_A1_Pul"
+1,0
+"I      12.4"
+1,0
+"BOOL"
+1,0
+"Strat tasm A1 Pulpit str 6"
+-1,0
+BOT
+1,0
+"PB_Start_Tasm_A2_Falz"
+1,0
+"I      15.0"
+1,0
+"BOOL"
+1,0
+"Strat tasm A2 Falz str 9"
+-1,0
+BOT
+1,0
+"PB_Start_Tasm_A2_Pul"
+1,0
+"I      12.0"
+1,0
+"BOOL"
+1,0
+"Strat tasm A2 Pulpit str 6"
+-1,0
+BOT
+1,0
+"PB_Stop_Lan_A1_Pob"
+1,0
+"I      14.5"
+1,0
+"BOOL"
+1,0
+"Stop Lancucha A1 na Pobraniu  str 8"
+-1,0
+BOT
+1,0
+"PB_Stop_Lan_A2_Pob"
+1,0
+"I      14.1"
+1,0
+"BOOL"
+1,0
+"Stop Lancucha A2 na Pobraniu  str 8"
+-1,0
+BOT
+1,0
+"PB_Stop_Odb_Lancucha_A1"
+1,0
+"I       4.6"
+1,0
+"BOOL"
+1,0
+"Stop Lancucha  na odbiorze s.47"
+-1,0
+BOT
+1,0
+"PB_Stop_Odb_Lancucha_A2"
+1,0
+"I       1.6"
+1,0
+"BOOL"
+1,0
+"Stop Lancucha  na odbiorze s.47"
+-1,0
+BOT
+1,0
+"PB_Stop_Tasm_A1_Falz"
+1,0
+"I      15.5"
+1,0
+"BOOL"
+1,0
+"Stop tasm A1 Falz str 9"
+-1,0
+BOT
+1,0
+"PB_Stop_Tasm_A1_Pul"
+1,0
+"I      12.5"
+1,0
+"BOOL"
+1,0
+"Stop tasm A1 Pulpit str 6"
+-1,0
+BOT
+1,0
+"PB_Stop_Tasm_A2_Falz"
+1,0
+"I      15.1"
+1,0
+"BOOL"
+1,0
+"Stop tasm A2 Falz str 9"
+-1,0
+BOT
+1,0
+"PB_Stop_Tasm_A2_Pul"
+1,0
+"I      12.1"
+1,0
+"BOOL"
+1,0
+"Stop tasm A2 Pulpit str 6"
+-1,0
+BOT
+1,0
+"PB_Wymuszenie_Odb_A1"
+1,0
+"I       4.5"
+1,0
+"BOOL"
+1,0
+"Przycisk Reczne Wymuszenie s.47"
+-1,0
+BOT
+1,0
+"PB_Wymuszenie_Odb_A2"
+1,0
+"I       1.5"
+1,0
+"BOOL"
+1,0
+"Przycisk Reczne Wymuszenie s.47"
+-1,0
+BOT
+1,0
+"PM202.0"
+1,0
+"M     202.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Pobierz_Get_1"
+1,0
+"M     331.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Pobranie_Predk_Jal_A1"
+1,0
+"M     302.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Pobranie_predk_jalowej"
+1,0
+"M     300.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Pobranie_war_enk"
+1,0
+"DB    100"
+1,0
+"DB    100"
+1,0
+""
+-1,0
+BOT
+1,0
+"Podtrz_PB_A1"
+1,0
+"M     810.1"
+1,0
+"BOOL"
+1,0
+"Podtrzymanie mozliwosci przycisku A1"
+-1,0
+BOT
+1,0
+"Podtrz_PB_A2"
+1,0
+"M     710.1"
+1,0
+"BOOL"
+1,0
+"Podtrzymanie mozliwosci przycisku A2"
+-1,0
+BOT
+1,0
+"Porownanie_enkodera"
+1,0
+"FC     17"
+1,0
+"FC     17"
+1,0
+""
+-1,0
+BOT
+1,0
+"Pos_Edge_start_A1"
+1,0
+"M      33.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Potw_Lamp_Tor_1"
+1,0
+"M    1301.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Potw_Lamp_Tor_2"
+1,0
+"M    1401.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Potw_Zar_Tor_1"
+1,0
+"M    1002.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Powrot_Backup_Auto"
+1,0
+"M      35.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Praca Tor 1"
+1,0
+"FC   1021"
+1,0
+"FC   1021"
+1,0
+"Praca transportu tor 1"
+-1,0
+BOT
+1,0
+"Praca Tor 12"
+1,0
+"FC   1023"
+1,0
+"FC   1023"
+1,0
+""
+-1,0
+BOT
+1,0
+"Praca Tor 2"
+1,0
+"FC   1022"
+1,0
+"FC   1022"
+1,0
+""
+-1,0
+BOT
+1,0
+"Praca_Falza_A1"
+1,0
+"M     106.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Praca_Falza_A2"
+1,0
+"M     106.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predk_A1_Wiek_Od_Zera"
+1,0
+"M     111.1"
+1,0
+"BOOL"
+1,0
+"N>0"
+-1,0
+BOT
+1,0
+"Predk_A2_Wiek_Od_Zera"
+1,0
+"M     111.0"
+1,0
+"BOOL"
+1,0
+"n>0"
+-1,0
+BOT
+1,0
+"Predk_Lan_A1"
+1,0
+"MD    334"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predk_Lan_A1_Visu"
+1,0
+"MD    342"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predk_Lan_A2"
+1,0
+"MD    324"
+1,0
+"REAL"
+1,0
+"Predkosc lancucha A2 w woltach"
+-1,0
+BOT
+1,0
+"Predk_Lan_Vizu_A2"
+1,0
+"MD    338"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predk_Zwrotna_A1_Tasma_1"
+1,0
+"MD    148"
+1,0
+"REAL"
+1,0
+"Predkosc zwrotna A1 Tasma 1"
+-1,0
+BOT
+1,0
+"Predk_Zwrotna_A1_Tasma_2"
+1,0
+"MD    156"
+1,0
+"REAL"
+1,0
+"Predkosc zwrotna A1 Tasma 2"
+-1,0
+BOT
+1,0
+"Predk_Zwrotna_A1_Tasma_3"
+1,0
+"MD    164"
+1,0
+"REAL"
+1,0
+"Predkosc zwrotna A1 Tasma 3"
+-1,0
+BOT
+1,0
+"Predk_Zwrotna_A2_Tasma_1"
+1,0
+"MD    124"
+1,0
+"REAL"
+1,0
+"Predkosc zwrotna A2 Tasma 1"
+-1,0
+BOT
+1,0
+"Predk_Zwrotna_A2_Tasma_2"
+1,0
+"MD    132"
+1,0
+"REAL"
+1,0
+"Predkosc zwrotna A2 Tasma 2"
+-1,0
+BOT
+1,0
+"Predk_Zwrotna_A2_Tasma_3"
+1,0
+"MD    140"
+1,0
+"REAL"
+1,0
+"Predkosc zwrotna A2 Tasma 3"
+-1,0
+BOT
+1,0
+"Predkosc_A1_Tasma_1"
+1,0
+"MD    144"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_A1_Tasma_2"
+1,0
+"MD    152"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_A1_Tasma_3"
+1,0
+"MD    160"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_A2_Odw"
+1,0
+"MD   1324"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_A2_Tasma_1"
+1,0
+"MD    120"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_A2_Tasma_2"
+1,0
+"MD    128"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_A2_Tasma_3"
+1,0
+"MD    136"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_do_T1"
+1,0
+"MD   1010"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_do_T3"
+1,0
+"MD   1210"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_KBA_A1"
+1,0
+"MD    174"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_KBA_A2"
+1,0
+"MD    170"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Na_Czas"
+1,0
+"FC     64"
+1,0
+"FC     64"
+1,0
+"Konwersja predkosci na opoznienie czasowe"
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B1_T1"
+1,0
+"MD   1014"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B1_T2"
+1,0
+"MD   1114"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B2_T1"
+1,0
+"MD   1018"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B2_T2"
+1,0
+"MD   1118"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B34_T1"
+1,0
+"MD   1022"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B34_T2"
+1,0
+"MD   1122"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B5_T1"
+1,0
+"MD   1026"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B5_T2"
+1,0
+"MD   1126"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B6_T1"
+1,0
+"MD   1030"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_B7_T2"
+1,0
+"MD   1130"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_RS"
+1,0
+"MD   1218"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_SO_T2"
+1,0
+"MD   1134"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_Ubij"
+1,0
+"MD   1214"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Segmentu_Um"
+1,0
+"MD   1138"
+1,0
+"REAL"
+1,0
+"Predkosc segmentu umsetzer"
+-1,0
+BOT
+1,0
+"Predkosc_Stacji"
+1,0
+"PIW   304"
+1,0
+"INT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_T1_Offset_1"
+1,0
+"MD   1050"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_T1_Offset_2"
+1,0
+"MD   1054"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_T2_Offset_1"
+1,0
+"MD   1150"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_T2_Offset_2"
+1,0
+"MD   1170"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_T3_OFFset_1"
+1,0
+"MD   1222"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Tasm_A1"
+1,0
+"MD    224"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Tasm_A2"
+1,0
+"MD    220"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Tor_1_Online"
+1,0
+"MD   1504"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Toru"
+1,0
+"FB   1090"
+1,0
+"FB   1090"
+1,0
+"Sterownanie predkosc toru"
+-1,0
+BOT
+1,0
+"Predkosc_Toru_Offline"
+1,0
+"MD   1110"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Predkosc_Visu_Band"
+1,0
+"FC   1074"
+1,0
+"FC   1074"
+1,0
+"Sterownie predkosci band"
+-1,0
+BOT
+1,0
+"Produkcja_Zal_Tor_1"
+1,0
+"M    1004.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Produkcja_Zal_Tor_2"
+1,0
+"M    1004.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"PROG_ERR"
+1,0
+"OB    121"
+1,0
+"OB    121"
+1,0
+"Programming Error"
+-1,0
+BOT
+1,0
+"Program RS"
+1,0
+"FC   1000"
+1,0
+"FC   1000"
+1,0
+"Funkcja zarzadzajaca  RS"
+-1,0
+BOT
+1,0
+"Program_Glowny"
+1,0
+"FC      1"
+1,0
+"FC      1"
+1,0
+"Funkcja zarzadzajaca programem"
+-1,0
+BOT
+1,0
+"Przeksztnik_A1_Gotowy"
+1,0
+"I       5.4"
+1,0
+"BOOL"
+1,0
+"Przeksztaltnik gotowy s48"
+-1,0
+BOT
+1,0
+"Przeksztnik_A2_Gotowy"
+1,0
+"I       2.4"
+1,0
+"BOOL"
+1,0
+"Przeksztaltnik gotowy s48"
+-1,0
+BOT
+1,0
+"Przelozenie"
+1,0
+"FC      6"
+1,0
+"FC      6"
+1,0
+"Przeliczanie przelozenia"
+-1,0
+BOT
+1,0
+"Przelozenie_Enkodera"
+1,0
+"MW    116"
+1,0
+"INT"
+1,0
+"Przelozenie enkodera z KBA"
+-1,0
+BOT
+1,0
+"Przycisk_bistabilny"
+1,0
+"FC     50"
+1,0
+"FC     50"
+1,0
+"Funkcja realizujaca przycisk bistabilny"
+-1,0
+BOT
+1,0
+"Przycisk_Maku_3"
+1,0
+"FC     54"
+1,0
+"FC     54"
+1,0
+"Wersja 3 przyciskowa przycisku maku"
+-1,0
+BOT
+1,0
+"Przycisk_Maku_Teraz"
+1,0
+"FC     53"
+1,0
+"FC     53"
+1,0
+"Obsluga przyciskow maku teraz"
+-1,0
+BOT
+1,0
+"Przycisk_Maku_Zaraz"
+1,0
+"FC     52"
+1,0
+"FC     52"
+1,0
+"Obsluga przycisku maku zaraz"
+-1,0
+BOT
+1,0
+"PUT"
+1,0
+"SFB    15"
+1,0
+"SFB    15"
+1,0
+"Write Data to a Remote CPU"
+-1,0
+BOT
+1,0
+"q_Rezerwa_1_Odb_A1"
+1,0
+"Q       2.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"q_Rezerwa_1_Odb_A2"
+1,0
+"Q       0.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Q_Rezerwa_2_Odb_A1"
+1,0
+"Q       3.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Q_Rezerwa_2_Odb_A2"
+1,0
+"Q       1.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Q_Rezerwa_3_Odb_A1"
+1,0
+"Q       3.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RACK_FLT"
+1,0
+"OB     86"
+1,0
+"OB     86"
+1,0
+"Loss of Rack Fault"
+-1,0
+BOT
+1,0
+"Ramp_Function"
+1,0
+"FC   1077"
+1,0
+"FC   1077"
+1,0
+""
+-1,0
+BOT
+1,0
+"RD_REC"
+1,0
+"SFC    59"
+1,0
+"SFC    59"
+1,0
+"Read a Data Record"
+-1,0
+BOT
+1,0
+"RD_SINFO"
+1,0
+"SFC     6"
+1,0
+"SFC     6"
+1,0
+"Read OB Start Information"
+-1,0
+BOT
+1,0
+"RD1336"
+1,0
+"MD   1336"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RD1436"
+1,0
+"MD   1436"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RDSYSST"
+1,0
+"SFC    51"
+1,0
+"SFC    51"
+1,0
+"Read a System Status List or Partial List"
+-1,0
+BOT
+1,0
+"Read_bit_from_reg"
+1,0
+"FC     13"
+1,0
+"FC     13"
+1,0
+"Funkcja czytajaca nr bitu z rejestru"
+-1,0
+BOT
+1,0
+"REG_3"
+1,0
+"FC     15"
+1,0
+"FC     15"
+1,0
+""
+-1,0
+BOT
+1,0
+"REG_4_WARTOSC"
+1,0
+"FC     16"
+1,0
+"FC     16"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_dla_lancucha"
+1,0
+"FC    508"
+1,0
+"FC    508"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Hmi_Lan_A1_Maku"
+1,0
+"MD    470"
+1,0
+"DWORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Hmi_Lan_A1_Nic"
+1,0
+"MD    474"
+1,0
+"DWORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Hmi_Lan_A2_Maku"
+1,0
+"MD    270"
+1,0
+"DWORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Hmi_Lan_A2_Nic"
+1,0
+"MD    274"
+1,0
+"DWORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Maku_A1"
+1,0
+"FC    511"
+1,0
+"FC    511"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Maku_A2"
+1,0
+"FC    510"
+1,0
+"FC    510"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_na_impuls_wej"
+1,0
+"FC    502"
+1,0
+"FC    502"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Szary_A1_Bajt_0"
+1,0
+"MB    482"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Szary_A1_Bajt_1"
+1,0
+"MB    483"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Szary_A2_Bajt_0"
+1,0
+"MB    282"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Szary_A2_Bajt_1"
+1,0
+"MB    283"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Szary_Lan_A1"
+1,0
+"MD    486"
+1,0
+"DWORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Szary_Lan_A2"
+1,0
+"MD    286"
+1,0
+"DWORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Szary_Tasm_A1"
+1,0
+"MW    484"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Szary_Tasm_A2"
+1,0
+"MW    284"
+1,0
+"WORD"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Tasm_A1"
+1,0
+"DB    501"
+1,0
+"DB    501"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Tasm_A1_0_Bajt"
+1,0
+"MB    468"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Tasm_A1_1_Bajt"
+1,0
+"MB    469"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Tasm_A2"
+1,0
+"DB    500"
+1,0
+"DB    500"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Tasm_A2_0_Bajt"
+1,0
+"MB    268"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_Tasm_A2_1_Bajt"
+1,0
+"MB    269"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"Rejestr_VAT_510_A2"
+1,0
+"VAT     7"
+1,0
+""
+1,0
+"Rejestr A2"
+-1,0
+BOT
+1,0
+"Rejestr_VAT_511_A1"
+1,0
+"VAT     8"
+1,0
+""
+1,0
+"Rejestr A2"
+-1,0
+BOT
+1,0
+"RESET_BLEDOW"
+1,0
+"M     100.7"
+1,0
+"BOOL"
+1,0
+"Reset bledow z panela HMI"
+-1,0
+BOT
+1,0
+"Reset_Maku_Czujnik_A1"
+1,0
+"M     802.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Reset_Maku_Czujnik_A2"
+1,0
+"M     702.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Reset_P_Bezp_Lan_A1"
+1,0
+"Q       2.0"
+1,0
+"BOOL"
+1,0
+"Reset przekaznika bezp odb A2 s49"
+-1,0
+BOT
+1,0
+"Reset_P_Bezp_Lan_A2"
+1,0
+"Q       0.0"
+1,0
+"BOOL"
+1,0
+"Reset przekaznika bezp odb A2 s49"
+-1,0
+BOT
+1,0
+"Reset_P_Bezp_Tasm"
+1,0
+"Q      22.6"
+1,0
+"BOOL"
+1,0
+"str8 reset przekaznika bezpieczenstwa tasm"
+-1,0
+BOT
+1,0
+"REZ_Zator_Lan_Pob_A1"
+1,0
+"I       5.2"
+1,0
+"BOOL"
+1,0
+"Zator Lancucha na pobraniu s48"
+-1,0
+BOT
+1,0
+"REZ_Zator_Lan_Pob_A2"
+1,0
+"I       2.2"
+1,0
+"BOOL"
+1,0
+"Zator Lancucha na pobraniu s48"
+-1,0
+BOT
+1,0
+"RS"
+1,0
+"VAT    10"
+1,0
+""
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_A_Banda_1_Tor_1"
+1,0
+"PQW    80"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_1_Tor_2"
+1,0
+"PQW    92"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_2_Tor_1"
+1,0
+"PQW    82"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_2_Tor_2"
+1,0
+"PQW    94"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_3_4_Tor_1"
+1,0
+"PQW    84"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_3_4_Tor_2"
+1,0
+"PQW    96"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_5_Tor_1"
+1,0
+"PQW    86"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_5_Tor_2"
+1,0
+"PQW    98"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_6_Tor_1"
+1,0
+"PQW    88"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci"
+-1,0
+BOT
+1,0
+"RS_A_Banda_7_ZUM_Tor_2"
+1,0
+"PQW   100"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosci bandy za Umsetzer"
+-1,0
+BOT
+1,0
+"RS_A_Banda_7_Zwr"
+1,0
+"PQW    90"
+1,0
+"WORD"
+1,0
+"s.15 wartosc zadana predkosc"
+-1,0
+BOT
+1,0
+"RS_A_Predkosc_dla_RS"
+1,0
+"PQW   102"
+1,0
+"WORD"
+1,0
+"s.15 predkosc zadana dla rs"
+-1,0
+BOT
+1,0
+"RS_A_Predkosc_dla_SO"
+1,0
+"PQW   104"
+1,0
+"WORD"
+1,0
+"s.15 predkosc zadana dla stacji odwijajacej"
+-1,0
+BOT
+1,0
+"RS_A_Predkosc_dla_Ubij"
+1,0
+"PQW   108"
+1,0
+"WORD"
+1,0
+"s.15 predkosc zadana dla ubijak"
+-1,0
+BOT
+1,0
+"RS_A_Predkosc_dla_Ums"
+1,0
+"PQW   106"
+1,0
+"WORD"
+1,0
+"s.15 predkosc zadana dla umsetzer"
+-1,0
+BOT
+1,0
+"RS_Badna_5_Tor_1_Hamulec"
+1,0
+"Q      39.7"
+1,0
+"BOOL"
+1,0
+"s.14 Banda 4/Tor 1 Hamulec"
+-1,0
+BOT
+1,0
+"RS_Badna_5_Tor_2_Hamulec"
+1,0
+"Q      41.2"
+1,0
+"BOOL"
+1,0
+"s.14 Banda 4/Tor 2 Hamulec"
+-1,0
+BOT
+1,0
+"RS_Banda_1_T1_Blad_Fal"
+1,0
+"I      32.0"
+1,0
+"BOOL"
+1,0
+"s.15  Banda 1 /Tor 1 praucje"
+-1,0
+BOT
+1,0
+"RS_Banda_1_T2_Blad_Fal"
+1,0
+"I      33.0"
+1,0
+"BOOL"
+1,0
+"s.15  Banda 1 /Tor 2 praucje"
+-1,0
+BOT
+1,0
+"RS_Banda_1_Tor_1"
+1,0
+"Q      38.6"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 1/Tor 1"
+-1,0
+BOT
+1,0
+"RS_Banda_1_Tor_2"
+1,0
+"Q      40.2"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 1/Tor 2"
+-1,0
+BOT
+1,0
+"RS_Banda_2_T1_Blad_Fal"
+1,0
+"I      32.1"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 2 /Tor 1 pracuje"
+-1,0
+BOT
+1,0
+"RS_Banda_2_T2_Blad_Fal"
+1,0
+"I      33.1"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 2 /Tor 2 pracuje"
+-1,0
+BOT
+1,0
+"RS_Banda_2_Tor_1"
+1,0
+"Q      39.0"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 2/Tor 1"
+-1,0
+BOT
+1,0
+"RS_Banda_2_Tor_1_Hamulec"
+1,0
+"Q      39.2"
+1,0
+"BOOL"
+1,0
+"s.14 Banda 2/Tor 1 Hamulec"
+-1,0
+BOT
+1,0
+"RS_Banda_2_Tor_1_Wstecz"
+1,0
+"Q      39.1"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 2/Tor 1 wstecz"
+-1,0
+BOT
+1,0
+"RS_Banda_2_Tor_2"
+1,0
+"Q      40.3"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 2/Tor 2"
+-1,0
+BOT
+1,0
+"RS_Banda_2_Tor_2_Hamulec"
+1,0
+"Q      40.5"
+1,0
+"BOOL"
+1,0
+"s.14 Banda 2/Tor 2 Hamulec"
+-1,0
+BOT
+1,0
+"RS_Banda_2_Tor_2_Wstecz"
+1,0
+"Q      40.4"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 2/Tor 2 wstecz"
+-1,0
+BOT
+1,0
+"RS_Banda_3_4_Tor_1"
+1,0
+"Q      39.3"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 3/Tor 1"
+-1,0
+BOT
+1,0
+"RS_Banda_3_4_Tor_2"
+1,0
+"Q      40.6"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 3/Tor 2"
+-1,0
+BOT
+1,0
+"RS_Banda_34_T1_Blad_Fal"
+1,0
+"I      32.2"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 3-4/Tor 1 pracuje"
+-1,0
+BOT
+1,0
+"RS_Banda_34_T2_Blad_Fal"
+1,0
+"I      33.2"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 3-4/Tor 2 pracuje"
+-1,0
+BOT
+1,0
+"RS_Banda_34_Tor_1_Wst"
+1,0
+"Q      39.4"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 3/Tor 1 wstecz"
+-1,0
+BOT
+1,0
+"RS_Banda_34_Tor_2_Wst"
+1,0
+"Q      40.7"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 3/Tor 2 wstecz"
+-1,0
+BOT
+1,0
+"RS_Banda_5_T1_Blad_Fal"
+1,0
+"I      32.3"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 5 /Tor 1 pracuje"
+-1,0
+BOT
+1,0
+"RS_Banda_5_T2_Blad_Fal"
+1,0
+"I      33.3"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 5 /Tor 2 pracuje"
+-1,0
+BOT
+1,0
+"RS_Banda_5_Tor_1"
+1,0
+"Q      39.5"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 4/Tor 1"
+-1,0
+BOT
+1,0
+"RS_Banda_5_Tor_1_Wstecz"
+1,0
+"Q      39.6"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 4/Tor1 wstecz"
+-1,0
+BOT
+1,0
+"RS_Banda_5_Tor_2"
+1,0
+"Q      41.0"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 4/Tor 2"
+-1,0
+BOT
+1,0
+"RS_Banda_5_Tor_2_Wstecz"
+1,0
+"Q      41.1"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 4/Tor1 wstecz"
+-1,0
+BOT
+1,0
+"RS_Banda_6_T1_Blad_Fal"
+1,0
+"I      32.4"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 6 zakret/Tor1 pracuje"
+-1,0
+BOT
+1,0
+"RS_Banda_6_Tor_1_Zakret"
+1,0
+"Q      40.0"
+1,0
+"BOOL"
+1,0
+"s.14 Start  Banda 6/Tor 1"
+-1,0
+BOT
+1,0
+"RS_Banda_7_Rezerwa"
+1,0
+"Q      40.1"
+1,0
+"BOOL"
+1,0
+"s.14 Start Banda 7 rezerwa"
+-1,0
+BOT
+1,0
+"RS_Banda_7_T2_Blad_Fal"
+1,0
+"I      33.4"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 7 /Tor 2 za umsetzer pracuje"
+-1,0
+BOT
+1,0
+"RS_Banda_7_Tor_2_Za_Ums"
+1,0
+"Q      41.3"
+1,0
+"BOOL"
+1,0
+"s.14 Start  Banda 7/Tor 2 za Umsetzer"
+-1,0
+BOT
+1,0
+"RS_Banda_7_Zwrot_Pracuje"
+1,0
+"I      32.5"
+1,0
+"BOOL"
+1,0
+"s.15 Banda 7 rezerwa"
+-1,0
+BOT
+1,0
+"RS_Caly_Tor_1_OK"
+1,0
+"M    1002.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_Caly_Tor_2_OK"
+1,0
+"M    1006.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_Fun_Bezp"
+1,0
+"FC   1001"
+1,0
+"FC   1001"
+1,0
+"Funkcja bezpieczenstwa rs"
+-1,0
+BOT
+1,0
+"RS_Lamp_Ziel_T2"
+1,0
+"Q      42.1"
+1,0
+"BOOL"
+1,0
+"s.14 Lampa czerwona"
+-1,0
+BOT
+1,0
+"RS_Lampa_Blad_Tor_1"
+1,0
+"Q      42.2"
+1,0
+"BOOL"
+1,0
+"s.14 Lampa Tor 1 aktywny"
+-1,0
+BOT
+1,0
+"RS_Lampa_Czerwona_T2"
+1,0
+"Q      42.0"
+1,0
+"BOOL"
+1,0
+"s.14 Lampa zielona"
+-1,0
+BOT
+1,0
+"RS_Lampa_Ziel_T1"
+1,0
+"Q      42.3"
+1,0
+"BOOL"
+1,0
+"s.14 Lampa Tor 2 aktywny"
+-1,0
+BOT
+1,0
+"RS_Not_Aus_Rezerwa"
+1,0
+"I      30.5"
+1,0
+"BOOL"
+1,0
+"s.15 Not-Aus rezerwa"
+-1,0
+BOT
+1,0
+"RS_Not_Aus_Rezerwa_2"
+1,0
+"I      30.6"
+1,0
+"BOOL"
+1,0
+"s.15 Not-Aus rezerwa"
+-1,0
+BOT
+1,0
+"RS_Not_Aus_Wlot_Tor_1"
+1,0
+"I      30.0"
+1,0
+"BOOL"
+1,0
+"s.15 Not-Aus wlot Tor 1"
+-1,0
+BOT
+1,0
+"RS_Not_Aus_Wlot_Tor_2"
+1,0
+"I      30.2"
+1,0
+"BOOL"
+1,0
+"s.15 Not-Aus wlot Tor 2"
+-1,0
+BOT
+1,0
+"RS_Not_Aus_Wylot_Tor_1"
+1,0
+"I      30.1"
+1,0
+"BOOL"
+1,0
+"s.15 Not-Aus wylot Tor 1"
+-1,0
+BOT
+1,0
+"RS_Not_Aus_Wylot_Tor_2"
+1,0
+"I      30.3"
+1,0
+"BOOL"
+1,0
+"s.15 Not-Aus wylot Tor 2"
+-1,0
+BOT
+1,0
+"RS_Not_Aus_Zwrotnica"
+1,0
+"I      30.4"
+1,0
+"BOOL"
+1,0
+"s.15 Not-Aus zwrotnica"
+-1,0
+BOT
+1,0
+"RS_Odciag"
+1,0
+"Q      42.7"
+1,0
+"BOOL"
+1,0
+"s.14 Rezerwa"
+-1,0
+BOT
+1,0
+"RS_OK"
+1,0
+"M    1009.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_PB_ADD_Offset_Tor_1"
+1,0
+"I      34.2"
+1,0
+"BOOL"
+1,0
+"s.15 dodaj offset predkosci"
+-1,0
+BOT
+1,0
+"RS_PB_ADD_Offset_Tor_2"
+1,0
+"I      34.7"
+1,0
+"BOOL"
+1,0
+"s.15 dodaj offset predkosci"
+-1,0
+BOT
+1,0
+"RS_PB_ADD_Offset_Zwr"
+1,0
+"I      35.6"
+1,0
+"BOOL"
+1,0
+"s.15 dodaj offset predkosci zwrotnica"
+-1,0
+BOT
+1,0
+"RS_PB_Produkcja_Tor_1"
+1,0
+"I      34.4"
+1,0
+"BOOL"
+1,0
+"s15 przycisk produkcja"
+-1,0
+BOT
+1,0
+"RS_PB_Produkcja_Tor_2"
+1,0
+"I      35.1"
+1,0
+"BOOL"
+1,0
+"s.15 przycisk produkcja"
+-1,0
+BOT
+1,0
+"RS_PB_Produkcja_Zwr"
+1,0
+"I      36.0"
+1,0
+"BOOL"
+1,0
+"s.15 przycisk produkcja"
+-1,0
+BOT
+1,0
+"RS_PB_Start_Tor_1"
+1,0
+"I      34.0"
+1,0
+"BOOL"
+1,0
+"s.15 Start lini tor 1"
+-1,0
+BOT
+1,0
+"RS_PB_Start_Tor_2"
+1,0
+"I      34.5"
+1,0
+"BOOL"
+1,0
+"s.15 start lini tor 2"
+-1,0
+BOT
+1,0
+"RS_PB_Start_z_RS"
+1,0
+"I      37.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_PB_Start_Zwrotnica"
+1,0
+"I      35.4"
+1,0
+"BOOL"
+1,0
+"s.15 start lini zwrotnica"
+-1,0
+BOT
+1,0
+"RS_PB_Stop_Tor_1"
+1,0
+"I      34.1"
+1,0
+"BOOL"
+1,0
+"s.15 Stop lini tor 1"
+-1,0
+BOT
+1,0
+"RS_PB_Stop_Tor_2"
+1,0
+"I      34.6"
+1,0
+"BOOL"
+1,0
+"s.15 stop lini tor 2"
+-1,0
+BOT
+1,0
+"RS_PB_Stop_Zwrotnica"
+1,0
+"I      35.5"
+1,0
+"BOOL"
+1,0
+"s.15 stop lini zwrotnica"
+-1,0
+BOT
+1,0
+"RS_PB_SUB_Offset_Tor_1"
+1,0
+"I      34.3"
+1,0
+"BOOL"
+1,0
+"s.15 odejmij offset predkosc"
+-1,0
+BOT
+1,0
+"RS_PB_SUB_Offset_Tor_2"
+1,0
+"I      35.0"
+1,0
+"BOOL"
+1,0
+"s.15 odejmij offset predkosci"
+-1,0
+BOT
+1,0
+"RS_PB_SUB_Offset_Zwr"
+1,0
+"I      35.7"
+1,0
+"BOOL"
+1,0
+"s.15 odejmij offset predkosc zwrotnica"
+-1,0
+BOT
+1,0
+"RS_PB_Szybciej_Tor_2"
+1,0
+"I      35.2"
+1,0
+"BOOL"
+1,0
+"s.15 caly tor 2 przyspiesz"
+-1,0
+BOT
+1,0
+"RS_PB_Szybciej_Zwr"
+1,0
+"I      36.1"
+1,0
+"BOOL"
+1,0
+"s.15 przycisk caly tor 2 przyspiesz"
+-1,0
+BOT
+1,0
+"RS_PB_Wolniej_Tor_2"
+1,0
+"I      35.3"
+1,0
+"BOOL"
+1,0
+"s.15 caly tor 2 wolniej"
+-1,0
+BOT
+1,0
+"RS_PB_Wolniej_Zwr"
+1,0
+"I      36.2"
+1,0
+"BOOL"
+1,0
+"s.15 przycisk caly tor 2 wolniej"
+-1,0
+BOT
+1,0
+"RS_PB_Zwrotnica_Dol"
+1,0
+"I      36.3"
+1,0
+"BOOL"
+1,0
+"s.15 przycisk zwrotnica dol"
+-1,0
+BOT
+1,0
+"RS_PB_Zwrotnica_Gora"
+1,0
+"I      36.4"
+1,0
+"BOOL"
+1,0
+"s.15 przycisk zwrotnica gora"
+-1,0
+BOT
+1,0
+"RS_Predkosc_Online"
+1,0
+"MD   1500"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_Przek_Bezp_1_Ok"
+1,0
+"I      31.0"
+1,0
+"BOOL"
+1,0
+"s.15 Przekaznik bezpieczenstwa 1 ok"
+-1,0
+BOT
+1,0
+"RS_Przek_Bezp_2_Ok"
+1,0
+"I      31.1"
+1,0
+"BOOL"
+1,0
+"s.15 Przekanik bepzieczenstwa 2 ok"
+-1,0
+BOT
+1,0
+"RS_Reset_Przek_Bezp_1"
+1,0
+"Q      38.0"
+1,0
+"BOOL"
+1,0
+"s.14  Reset przekaznika bezpieczenstwa 1"
+-1,0
+BOT
+1,0
+"RS_Reset_Przek_Bezp_2"
+1,0
+"Q      38.1"
+1,0
+"BOOL"
+1,0
+"s.14 Reset przekanika bezpieczenstwa 2"
+-1,0
+BOT
+1,0
+"RS_Rezerwa_2"
+1,0
+"Q      38.3"
+1,0
+"BOOL"
+1,0
+"s.14"
+-1,0
+BOT
+1,0
+"RS_Rezerwa_3"
+1,0
+"Q      38.7"
+1,0
+"BOOL"
+1,0
+"s.14 RS rezerwa"
+-1,0
+BOT
+1,0
+"RS_Rezerwa_5"
+1,0
+"I      30.7"
+1,0
+"BOOL"
+1,0
+"s.15"
+-1,0
+BOT
+1,0
+"RS_Rezerwa_7"
+1,0
+"I      32.6"
+1,0
+"BOOL"
+1,0
+"s.15"
+-1,0
+BOT
+1,0
+"RS_RS_Pracuje"
+1,0
+"I      31.4"
+1,0
+"BOOL"
+1,0
+"s.15 RS pracuje"
+-1,0
+BOT
+1,0
+"RS_RS_Sygnal_Start"
+1,0
+"I      31.5"
+1,0
+"BOOL"
+1,0
+"s.15 Rs rezerwa"
+-1,0
+BOT
+1,0
+"RS_Stacja_Redukcja_Predk"
+1,0
+"I      31.6"
+1,0
+"BOOL"
+1,0
+"s.15 Redukcja predkosc stacja odwijajaca"
+-1,0
+BOT
+1,0
+"RS_Start_Zew_Umsetzer"
+1,0
+"Q      41.5"
+1,0
+"BOOL"
+1,0
+"s.14 Start zew Umsetzer"
+-1,0
+BOT
+1,0
+"RS_Sygnal_T1"
+1,0
+"Q      42.5"
+1,0
+"BOOL"
+1,0
+"s.14 Sygnal Tor 2"
+-1,0
+BOT
+1,0
+"RS_Sygnal_T2"
+1,0
+"Q      42.4"
+1,0
+"BOOL"
+1,0
+"s.14 Sygnal Tor 1"
+-1,0
+BOT
+1,0
+"RS_Termiki_T1_Ok"
+1,0
+"I      32.7"
+1,0
+"BOOL"
+1,0
+"s.15 Termiki OK"
+-1,0
+BOT
+1,0
+"RS_Termiki_T2_Ok"
+1,0
+"I      33.5"
+1,0
+"BOOL"
+1,0
+"s.15 Termiki Tor 2 OK"
+-1,0
+BOT
+1,0
+"RS_Tor_1_Praca"
+1,0
+"M    1300.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_Tor_1_Sygnal_Dzwiek"
+1,0
+"M    1300.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_Tor_2_Praca"
+1,0
+"M    1400.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_Tor_2_Sygnal_Dzwiek"
+1,0
+"M    1400.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"RS_Ubijak_Pracuje"
+1,0
+"I      31.3"
+1,0
+"BOOL"
+1,0
+"s.15 Ubijak pracuje"
+-1,0
+BOT
+1,0
+"RS_Umsetzer_Pracuje"
+1,0
+"I      31.2"
+1,0
+"BOOL"
+1,0
+"s.15 Umsetzer pracuje"
+-1,0
+BOT
+1,0
+"RS_Wykladanie_Pracuje"
+1,0
+"Q      38.4"
+1,0
+"BOOL"
+1,0
+"s.14 Wykladanie pracuje sygnal do RS"
+-1,0
+BOT
+1,0
+"RS_Wykladanie_Rezerwa"
+1,0
+"Q      38.5"
+1,0
+"BOOL"
+1,0
+"s.14 Wykladanie rezerwa do RS"
+-1,0
+BOT
+1,0
+"RS_Zar_Ob_Bezp_Wlot_T1"
+1,0
+"Q      45.2"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Obwod bezpieczenstwa wlot Tor1"
+-1,0
+BOT
+1,0
+"RS_Zar_Ob_Bezp_Wlot_T2"
+1,0
+"Q      45.6"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Obwod bezpieczenstwa wlot Tor2"
+-1,0
+BOT
+1,0
+"RS_Zar_Ob_Bezp_Wylot_T1"
+1,0
+"Q      45.3"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Obwod bezpieczenstwa wylot Tor1"
+-1,0
+BOT
+1,0
+"RS_Zar_Ob_Bezp_Wylot_T2"
+1,0
+"Q      45.7"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Obwod bezpieczenstwa wylot Tor2"
+-1,0
+BOT
+1,0
+"RS_Zar_Predkosc_Tor_2"
+1,0
+"Q      44.4"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Predk Tor 2"
+-1,0
+BOT
+1,0
+"RS_Zar_Predkosc_Zwr"
+1,0
+"Q      44.7"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka  Predkosc Zwr"
+-1,0
+BOT
+1,0
+"RS_Zar_Produkcja_T1"
+1,0
+"Q      44.1"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Produkcja Tor 1"
+-1,0
+BOT
+1,0
+"RS_Zar_Produkcja_T2"
+1,0
+"Q      44.3"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Produkcja Tor 2"
+-1,0
+BOT
+1,0
+"RS_Zar_Produkcja_Zwrot"
+1,0
+"Q      44.6"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Produkcja zwrotnica"
+-1,0
+BOT
+1,0
+"RS_Zar_Start_Tor_1"
+1,0
+"Q      44.0"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Start Tor 1"
+-1,0
+BOT
+1,0
+"RS_Zar_Start_Tor_2"
+1,0
+"Q      44.2"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Predkosc Tor 2"
+-1,0
+BOT
+1,0
+"RS_Zar_Start_Wylot"
+1,0
+"Q      44.5"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Start wylot"
+-1,0
+BOT
+1,0
+"RS_Zar_Zator_Wlot_T1"
+1,0
+"Q      45.0"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Zator Wlot Tor 1"
+-1,0
+BOT
+1,0
+"RS_Zar_Zator_Wlot_T2"
+1,0
+"Q      45.4"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Zator Wlot Tor 2"
+-1,0
+BOT
+1,0
+"RS_Zar_Zator_Wylot_T1"
+1,0
+"Q      45.1"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Zator Wylot Tor 1"
+-1,0
+BOT
+1,0
+"RS_Zar_Zator_Wylot_T2"
+1,0
+"Q      45.5"
+1,0
+"BOOL"
+1,0
+"s.14 Zarowka Zator Wylot Tor 2"
+-1,0
+BOT
+1,0
+"RS_Zator_Wlot_Tor_1"
+1,0
+"I      36.5"
+1,0
+"BOOL"
+1,0
+"s.15  zator na wlocie tor 1"
+-1,0
+BOT
+1,0
+"RS_Zator_Wlot_Tor_2"
+1,0
+"I      36.7"
+1,0
+"BOOL"
+1,0
+"s.15 zator na wlocie tor 2"
+-1,0
+BOT
+1,0
+"RS_Zator_Wylot_Tor_1"
+1,0
+"I      36.6"
+1,0
+"BOOL"
+1,0
+"s.15 zator na wylocie tor 1"
+-1,0
+BOT
+1,0
+"RS_Zator_Wylot_Tor_2"
+1,0
+"I      37.0"
+1,0
+"BOOL"
+1,0
+"s.15 zator na wylocie tor 2"
+-1,0
+BOT
+1,0
+"RS_Zawor_Zwrotnica"
+1,0
+"Q      42.6"
+1,0
+"BOOL"
+1,0
+"s.14 Zawor Zwrotnica na tor 1"
+-1,0
+BOT
+1,0
+"RS_Zawor_zwrotnica_A2"
+1,0
+"Q      38.2"
+1,0
+"BOOL"
+1,0
+"s.14"
+-1,0
+BOT
+1,0
+"RS_Zez_do_Stacji_Odwij"
+1,0
+"Q      41.4"
+1,0
+"BOOL"
+1,0
+"s.14 Zezwolenie do stacji odwijajacej 45K5"
+-1,0
+BOT
+1,0
+"RS_Zez_do_Ubijak"
+1,0
+"Q      41.7"
+1,0
+"BOOL"
+1,0
+"s.14 Zezwolenie od Ubijak"
+-1,0
+BOT
+1,0
+"RS_Zez_do_Umsetzer"
+1,0
+"Q      41.6"
+1,0
+"BOOL"
+1,0
+"s.14 Zezwolenie do Umsetzer"
+-1,0
+BOT
+1,0
+"RS_Zwrotnica_Pozycja"
+1,0
+"M    1001.1"
+1,0
+"BOOL"
+1,0
+"1-na tor 1 ;0 na-tor 2"
+-1,0
+BOT
+1,0
+"Serwis_RS"
+1,0
+"M    1005.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Set_bit_to_reg"
+1,0
+"FC     12"
+1,0
+"FC     12"
+1,0
+"Funkcja ustawiajaca wybrany bit rejsetru"
+-1,0
+BOT
+1,0
+"Silnik_Lan_A1"
+1,0
+"Q       2.4"
+1,0
+"BOOL"
+1,0
+"Zezwolenia na prace silnika Lancucha s49"
+-1,0
+BOT
+1,0
+"Silnik_Lan_A2"
+1,0
+"Q       0.4"
+1,0
+"BOOL"
+1,0
+"Zezwolenia na prace silnika Lancucha s49"
+-1,0
+BOT
+1,0
+"Silnik_Maku_A1"
+1,0
+"Q       2.2"
+1,0
+"BOOL"
+1,0
+"Silnik Maku A2 s49"
+-1,0
+BOT
+1,0
+"Silnik_Maku_A2"
+1,0
+"Q       0.2"
+1,0
+"BOOL"
+1,0
+"Silnik Maku A2 s49"
+-1,0
+BOT
+1,0
+"Silnik_Maku_glowne"
+1,0
+"Q      23.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Silnik_Wlot_Center"
+1,0
+"Q      22.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Silniki_centrowania"
+1,0
+"FC     81"
+1,0
+"FC     81"
+1,0
+""
+-1,0
+BOT
+1,0
+"Smar_Pow_A1"
+1,0
+"Q      24.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Smar_Pow_A2"
+1,0
+"Q      24.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Smar_Smar_A1"
+1,0
+"Q      24.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Smar_Smar_A2"
+1,0
+"Q      24.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Smarowanie_Maszyny"
+1,0
+"FC    701"
+1,0
+"FC    701"
+1,0
+"Smarowanie Lancucha wykladania"
+-1,0
+BOT
+1,0
+"Speed Structure"
+1,0
+"UDT  1090"
+1,0
+"UDT  1090"
+1,0
+"Data type for counter channel"
+-1,0
+BOT
+1,0
+"Sprzeglo_Odb_A1"
+1,0
+"Q       3.3"
+1,0
+"BOOL"
+1,0
+"Sprzeglow odbioru s 50"
+-1,0
+BOT
+1,0
+"Sprzeglo_Odb_A2"
+1,0
+"Q       1.3"
+1,0
+"BOOL"
+1,0
+"Sprzeglow odbioru s 50"
+-1,0
+BOT
+1,0
+"ss"
+1,0
+"FC    203"
+1,0
+"FC    203"
+1,0
+"zapisanie nr bitu do bloku dancyh"
+-1,0
+BOT
+1,0
+"St_Odwr_A1_Auto"
+1,0
+"M     520.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"St_Odwr_A2_AUto"
+1,0
+"M     520.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Stacja_Odwr_Auto_A1"
+1,0
+"I       3.0"
+1,0
+"BOOL"
+1,0
+"Stacja odwracajaca w automatyce s46"
+-1,0
+BOT
+1,0
+"Stacja_Odwr_Auto_A2"
+1,0
+"I       0.0"
+1,0
+"BOOL"
+1,0
+"Stacja odwracajaca w automatyce s46"
+-1,0
+BOT
+1,0
+"Stacja_Odwr_Maku1_A1"
+1,0
+"I       3.6"
+1,0
+"BOOL"
+1,0
+"s46"
+-1,0
+BOT
+1,0
+"Stacja_Odwr_Maku1_A2"
+1,0
+"I       0.6"
+1,0
+"BOOL"
+1,0
+"s46"
+-1,0
+BOT
+1,0
+"Stacja_Odwr_OK_A1"
+1,0
+"I       3.2"
+1,0
+"BOOL"
+1,0
+"Stacja odwracajaca brak bledow s46"
+-1,0
+BOT
+1,0
+"Stacja_Odwr_OK_A2"
+1,0
+"I       0.2"
+1,0
+"BOOL"
+1,0
+"Stacja odwracajaca brak bledow s46"
+-1,0
+BOT
+1,0
+"Stacje_Odwracajace"
+1,0
+"FC     82"
+1,0
+"FC     82"
+1,0
+"Interfejs stacji odwracajacych"
+-1,0
+BOT
+1,0
+"Stale_Wykladania_A1"
+1,0
+"DB    521"
+1,0
+"DB    521"
+1,0
+""
+-1,0
+BOT
+1,0
+"Stale_Wykladania_A2"
+1,0
+"DB    520"
+1,0
+"DB    520"
+1,0
+""
+-1,0
+BOT
+1,0
+"Stara_War_Enk_Hmi_A1"
+1,0
+"MD    478"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Stara_War_Enk_Hmi_A2"
+1,0
+"MD    278"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Start_Mark"
+1,0
+"M    1000.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ster_Analogowe_Falow"
+1,0
+"FC   1072"
+1,0
+"FC   1072"
+1,0
+"sterowanie analogowe falownikami"
+-1,0
+BOT
+1,0
+"Sterowanie_Lancucha"
+1,0
+"FC     70"
+1,0
+"FC     70"
+1,0
+"Funkcja sterujaca praca lancucha"
+-1,0
+BOT
+1,0
+"Sterowanie_Makulatury"
+1,0
+"FC     80"
+1,0
+"FC     80"
+1,0
+"Funkcja sterujaca makulatura"
+-1,0
+BOT
+1,0
+"Sterowanie_Tasm_Wykl"
+1,0
+"FC     60"
+1,0
+"FC     60"
+1,0
+"Funkcja kontrolujaca Backup i sterowanie tasm"
+-1,0
+BOT
+1,0
+"Sterownie Predkoscia"
+1,0
+"FC   1090"
+1,0
+"FC   1090"
+1,0
+"Funkcja steruje predkoscia lini"
+-1,0
+BOT
+1,0
+"Stop_Lancuch_A1"
+1,0
+"M     302.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Stop_Lancuch_A2"
+1,0
+"M     300.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Stop_Na_Odb_A1"
+1,0
+"M      38.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Stop_Na_Odb_A2"
+1,0
+"M      38.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Stop_Start_Falownikow"
+1,0
+"MB     31"
+1,0
+"BYTE"
+1,0
+""
+-1,0
+BOT
+1,0
+"SW_GATE_KBA_A1"
+1,0
+"M     105.1"
+1,0
+"BOOL"
+1,0
+"Bit pomiaru predkosci z KBA A1"
+-1,0
+BOT
+1,0
+"SW_GATE_KBA_A2"
+1,0
+"M     105.0"
+1,0
+"BOOL"
+1,0
+"Bit pomiaru predkosci z KBA A2"
+-1,0
+BOT
+1,0
+"Sygnal_Start_Tor_1"
+1,0
+"M    1303.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Sygnal_Start_Tor_2"
+1,0
+"M    1403.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Sygnal_Zwrot_Pulpit"
+1,0
+"Q      24.6"
+1,0
+"BOOL"
+1,0
+"Sygnal dzwiekowy przelaczenia zwrotnicy pulpit str43"
+-1,0
+BOT
+1,0
+"T_Blad_Brama_G_A1"
+1,0
+"T      22"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T_Blad_Brama_G_A2"
+1,0
+"T      12"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T_Blad_Komunikacji"
+1,0
+"T      35"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T_ON"
+1,0
+"FB     20"
+1,0
+"FB     20"
+1,0
+"Timer on delay with memory"
+-1,0
+BOT
+1,0
+"T_Reset_Bezp"
+1,0
+"T       1"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T_Sprawdzenie_Com"
+1,0
+"T       6"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T100"
+1,0
+"T     100"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T101"
+1,0
+"T     101"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T102"
+1,0
+"T     102"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T103"
+1,0
+"T     103"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T104"
+1,0
+"T     104"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T105"
+1,0
+"T     105"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T111"
+1,0
+"T     111"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T112"
+1,0
+"T     112"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T113"
+1,0
+"T     113"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T114"
+1,0
+"T     114"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T115"
+1,0
+"T     115"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T116"
+1,0
+"T     116"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T117"
+1,0
+"T     117"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T121"
+1,0
+"T     121"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T122"
+1,0
+"T     122"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T130"
+1,0
+"T     130"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T131"
+1,0
+"T     131"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T140"
+1,0
+"T     140"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T141"
+1,0
+"T     141"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T150"
+1,0
+"T     150"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T151"
+1,0
+"T     151"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T160"
+1,0
+"T     160"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T161"
+1,0
+"T     161"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T162"
+1,0
+"T     162"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T163"
+1,0
+"T     163"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T164"
+1,0
+"T     164"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T165"
+1,0
+"T     165"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T166"
+1,0
+"T     166"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T167"
+1,0
+"T     167"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"T168"
+1,0
+"T     168"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"t169"
+1,0
+"T     169"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Takt_100ms"
+1,0
+"M       0.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Takt_1s"
+1,0
+"M       0.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Takt_200ms"
+1,0
+"M       0.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Takt_500ms"
+1,0
+"M       0.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Takt_Komunikacji"
+1,0
+"T      36"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Takt_Tasm_A1_16bit"
+1,0
+"M     450.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Takt_Tasm_A2_16bit"
+1,0
+"M     250.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Takt_Tasmy_A1_Pulpit"
+1,0
+"I      13.7"
+1,0
+"BOOL"
+1,0
+"Inicjator taktu tasmy A1 str 7"
+-1,0
+BOT
+1,0
+"Takt_Tasmy_A2_Pulpit"
+1,0
+"I      13.6"
+1,0
+"BOOL"
+1,0
+"Inicjator taktu tasmy A2 str 7"
+-1,0
+BOT
+1,0
+"Takty_Opoz_A1"
+1,0
+"MW    842"
+1,0
+"INT"
+1,0
+"Ustawienie dlugosci ogonu po wycisnieciu przycisku"
+-1,0
+BOT
+1,0
+"Takty_Opoz_A2"
+1,0
+"MW    742"
+1,0
+"INT"
+1,0
+"Ustawienie dlugosci ogonu po wycisnieciu przycisku"
+-1,0
+BOT
+1,0
+"Tasma_1_A1"
+1,0
+"M      32.3"
+1,0
+"BOOL"
+1,0
+"Tasma 1 A1 adres 9"
+-1,0
+BOT
+1,0
+"Tasma_1_A2"
+1,0
+"M      32.0"
+1,0
+"BOOL"
+1,0
+"Tasma 1 A2 adres 6"
+-1,0
+BOT
+1,0
+"Tasma_2_A1"
+1,0
+"M      32.4"
+1,0
+"BOOL"
+1,0
+"Tasma 2 A1 adres 10"
+-1,0
+BOT
+1,0
+"Tasma_2_A2"
+1,0
+"M      32.1"
+1,0
+"BOOL"
+1,0
+"Tasma 2 A2 adres 7"
+-1,0
+BOT
+1,0
+"Tasma_3_A1"
+1,0
+"M      32.5"
+1,0
+"BOOL"
+1,0
+"Tasma 3 A1 adres 11"
+-1,0
+BOT
+1,0
+"Tasma_3_A2"
+1,0
+"M      32.2"
+1,0
+"BOOL"
+1,0
+"Tasma 3 A2 adres 8"
+-1,0
+BOT
+1,0
+"Tasma_G_Maku_OK"
+1,0
+"M     400.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ten_widzi_drugi"
+1,0
+"DB      1"
+1,0
+"DB      1"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ten_widzi_drugis"
+1,0
+"DB   2000"
+1,0
+"DB   2000"
+1,0
+""
+-1,0
+BOT
+1,0
+"Test_Blok_pomiaru_pred"
+1,0
+"FC    104"
+1,0
+"FC    104"
+1,0
+""
+-1,0
+BOT
+1,0
+"Test_Old_New_Compare"
+1,0
+"FC    102"
+1,0
+"FC    102"
+1,0
+"Porownianie wartosci licznikow"
+-1,0
+BOT
+1,0
+"test_pred"
+1,0
+"FC    105"
+1,0
+"FC    105"
+1,0
+"zapisanie nr bitu do bloku dancyh"
+-1,0
+BOT
+1,0
+"Timer_Fitru_Braku_Pow_A1"
+1,0
+"T      34"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Fitru_Braku_Pow_A2"
+1,0
+"T      33"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Horn_Pulpit"
+1,0
+"T      55"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Horn_Wspolny_Wykl"
+1,0
+"T      54"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Kon_AB"
+1,0
+"T      94"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Kontr_Taktu_Tas_A1"
+1,0
+"T      24"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Kontr_Taktu_Tas_A2"
+1,0
+"T      23"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Kontrolny_AB"
+1,0
+"T      93"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Lampka_Pulpit_A1"
+1,0
+"T      53"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Lampki_Pulpit_A2"
+1,0
+"T      52"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Opoz_Zwrot_D"
+1,0
+"T      15"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Opoz_Zwrot_G"
+1,0
+"T      16"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_przod_tyl"
+1,0
+"FC     56"
+1,0
+"FC     56"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_SPR_Taktu_A1"
+1,0
+"T      18"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_SPR_Taktu_A2"
+1,0
+"T      17"
+1,0
+"TIMER"
+1,0
+"Timer sprawdzania taktu A2"
+-1,0
+BOT
+1,0
+"Timer_Taktu_1000ms"
+1,0
+"T       8"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Taktu_100ms"
+1,0
+"T       7"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Taktu_200ms"
+1,0
+"T       9"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_Taktu_500ms"
+1,0
+"T       4"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"Timer_zjazdu_maku"
+1,0
+"T       5"
+1,0
+"TIMER"
+1,0
+""
+-1,0
+BOT
+1,0
+"TON"
+1,0
+"SFB     4"
+1,0
+"SFB     4"
+1,0
+"Generate an On Delay"
+-1,0
+BOT
+1,0
+"Tor_1_Ok_Check"
+1,0
+"M    1301.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Tor_2_Ok_Check"
+1,0
+"M    1403.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Tor1_OK"
+1,0
+"M    1301.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Tor2_OK"
+1,0
+"M    1401.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"tu_zpisuje_drugi"
+1,0
+"DB      2"
+1,0
+"DB      2"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ukladarka_Ok"
+1,0
+"I      31.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ust_Predkosci_Tasm"
+1,0
+"FC     63"
+1,0
+"FC     63"
+1,0
+"Ustawienie predkosci lini"
+-1,0
+BOT
+1,0
+"UST_WAR_INI_LAN_A1"
+1,0
+"MD    632"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"UST_WAR_INI_LAN_A2"
+1,0
+"MD    620"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ustaw_Bit_Rejestru"
+1,0
+"FC    505"
+1,0
+"FC    505"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ustaw_Opoz_Zatrz_A1"
+1,0
+"M      36.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ustaw_Opoz_Zatrz_A2"
+1,0
+"M      36.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ustaw_rejestr_czuj_A1"
+1,0
+"M     801.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Ustaw_rejestr_czuj_A2"
+1,0
+"M     701.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"V_Aktualna_Tor_1"
+1,0
+"MD   1332"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"V_Aktualna_Tor_2"
+1,0
+"MD   1432"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"V_Ramp_Tor_1"
+1,0
+"MD   1340"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"V_Ramp_Tor_2"
+1,0
+"MD   1440"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"V_Zadana_Tor_1"
+1,0
+"MD   1328"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"V_Zadana_Tor_2"
+1,0
+"MD   1428"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"VAT_1"
+1,0
+"VAT     1"
+1,0
+""
+1,0
+""
+-1,0
+BOT
+1,0
+"VAT_2"
+1,0
+"VAT     2"
+1,0
+""
+1,0
+""
+-1,0
+BOT
+1,0
+"VAT_3"
+1,0
+"VAT     3"
+1,0
+""
+1,0
+""
+-1,0
+BOT
+1,0
+"VAT_500"
+1,0
+"VAT     4"
+1,0
+""
+1,0
+""
+-1,0
+BOT
+1,0
+"VAT_9"
+1,0
+"VAT     9"
+1,0
+""
+1,0
+""
+-1,0
+BOT
+1,0
+"VAT_BDE"
+1,0
+"VAT     5"
+1,0
+""
+1,0
+""
+-1,0
+BOT
+1,0
+"VAT_FC501"
+1,0
+"VAT     6"
+1,0
+""
+1,0
+"Vat do maku teraz tasmy"
+-1,0
+BOT
+1,0
+"Visu_RS"
+1,0
+"FC   1002"
+1,0
+"FC   1002"
+1,0
+"Wizualizacja Lini RS"
+-1,0
+BOT
+1,0
+"WAR_INI_LAN_A1_POP"
+1,0
+"MD    636"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"WAR_INI_LAN_A2_POP"
+1,0
+"MD    624"
+1,0
+"DINT"
+1,0
+"WArtosc poprzednia inicjaora lancucha A2"
+-1,0
+BOT
+1,0
+"War_Inicjatora_A1"
+1,0
+"MD    640"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"War_Inicjatora_A2"
+1,0
+"MD    628"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wart_enkodera"
+1,0
+"DB    120"
+1,0
+"DB    120"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wartosc_En_Lan_A1"
+1,0
+"DB    504"
+1,0
+"DB    504"
+1,0
+"Wartosc enkodera lancucha A1"
+-1,0
+BOT
+1,0
+"Wartosc_En_Lan_A2"
+1,0
+"DB    502"
+1,0
+"DB    502"
+1,0
+"wartosc enkodera lancucha A2"
+-1,0
+BOT
+1,0
+"Wartosc_Pop_Enk_A1"
+1,0
+"MD    648"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wartosc_Pop_Enk_A2"
+1,0
+"MD    644"
+1,0
+"DINT"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wartosc_pred"
+1,0
+"FB     31"
+1,0
+"FB     31"
+1,0
+"Wartosc srednia predkosci"
+-1,0
+BOT
+1,0
+"Wartosc_predkosci"
+1,0
+"FC     31"
+1,0
+"FC     31"
+1,0
+"Predkosc usredniona"
+-1,0
+BOT
+1,0
+"Wartosci_Licznikow"
+1,0
+"DB    110"
+1,0
+"DB    110"
+1,0
+""
+-1,0
+BOT
+1,0
+"Warunk_Zatrz_Lan_A1"
+1,0
+"M      34.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Warunk_Zatrz_Lan_A2"
+1,0
+"M      34.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wejscie_Lancuch_A1"
+1,0
+"M     800.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wejscie_Lancuch_A2"
+1,0
+"M     700.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"WR_REC"
+1,0
+"SFC    58"
+1,0
+"SFC    58"
+1,0
+"Write Data Record"
+-1,0
+BOT
+1,0
+"Wydl_Predk_Back_A1"
+1,0
+"M     110.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wydl_Predk_Back_A2"
+1,0
+"M     110.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wykrycie_Startu"
+1,0
+"M    1009.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyl_Drzwi_Pleksa_Odb_A1"
+1,0
+"I       4.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyl_Drzwi_Pleksa_Odb_A2"
+1,0
+"I       1.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyl_Drzwi_Pleksa_Pob_A1"
+1,0
+"I       3.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyl_Drzwi_Pleksa_Pob_A2"
+1,0
+"I       0.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyl_Drzwi_Tyl_Odb_A1"
+1,0
+"I       4.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyl_Drzwi_Tyl_Odb_A2"
+1,0
+"I       1.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyl_Drzwi_Tyl_Pob_A1"
+1,0
+"I       3.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyl_Drzwi_Tyl_Pob_A2"
+1,0
+"I       0.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wylaczenie_Wzbudzenia_A1"
+1,0
+"M     304.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wylaczenie_Wzbudzenia_A2"
+1,0
+"M     304.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wym_Maku_A1_ST_ODW"
+1,0
+"M     520.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wym_Maku_A2_ST_ODW"
+1,0
+"M     520.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wymuszenie_Backup"
+1,0
+"M      30.1"
+1,0
+"BOOL"
+1,0
+"Bit wymuszajacy Backup"
+-1,0
+BOT
+1,0
+"Wyst_Stacja_Odw_A2"
+1,0
+"MD   1310"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyzeruj_Licznik_Ukl"
+1,0
+"M     310.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wyzw_Konca_produk"
+1,0
+"M    1401.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wzm_Falownikow"
+1,0
+"MD    560"
+1,0
+"REAL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wzor_licznika"
+1,0
+"UDT   101"
+1,0
+"UDT   101"
+1,0
+"Wzor licznika"
+-1,0
+BOT
+1,0
+"Wzor_licznka"
+1,0
+"UDT   103"
+1,0
+"UDT   103"
+1,0
+""
+-1,0
+BOT
+1,0
+"Wzorzec_Licznika"
+1,0
+"UDT   102"
+1,0
+"UDT   102"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zator_A1_Wylot_Falz"
+1,0
+"I      17.7"
+1,0
+"BOOL"
+1,0
+"Zator A1 na wylocie Falz (rezerwa) str 11"
+-1,0
+BOT
+1,0
+"Zator_A2_Wylot_Falz"
+1,0
+"I      17.6"
+1,0
+"BOOL"
+1,0
+"Zator A2 na wylocie Falz (rezerwa) str 11"
+-1,0
+BOT
+1,0
+"Zator_Lan_Odb_A1"
+1,0
+"I       5.0"
+1,0
+"BOOL"
+1,0
+"Zator Lancucha na odbiorze s48"
+-1,0
+BOT
+1,0
+"Zator_Lan_Odb_A2"
+1,0
+"I       2.0"
+1,0
+"BOOL"
+1,0
+"Zator Lancucha na odbiorze s48"
+-1,0
+BOT
+1,0
+"Zator_Lan_Pob_A1"
+1,0
+"I      18.1"
+1,0
+"BOOL"
+1,0
+"Zator A1 na pobraniu Lancucha str 12"
+-1,0
+BOT
+1,0
+"Zator_Lan_Pob_A2"
+1,0
+"I      18.0"
+1,0
+"BOOL"
+1,0
+"Zator A2 na pobraniu Lancucha str 12"
+-1,0
+BOT
+1,0
+"Zator_No_Backup_A1"
+1,0
+"M      37.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zator_No_Backup_A2"
+1,0
+"M      35.4"
+1,0
+"BOOL"
+1,0
+"Zator gdy praca na 2 wykladania"
+-1,0
+BOT
+1,0
+"Zatrzymaj_Tasmy_A1"
+1,0
+"M      35.3"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zatrzymaj_Tasmy_A2"
+1,0
+"M      35.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zawor_Odb_Dol_A1"
+1,0
+"Q       3.1"
+1,0
+"BOOL"
+1,0
+"Zawor brama dol s50"
+-1,0
+BOT
+1,0
+"Zawor_Odb_Dol_A2"
+1,0
+"Q       1.1"
+1,0
+"BOOL"
+1,0
+"Zawor brama dol s50"
+-1,0
+BOT
+1,0
+"Zawor_Odb_Gora_A1"
+1,0
+"Q       3.6"
+1,0
+"BOOL"
+1,0
+"Zawor brama gora s50"
+-1,0
+BOT
+1,0
+"Zawor_Odb_Gora_A2"
+1,0
+"Q       1.6"
+1,0
+"BOOL"
+1,0
+"Zawor brama gora s50"
+-1,0
+BOT
+1,0
+"Zawsze_OFF"
+1,0
+"M       0.1"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zawsze_ON"
+1,0
+"M       0.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zbocze_Backup_A1"
+1,0
+"M      35.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zbocze_Backup_A2"
+1,0
+"M      35.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zbocze_M521.0"
+1,0
+"M     521.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zez_do_RS"
+1,0
+"Q      43.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zez_Lancuch_A1"
+1,0
+"M      36.7"
+1,0
+"BOOL"
+1,0
+"Zezwolenie na prace tasm od lancucha"
+-1,0
+BOT
+1,0
+"Zez_Lancuch_A2"
+1,0
+"M      36.6"
+1,0
+"BOOL"
+1,0
+"Zezwolenie od Lancucha na prace Tasm"
+-1,0
+BOT
+1,0
+"Zez_Od_KBA_Na_A1"
+1,0
+"I      18.4"
+1,0
+"BOOL"
+1,0
+"Produkcja z KBA na A1"
+-1,0
+BOT
+1,0
+"Zez_Od_KBA_Na_A2"
+1,0
+"I      18.5"
+1,0
+"BOOL"
+1,0
+"Produkcja KBA na A2"
+-1,0
+BOT
+1,0
+"Zez_Predkosc_Tor_12"
+1,0
+"M    1008.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zezw_Predkosc_Tor_1"
+1,0
+"M    1003.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zezw_Predkosc_Tor_2"
+1,0
+"M    1007.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zezwoleni_A1_Falz"
+1,0
+"Q      23.5"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zezwolenie_A2_Falz"
+1,0
+"Q      23.6"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zezwolenie_praca_so"
+1,0
+"M    1009.0"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zjazd_Produktu"
+1,0
+"FC   1030"
+1,0
+"FC   1030"
+1,0
+"Funkcja robiaca zjazd produktu zlini"
+-1,0
+BOT
+1,0
+"Zwrotnica_Dolna"
+1,0
+"Q      21.7"
+1,0
+"BOOL"
+1,0
+"Zwrotnica Dolna str 8"
+-1,0
+BOT
+1,0
+"Zwrotnica_Gorna"
+1,0
+"Q      21.6"
+1,0
+"BOOL"
+1,0
+"Zwrotnica Gorna str 8"
+-1,0
+BOT
+1,0
+"Zwrotnica_Maku_Teraz_A1"
+1,0
+"M     803.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zwrotnica_Maku_Teraz_A2"
+1,0
+"M     703.2"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zwrotnica_Maku_Zaraz_A1"
+1,0
+"M     390.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zwrotnica_Maku_Zaraz_A2"
+1,0
+"M     380.4"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+BOT
+1,0
+"Zwrotnica_RS"
+1,0
+"Q       1.7"
+1,0
+"BOOL"
+1,0
+""
+-1,0
+EOD

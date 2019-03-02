@@ -1,0 +1,30 @@
+//Here is example pattern used for communication between server to plc and server to client
+
+client => (sendMessage) => server;
+client <= (getMessage) <= server;
+
+getMessage = getMessage is response from server when in a past client has send sendMessage
+sendMessage = sendMessage is instruction for server containing desc ,payload object ,info write or read, token for future use.
+  Most important is desc (description) because description is use for data resolving on server side.
+
+Socket object should look like this:
+    sObject = {
+      desc:"example panel",
+      token: "null for now",
+      payload: "some data",
+      write: "boolean instruction for write ,
+      read: "boolean instruction for read
+    }
+
+Read-Write Table:
+
+write  |  read  | info                              |
+-------|--------|-----------------------------------|
+false  |  false | nothing                           |
+false  |  true  | read data                         |
+true   |  false | write data and send confirmation  |
+true   |  true  | write data and read after write   |
+
+
+add Read Table info : For better handling angular side confirmation is a echo object;
+KNOW HOW PROTECT

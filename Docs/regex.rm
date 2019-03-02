@@ -1,0 +1,16 @@
+//******match whole word only
+//** \b means word boundary \b means 0. That is why we can retrieve whole word.
+//**example =>  /\b(foundedWord)\b/
+
+
+//***Match whole word with case insensitive
+//***Example means find all struct in string but don't bother if word have big or small letters
+//*** g is for global i is for case insensitive
+//expampe =>  /\b(stRuct)\b/gi
+
+//*** creating new RegExp dynamically
+//   this true regex for searching Array[0..3] of Bool => /\b(Array\[0..+?]\ of Bool)\b/gi
+//if type must be dynamically i must do following thing
+//   let pattern = `\\b(Array\\[0..+?]\\ of ${type})\\b`;
+//   let pattern2 = new RegExp(pattern,'gi'); //where gi is flag
+//   pattern2 == /\b(Array\[0..+?]\ of Bool)\b/gi //if type is Bool

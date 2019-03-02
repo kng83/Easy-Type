@@ -1,0 +1,74 @@
+﻿DATA_BLOCK "Super_Block"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+NON_RETAIN
+   STRUCT 
+      some_1 : Bool;
+      some_2 : Bool;
+      some_3 : Bool;
+      some_Int_1 : Int;
+      some_bit_0 : Bool;
+      some_byte_1 : Byte;
+      some_bit : Bool;
+      some_real : Real;
+      some_bit_1 : Bool;   // some 1
+      some_real_2 : Real;
+      some_bit_3 : Bool;
+      some_int : Int;
+      wasyl : Struct   // some 2
+         some_1 : Bool;
+         int_1 : Int;
+      END_STRUCT;
+      some_4 : Bool;   // some 3
+      Other_Real : Real;
+      some_arr : Array[0..10] of Int;
+      some_bool_2 : Bool;
+      some_other_arr : Array[0..7] of Bool;   // tekst some
+      some_9_bool : Bool;
+      other_Struct : Struct
+         one : Bool;
+         two : Bool;
+         three : Bool;
+      END_STRUCT;
+      some_other : Bool;
+      r1 : Bool;
+      some_bool_4 : Bool;
+      some_robert : Bool;
+      other : Bool;
+      some_Struct : Struct   // jal
+         rob : Bool;
+         dipper_Struct : Struct
+            littleOne : Bool;
+            litttleTwo : Int;
+         END_STRUCT;
+      END_STRUCT;
+      addidas : Bool;
+      kot_1 : Struct
+         item_1 : Bool;
+         item_2 : Bool;
+      END_STRUCT;
+      byte_1 : Byte;
+      some_bit_2 : Bool;
+      some_byte : Byte;
+      some_other_bit : Bool;
+      char_1 : Char;
+      bool_one : Bool;
+      int_44 : Int;
+      sbool : Bool;
+      sReal : Real;
+      ssbool : Bool;
+      ssInt : Int;
+      ARR_Bool_11 : Array[0..8] of Bool;
+      sssbool : Bool;
+      sssByte : Byte;
+      sssReal : Real;
+      arr_big : Array[98..109] of Int;
+      new_bool : Bool;
+   END_STRUCT;
+
+
+BEGIN
+   char_1 := ' ';
+
+END_DATA_BLOCK
+

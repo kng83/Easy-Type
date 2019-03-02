@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es2015.iterable",
+      "es2015",
+      "es2017"
+    ],
+    "outDir": "../dist/out-files"
+  },
+  "include": [
+    "**/*",
+    "../node_modules/@types/node/index.d.ts"
+  ],
+  "exclude": [
+    "dump"
+  ],
+  "typeRoots": [
+    "../node_modules/@types"
+  ]
+}
