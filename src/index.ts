@@ -1,4 +1,7 @@
-//import value from 'lobo.html';
-import  html from 'template.html'
-import * as json from  './jakis.json';
 
+import * as json from  '../common/jakis.json';
+import * as html from "../common/template.html";
+
+console.log(json);
+//console.log(html);
+//console.log(html)

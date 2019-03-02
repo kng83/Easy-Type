@@ -6,13 +6,15 @@
         "preserveConstEnums": true,
         "outDir": "./dist",
         "sourceMap": true,
-        "resolveJsonModule": true,
+        "resolveJsonModule": true
+
     },
     "include": [
         "src/**/*"
     ],
     "exclude": [
         "node_modules",
-        "**/*.spec.ts"
+        "**/*.spec.ts",
+        "common/**/*"
     ]
 }
