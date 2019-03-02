@@ -5,12 +5,6 @@ import {ApolloServer, gql} from 'apollo-server';
 
 const some ='some'
 
-// const typeDefs = gql`
-//   type Query {
-//     "A simple type for ${{some}} getting started!"
-//     hello: String
-//   }
-// `;
 const typeDefs = gql(content);
 
 // A map of functions which return data for the schema.
@@ -25,6 +19,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-server.listen().then(({ url }) => {
-  console.log(`Server ready at ${url}`);
+server.listen().then((s) => {
+  console.log(`Server ready at ${s.url}`);
 });
