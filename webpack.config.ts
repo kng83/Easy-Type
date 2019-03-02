@@ -35,6 +35,10 @@ const config: webpack.Configuration = {
         use: 'raw-loader',
       },
       {
+        test: /\.Gql$/i,
+        use: 'raw-loader',
+      },
+      {
         test: /\.tsx?$/,
         use: [
           {

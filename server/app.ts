@@ -1,9 +1,30 @@
 import express from "express";
 import txt  from './Text_Files/alpha.txt';
+import content from './Gql_Files/first.gql';
+import {ApolloServer, gql} from 'apollo-server';
 
-const app = express();
-const port = 3000;
-console.log(txt);
-app.get('/', (req, res) => res.send('Hello World!'))
+const some ='some'
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+// const typeDefs = gql`
+//   type Query {
+//     "A simple type for ${{some}} getting started!"
+//     hello: String
+//   }
+// `;
+const typeDefs = gql(content);
+
+// A map of functions which return data for the schema.
+const resolvers = {
+  Query: {
+    hello: () => 'world is mine',
+  },
+};
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+server.listen().then(({ url }) => {
+  console.log(`Server ready at ${url}`);
+});

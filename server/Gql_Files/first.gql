@@ -1,0 +1,5 @@
+#To jest jakis schemat pliku gql
+type Query {
+    hello: String
+    whatYourName:String
+  }
