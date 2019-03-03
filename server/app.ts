@@ -1,7 +1,7 @@
 import express from "express";
-import txt  from './Text_Files/alpha.txt';
+import txt from './Text_Files/alpha.txt';
 import content from './Gql_Files/first.gql';
-import {ApolloServer, gql} from 'apollo-server';
+import { ApolloServer, gql } from 'apollo-server';
 
 import mssql from 'mssql'
 
@@ -9,26 +9,26 @@ import mssql from 'mssql'
 let sql = mssql as any;
 
 (async () => {
-    try {
-        await sql.connect('mssql://sa:12345@localhost:49714/Pyszczek'); //
-        const result = await sql.query(
-               `SELECT TOP 5
+  try {
+    await sql.connect('mssql://sa:12345@localhost:49714/Pyszczek'); //
+    const result = await sql.query(
+      `SELECT TOP 5
                 [Name],[Age]
                 FROM [Pyszczek].[dbo].[First]`);
-        console.log(result.recordset);
+    console.log(result.recordset);
 
-        const second = await sql.query(
-            `INSERT INTO [Pyszczek].[dbo].[First]
-             VALUES ('Puszek',1);`//
-        )
+    const second = await sql.query(
+      `INSERT INTO [Pyszczek].[dbo].[First]
+             VALUES ('Puszek',1);`
+    )
 
-    } catch (err) {
-        // ... error checks
-        console.log(err.message);//
-    }
+  } catch (err) {
+    // ... error checks
+    console.log(err.message);//
+  }
 })();
 
-const some ='some'
+const some = 'some'
 
 const typeDefs = gql(content);
 
@@ -36,12 +36,22 @@ const typeDefs = gql(content);
 const resolvers = {
   Query: {
     hello: () => 'world is mine',
-  },
-};
+    user(id)  {
+      console.log(id)
+      return {
+        id:10,
+        firstName: 'Pawel',
+        lastName:'Keng',
+        email:'test@test.pl'
+      }
+    }
+  }
+}
+
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers
 });
 
 server.listen().then((s) => {
