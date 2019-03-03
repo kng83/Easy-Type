@@ -1,59 +1,60 @@
 import express from "express";
 import txt from './Text_Files/alpha.txt';
 import content from './Gql_Files/first.gql';
-import { ApolloServer, gql } from 'apollo-server';
+import {ApolloServer,gql} from 'apollo-server-express';
 
-import mssql from 'mssql'
-
-
-let sql = mssql as any;
-
-(async () => {
-  try {
-    await sql.connect('mssql://sa:12345@localhost:49714/Pyszczek'); //
-    const result = await sql.query(
-      `SELECT TOP 5
-                [Name],[Age]
-                FROM [Pyszczek].[dbo].[First]`);
-    console.log(result.recordset);
-
-    const second = await sql.query(
-      `INSERT INTO [Pyszczek].[dbo].[First]
-             VALUES ('Puszek',1);`
-    )
-
-  } catch (err) {
-    // ... error checks
-    console.log(err.message);//
-  }
-})();
-
-const some = 'some'
+const app = express();
 
 const typeDefs = gql(content);
 
-// A map of functions which return data for the schema.
+let users = {
+  1: {
+    id: '1',
+    username: 'Bobo the kot',
+  },
+  2: {
+    id: '2',
+    username: 'Some bill',
+  },
+};
+
+
 const resolvers = {
   Query: {
-    hello: () => 'world is mine',
-    user(id)  {
-      console.log(id)
-      return {
-        id:10,
-        firstName: 'Pawel',
-        lastName:'Keng',
-        email:'test@test.pl'
-      }
+    me: () => {
+      console.log('me query')
+      return {       
+        username: 'Pawel Keng',
+      };
+    },
+    users:() => {
+      console.log('userQuery', Object.values(users))
+      return Object.values(users)
+    },
+    //tu jest wazne bo bierzemy id
+    user: (parent ,{id}) => {
+      console.log('main',id)
+      return users[id]
+    },
+  },
+  User: {
+    //to robi balagan i wszystko nadpisuje
+    //username: () => 'Hans',
+    username: parent => {
+      console.log('USER',parent)
+      return parent.username
     }
   }
-}
+};
 
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers:resolvers
 });
 
-server.listen().then((s) => {
-  console.log(`Server ready at ${s.url}`);
-});
+server.applyMiddleware({app});
+
+app.listen({ port: 4000 }, () =>
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+)

@@ -1,12 +1,12 @@
 #To jest jakis schemat pliku gql
+
 type Query {
-    hello: String
-    user(id:String!):User
+    users:[User!]
+    me: User
+    user(id: ID!): User
   }
 
-type User {
-  id:ID!
-  firstName: String!
-  lastName:String!
-  email:String!
-}
+  type User {
+    id: ID!
+    username: String!
+  }
