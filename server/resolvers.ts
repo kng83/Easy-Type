@@ -37,10 +37,8 @@ export default {
 
     deleteMessage: (parent, { id }, { models }) => {
       const { [id]: message, ...otherMessages } = models.messages;
-
-      if (!message) {
-        return false;
-      }
+     
+      if (!message) { return false;}
 
       models.messages = otherMessages;
 
