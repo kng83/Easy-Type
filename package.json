@@ -13,6 +13,8 @@
     "express": "^4.16.2",
     "graphql": "^14.1.1",
     "mssql": "^4.3.2",
+    "sequelize": "^4.43.0",
+    "tedious": "^5.0.3",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
@@ -21,6 +23,7 @@
     "@types/graphql": "^14.0.7",
     "@types/mssql": "^4.0.12",
     "@types/node": "^11.10.4",
+    "@types/sequelize": "^4.27.39",
     "@types/webpack": "^4.4.17",
     "awesome-typescript-loader": "^5.2.1",
     "concurrently": "^4.0.1",
