@@ -38,13 +38,33 @@ sequelize.sync().then(async ()=>{
 const createUsersWithMessages = async () => {
   await models.User.create(
     {
-      username: 'rwieruch',      
-    }
+      username: 'rwieruch',
+      messages: [
+        {
+          txt: 'Published the Road to learn React',
+        },
+      ],
+    },
+    {
+      include: [models.Message],
+    },
   );
 
   await models.User.create(
     {
-      username: 'ddavids',    
+      username: 'ddavids',
+      messages: [
+        {
+          txt: 'Happy to release ...',
+        },
+        {
+          txt: 'Published a complete ...',
+        },
+      ],
+    },
+    {
+      include: [models.Message],
     },
   );
 };
+createUsersWithMessages();

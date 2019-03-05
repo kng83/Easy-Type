@@ -13,7 +13,7 @@ export default gql`
 
   type Message {
     id: ID!
-    text: String!
+    txt: String!
     user: User!
   }
 `;
