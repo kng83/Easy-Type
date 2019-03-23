@@ -1,6 +1,6 @@
 import cors from 'cors';
 import express from "express";
-import {ApolloServer} from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 
 import schema from './schema';
 import resolvers from './resolvers';
@@ -10,19 +10,23 @@ const app = express();
 
 
 const server = new ApolloServer({
-  typeDefs:schema,
-  resolvers:resolvers,
-  context:{
+  typeDefs: schema,
+  resolvers: resolvers,
+  context: async () => ({
     models,
-  }
-});
+    me: await models.User.findByLogin('pkeng'),
+  })
+});//
 
-server.applyMiddleware({app});
+server.applyMiddleware({ app });
 
 const eraseDatabaseOnSync = true;
 
-sequelize.sync().then(async ()=>{
-  app.listen({ port: 4000 }, () =>console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`))
+sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
+  if(eraseDatabaseOnSync){
+    createUsersWithMessages();
+  }
+  app.listen({ port: 4000 }, () => console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`))
 })
 
 //const MessageTag = sequelize.define('message_tag', {});
@@ -61,4 +65,3 @@ const createUsersWithMessages = async () => {
     },
   );
 };
-createUsersWithMessages();
