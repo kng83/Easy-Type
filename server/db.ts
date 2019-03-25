@@ -1,8 +1,8 @@
-import * as sql from 'mssql';
+import * as sqll from 'mssql';
 import * as msnodesqlv8 from 'mssql/msnodesqlv8';
 
 
-const config: sql.config = {
+const config: sqll.config = {
     user: 'sa',
     password: '12345',
     server: 'localhost',
@@ -14,15 +14,19 @@ const config: sql.config = {
     }
 };
 
+function sql(payload:any){
+    return payload;
+}
+
 (async () => {
     try {
-        const  connection = await new sql.ConnectionPool(config);
+        const  connection = await new sqll.ConnectionPool(config);
         await  connection.connect();
-
-        const result = await connection.query
-            `SELECT TOP 10 *
+        connection
+        const result = await connection.query(
+            sql`SELECT TOP 10 *
              FROM [Pyszczek].[dbo].[Pets]
-             ORDER BY id desc;`;
+             ORDER BY id desc;`);
 
         console.log(result.recordset, 's');
 
