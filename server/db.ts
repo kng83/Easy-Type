@@ -1,12 +1,13 @@
-import * as sqll from 'mssql';
+import * as mssql from 'mssql';
 import * as msnodesqlv8 from 'mssql/msnodesqlv8';
+import {sql} from './Tagged_Templates/sql_literals';
 
 
-const config: sqll.config = {
+const config: mssql.config = {
     user: 'sa',
     password: '12345',
     server: 'localhost',
-    port:49714,
+    port: 49714,
     database: 'Pyszczek',
     connectionTimeout: 10000,
     options: {
@@ -14,36 +15,27 @@ const config: sqll.config = {
     }
 };
 
-function sql(payload:any){
-    return payload;
-}
 
 (async () => {
     try {
-        const  connection = await new sqll.ConnectionPool(config);
-        await  connection.connect();
-        connection
-        const result = await connection.query(
-            sql`SELECT TOP 10 *
-             FROM [Pyszczek].[dbo].[Pets]
-             ORDER BY id desc;`);
+        const connection = await new mssql.ConnectionPool(config);
+        await connection.connect();
 
-        console.log(result.recordset, 's');
+        let nrOfSelectedItems = 13;
+        const result = await connection.query(
+            sql`
+                --some pseudo code
+                /*all and one */      
+                SELECT TOP ${nrOfSelectedItems} *
+                FROM [Pyszczek].[dbo].[Pets]
+                ORDER BY id desc;
+            `)
+        ;
+        console.log(result.recordset);
+        connection.close();
 
     } catch (err) {
         // ... error checks
         console.log(err.message);
     }
 })();
-
-
-
-// async function test_msnodesqlv8() {
-//     const connection = new msnodesqlv8.ConnectionPool(config);
-//     await connection.connect();
-//     const result = await connection.query
-//     `SELECT TOP 10 *
-//      FROM [Pyszczek].[dbo].[Pets]
-//        ORDER BY id desc;`;
-//     await connection.close();
-// }
