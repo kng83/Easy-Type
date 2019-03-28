@@ -1,6 +1,6 @@
 import * as mssql from 'mssql';
 import * as msnodesqlv8 from 'mssql/msnodesqlv8';
-import {sql} from './Tagged_Templates/sql_literals';
+import { sql } from './Tagged_Templates/sql_literals';
 
 
 const config: mssql.config = {
@@ -15,27 +15,17 @@ const config: mssql.config = {
     }
 };
 
-
-(async () => {
+//*** Change function async function into smaller function */
+async function queryWrapper(config: mssql.config, queryString: any) {
     try {
-        const connection = await new mssql.ConnectionPool(config);
-        await connection.connect();
-
-        let nrOfSelectedItems = 13;
-        const result = await connection.query(
-            sql`
-                --some pseudo code
-                /*all and one */      
-                SELECT TOP ${nrOfSelectedItems} *
-                FROM [Pyszczek].[dbo].[Pets]
-                ORDER BY id desc;
-            `)
-        ;
-        console.log(result.recordset);
+        const connection = await new mssql.ConnectionPool(config).connect()
+        const result = await connection.query(queryString)    
         connection.close();
+        return result.recordset;
 
     } catch (err) {
-        // ... error checks
-        console.log(err.message);
+        return err.message;
     }
-})();
+}
+
+export const  pyszczekQuery  = queryWrapper.bind(null,config);
