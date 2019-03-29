@@ -1,8 +1,12 @@
 
+/***Function used for embedded  sql highlighting
+ * add single quote (mssql needs them)
+*/ 
 export function sql<T extends { map: any }>(strings: T, ...values) {
-    let str = '';
-    strings.map((s, i) => {
-        str += s + (values[i] || '');
+    
+    let str = strings[0];
+    values.map((value, i) => {
+    str += ("'" + value + "'") + strings[i + 1];
     });
     return str as any as T;
 }

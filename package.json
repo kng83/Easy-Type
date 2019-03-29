@@ -6,10 +6,12 @@
   },
   "private": true,
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.2",
     "mssql": "^5.0.3"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.17.0",
     "@types/mssql": "^4.0.13",
     "@types/node": "^11.10.4",
     "@types/webpack": "^4.4.17",
