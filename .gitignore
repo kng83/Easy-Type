@@ -34,10 +34,5 @@ yarn-error.log
 testem.log
 /typings
 
-# System Files
-.DS_Store
+
 Thumbs.db
-/server/base
-/server/controllers
-/server/models
-/server/plc
