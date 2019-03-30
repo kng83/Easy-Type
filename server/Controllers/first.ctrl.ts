@@ -1,17 +1,16 @@
 import { pyszczekQuery } from '../db';
-import { sql } from '../Tagged_Templates/sql_literals';
+import { sql,s } from '../Tagged_Templates/sql_literals';
 
 
 export namespace ctrl {
 
     //*** Get all elements in table */
     export const getAll = async (req, res) => {
-        let num = `2`
         let data = await pyszczekQuery(
             sql`     
                 ------------------------SQL-----------------------------
 
-                SELECT TOP ${num} *
+                SELECT  * 
                     FROM [Pyszczek].[dbo].[Pets]
                     ORDER BY id desc;
 
@@ -23,16 +22,14 @@ export namespace ctrl {
     }
 
     export const getOldest = async (req, res) => {
-        let data = await pyszczekQuery(
-            sql`
+        let data = await pyszczekQuery(sql`
                 ------------------------SQL----------------------------
 
                 SELECT TOP 1 [name] FROM [Pyszczek].[dbo].[Pets]
                 ORDER by id desc;
 
                 ------------------------END_SQL------------------------
-                `
-        )
+                `)
         console.log(data);
         return res.send(data);
     }
@@ -61,34 +58,30 @@ export namespace ctrl {
     */
     export const insertNewPet = async (req,res) =>{
 
-        let dbData = await pyszczekQuery(
-            sql`
+        let {id:checkForHighestId} = (await pyszczekQuery(sql`
                 ------------------------SQL----------------------------
 
                 SELECT TOP 1 id FROM [Pyszczek].[dbo].[Pets]
                 Order by id desc;
 
                 ------------------------END_SQL------------------------
-                `
-        )
-        let {id:checkForHighestId} = dbData[0];
+                `))[0]
 
+        console.log(checkForHighestId)
         //Insert new data to table against pattern
         //egz.: localhost:3000/insertNewPet?Like=pizza&pet=kot&name=Bobo
-        console.log(req.query,checkForHighestId);
-    let {like,pet,name:n} = req.query;
+
+    let {Like:like,pet,name} = req.query;
     
-        let data = await pyszczekQuery(
-            sql`
+        let data = await pyszczekQuery(sql`
                 ------------------------SQL----------------------------
 
                 INSERT INTO  [Pyszczek].[dbo].[Pets] ([Like],[pet],[name])
-                VALUES (${like},${pet.toString()},${n.toString()});
+                VALUES (${s(like)}, ${s(pet)}, ${s(name)});
 
                 ------------------------END_SQL------------------------
-                `
-        )
-        console.log(await data);
+                `)
+        console.log(data);
         return res.send(data);
     }
 }
