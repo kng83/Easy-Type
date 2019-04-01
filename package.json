@@ -6,10 +6,12 @@
   },
   "private": true,
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v15.8.0"
   },
   "devDependencies": {
     "@types/node": "^11.10.4",
+    "@types/uws": "^0.13.2",
     "@types/webpack": "^4.4.17",
     "awesome-typescript-loader": "^5.2.1",
     "concurrently": "^4.0.1",
