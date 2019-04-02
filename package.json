@@ -6,7 +6,9 @@
   },
   "private": true,
   "dependencies": {
+    "@types/qs": "^6.5.2",
     "express": "^4.16.2",
+    "qs": "^6.7.0",
     "uWebSockets.js": "github:uNetworking/uWebSockets.js#v15.8.0"
   },
   "devDependencies": {

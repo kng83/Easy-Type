@@ -1,14 +1,17 @@
 
 import app from 'uWebSockets.js'
+import fs from 'fs';
+import qs from 'qs';
 const port = 9001;
+const page = fs.readFileSync('./index.html');
 
-const apps = app.SSLApp({
+const apps = app./*SSL*/App({
   key_file_name: 'misc/39321665_localhost.key',
   cert_file_name: 'misc/39321665_localhost.cert',
   passphrase: '1234'
 
-}).any('/anything', (res, req) => {
-  console.log('jest tu');
+}).get('/page', (res, req) => {
+  console.log(qs.parse(req.getQuery()))
   res.end('Any route with method: ' + req.getMethod());
 
 }).get('/user/agent', (res, req) => {
@@ -24,9 +27,9 @@ const apps = app.SSLApp({
   /* Parameters */
   res.end('So you want candy? Have some ' + req.getParameter(0) + '!');
 }).get('/*', (res, req) => {
-  /* Wildcards - make sure to catch them last *///
+  console.log(qs.parse(req.getQuery()))
   
-  res.end('./index.html');
+  return res.end(page);
 }).listen(port, (token) => {
 
   if (token) {
