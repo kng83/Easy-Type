@@ -16,7 +16,9 @@ const apps = app./*SSL*/App({
 
 }).get('/user/agent', (res, req) => {
   /* Read headers */
+  console.log(req.getHeader(''))
   res.writeHeader('uWebSockets', 'kot');
+  res.writeHeader('Content-Type','text/plain');
 
   res.end('Your user agent is: ' + req.getHeader('user-agent') + ' thank you, come again!');
 }).get('/static/yes', (res, req) => {
