@@ -10,10 +10,9 @@ const apps = app./*SSL*/App({
   cert_file_name: 'misc/39321665_localhost.cert',
   passphrase: '1234'
 
-}).get('/page', (res, req) => {
+}).get('/id', (res, req) => {
   console.log(qs.parse(req.getQuery()))
-  console.log(req.getQuery())
-  res.end('Any route with method: ' + req.getMethod());
+  res.end('');
 
 }).get('/user/agent', (res, req) => {
   /* Read headers */
