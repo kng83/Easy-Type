@@ -1,5 +1,6 @@
 
 import app from 'uWebSockets.js'
+import ws from 'uWebSockets.js'
 import fs from 'fs';
 import qs from 'qs';
 const port = 9001;
@@ -11,8 +12,20 @@ const apps = app./*SSL*/App({
   passphrase: '1234'
 
 }).get('/id', (res, req) => {
-  console.log(qs.parse(req.getQuery()))
-  res.end('');
+  res.writeHeader('some','Text/Plain');
+  res.writeHeader('some','Text/JSON');
+  res.writeHeader('Content-Type','Text/JSON');
+  res.writeHeader('Content-Type','Raw');
+ // res.writeHeader('Content-Length', '18')
+  console.log(res.getRemoteAddress());
+  console.log(new Uint8Array(res.getRemoteAddress()))
+  console.log('X-Real-IP: ' + req.getHeader('x-real-ip'));
+  console.log('X-Forwarded-For: ' + req.getHeader('x-forwarded-for'));
+  console.log('X-Forwarded-For: ' + req.getHeader('x-forwarded-for'));
+  console.log(req.getHeader('content-length'))
+
+  
+  res.end('Kukuruku');
 
 }).get('/user/agent', (res, req) => {
   /* Read headers */
