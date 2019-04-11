@@ -19,12 +19,13 @@ const apps = app./*SSL*/App({
   console.log('X-Real-IP: ' + req.getHeader('x-real-ip'));
   console.log('X-Forwarded-For: ' + req.getHeader('x-forwarded-for'));
   console.log('X-Forwarded-For: ' + req.getHeader('x-forwarded-for'));
-  console.log(req.getHeader('content-length'))
-
-  
+  console.log(req.getHeader('content-length'))  
   res.end('Kukuruku');
 
-}).get('/user/agent', (res, req) => {
+}).ws('/*',{
+  
+})
+.get('/user/agent', (res, req) => {
   /* Read headers */
   console.log(req.getHeader(''))
   res.writeHeader('uWebSockets', 'kot');
