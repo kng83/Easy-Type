@@ -94,10 +94,58 @@ function countCharAndPushToArray(arr:any[][],text:string){
     return arr;
 }
 
+function createCharMap(arr:any[][],text:string){
+    if(Array.isArray(arr[text.length])){
+        arr[text.length].push(text);
+    }else{
+        arr[text.length] = [];
+        arr[text.length].push(text);
+    }
+    return arr;
+}
+
+function recursionPosition(arr:any[][],value, ...positions){
+    let [pos,...rest] = [...positions]
+    if(rest.length>0){
+        if(Array.isArray(arr[pos])){
+            arr[pos].push(recursionPosition(arr[pos],value,...rest));
+        }else{
+            arr[pos] = [];
+            arr[pos].push(arr[pos].push(recursionPosition(arr[pos],value,...rest)));
+        }
+    }else{
+        if(Array.isArray(arr[pos])){
+            arr[pos].push(value);
+        }else{
+            arr[pos] = [];
+            arr[pos].push(value);
+        }
+        return arr;
+    }
+
+}
+
+
+function srecursionPosition(arr:any[][],position:number,value){
+    if(Array.isArray(arr[position])){
+        arr[position].push(value);
+    }else{
+        arr[position] = [];
+        arr[position].push(value);
+    }
+    return arr;
+}
+
 let some = 'text';
 let arr = [];
-countCharAndPushToArray(arr,some);
-countCharAndPushToArray(arr,'kot');
-countCharAndPushToArray(arr,'pies');
-countCharAndPushToArray(arr,'this/is/very/long/text/and/is/equal/37');
+recursionPosition(arr,some,some.length,some.charCodeAt(0));
+recursionPosition(arr,'kot',3);
+recursionPosition(arr,'pies',5);
+recursionPosition(arr,'this/is/very/long/text/and/is/equal/37',12);
+//arr[some.charCodeAt(0)]=some.charCodeAt(0);
 console.log(arr);
+console.log(arr[some.length][some.charCodeAt(0)][0])
+let positions = [1]
+let [pos,...rest] = [...positions]//
+console.log(rest.length);
+console.log(pos,rest);
