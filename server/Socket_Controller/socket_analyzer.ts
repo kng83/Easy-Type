@@ -20,20 +20,21 @@ export default function socket_analyzer(message: SocketData) {
     //    {verifyUser:'admin',ctrl:ExampleCtrl}
     //])
     //SocketDemultiplexer.CreateInstance.mountMessage(message)
-    let me = SocketDemultiplexer.CreateInstance.messageResolver(message);
-    return me
+    return SocketDemultiplexer.CreateInstance.messageResolver(message);
+
 }
 
 //** SocketDemultiplexer resolve socket to specify controller and user */
 class SocketDemultiplexer {
 
-    //**Singleton Instance of SocketDemultiplexer */
-    private _instance: SocketDemultiplexer;
+
     //**Create singleton instance */
     public static get CreateInstance() {
-        const self = this as any;
-        return (self._instance || (self._instance = new this()))
+        return ((this as any)._instance || ((this as any)._instance = new SocketDemultiplexer())) as SocketDemultiplexer
+
     }
+    //**Singleton Instance of SocketDemultiplexer */
+    private _instance: SocketDemultiplexer;
 
     /**Private data taken from message context */
     private userType: string;
@@ -61,10 +62,42 @@ class SocketParser {
     verifyUser(userType: string) {
         this.userType = userType;
     }
-    mountCtrl(desc, fn: (data: string) => string) {
+    mountCtrl(desc:string, fn: (data: string) => string) {
         if (desc = this.desc)
             return fn(this.data)
     }
 }
 let mes = new SocketParser();
 mes.mountCtrl('some', (some) => some);
+
+
+/* Here is pattern object for handling requests 
+    let be = [
+       {verifyUser:'admin',dest:'some', ctrl:ExampleCtrl},
+       {verifyUser:'admin',dest:'some/other',ctrl:SuperCtrl},
+       {verifyUser:'admin',dest:'other/some',ctrl:extraCtrl},
+    ]
+*/
+
+
+//To effective routing they will be created two arrays.First 
+//Make array which has in element has number of charter used in word
+//example there is very long text: this/is/very/long/text/and/is/equal/37
+
+function countCharAndPushToArray(arr:any[][],text:string){
+    if(Array.isArray(arr[text.length])){
+        arr[text.length].push(text);
+    }else{
+        arr[text.length] = [];
+        arr[text.length].push(text);
+    }
+    return arr;
+}
+
+let some = 'text';
+let arr = [];
+countCharAndPushToArray(arr,some);
+countCharAndPushToArray(arr,'kot');
+countCharAndPushToArray(arr,'pies');
+countCharAndPushToArray(arr,'this/is/very/long/text/and/is/equal/37');
+console.log(arr);
