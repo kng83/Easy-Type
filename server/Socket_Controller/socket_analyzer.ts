@@ -1,4 +1,5 @@
 import WebSocket from 'ws';
+import { stringify } from 'querystring';
 
 //Here is example interface which each socket have to run 
 interface SocketClientMessage {
@@ -20,6 +21,7 @@ export default function socket_analyzer(message: SocketData) {
     //    {verifyUser:'admin',ctrl:ExampleCtrl}
     //])
     //SocketDemultiplexer.CreateInstance.mountMessage(message)
+    //SD.mountMessage(message).verifyUser('admin')
     return SocketDemultiplexer.CreateInstance.messageResolver(message);
 
 }
@@ -62,7 +64,7 @@ class SocketParser {
     verifyUser(userType: string) {
         this.userType = userType;
     }
-    mountCtrl(desc:string, fn: (data: string) => string) {
+    mountCtrl(desc: string, fn: (data: string) => string) {
         if (desc = this.desc)
             return fn(this.data)
     }
@@ -80,72 +82,57 @@ mes.mountCtrl('some', (some) => some);
 */
 
 
-//To effective routing they will be created two arrays.First 
-//Make array which has in element has number of charter used in word
-//example there is very long text: this/is/very/long/text/and/is/equal/37
 
-function countCharAndPushToArray(arr:any[][],text:string){
-    if(Array.isArray(arr[text.length])){
-        arr[text.length].push(text);
-    }else{
-        arr[text.length] = [];
-        arr[text.length].push(text);
-    }
-    return arr;
+let objArr = [
+    { verifyUser: 'admin', dest: 'some' },
+    { verifyUser: 'admin', dest: 'somd' },
+    { verifyUser: 'admin', dest: 'some/other' },
+    { verifyUser: 'admin', dest: 'other/some' },
+]
+
+
+function createMap<T>(objArr: T[], primaryObjKey: string) {
+    let mapObj = new Map<string, T>();
+    objArr.forEach(el => {
+        mapObj.set(el[primaryObjKey], el)
+    })
+    return mapObj;
 }
 
-function createCharMap(arr:any[][],text:string){
-    if(Array.isArray(arr[text.length])){
-        arr[text.length].push(text);
-    }else{
-        arr[text.length] = [];
-        arr[text.length].push(text);
-    }
-    return arr;
-}
+let s = createMap(objArr, 'dest');
+console.log(s);
 
-function recursionPosition(arr:any[][],value, ...positions){
-    let [pos,...rest] = [...positions]
-    if(rest.length>0){
-        if(Array.isArray(arr[pos])){
-            arr[pos].push(recursionPosition(arr[pos],value,...rest));
-        }else{
-            arr[pos] = [];
-            arr[pos].push(arr[pos].push(recursionPosition(arr[pos],value,...rest)));
-        }
-    }else{
-        if(Array.isArray(arr[pos])){
-            arr[pos].push(value);
-        }else{
-            arr[pos] = [];
-            arr[pos].push(value);
-        }
-        return arr;
+class SD {
+
+
+    //**Create singleton instance */
+    public static get Create() {
+        return ((this as any)._instance || ((this as any)._instance = new SD())) as SD;
     }
 
-}
-
-
-function srecursionPosition(arr:any[][],position:number,value){
-    if(Array.isArray(arr[position])){
-        arr[position].push(value);
-    }else{
-        arr[position] = [];
-        arr[position].push(value);
+    public mountMappingArr<T>(objArr: T[]) {
+        this._objArr = [...objArr] as T[]
+        return this;
     }
-    return arr;
+
+    //**Map object to primary key */
+    public mapObjToPrimaryKey<T>(primaryObjKey: string) {
+        this._mapObj = new Map<string, T>();
+        console.log(this._objArr);
+        this._objArr.forEach(el => {
+          //  this._mapObj.set(el[primaryObjKey], el)
+        })
+        return this;
+    }
+    //**Singleton Instance of SocketDemultiplexer */
+    private _instance: SD;
+    private _objArr: any;
+    private _mapObj: any;
+
+    getObjArr() {
+        return this._objArr;
+    }
 }
 
-let some = 'text';
-let arr = [];
-recursionPosition(arr,some,some.length,some.charCodeAt(0));
-recursionPosition(arr,'kot',3);
-recursionPosition(arr,'pies',5);
-recursionPosition(arr,'this/is/very/long/text/and/is/equal/37',12);
-//arr[some.charCodeAt(0)]=some.charCodeAt(0);
-console.log(arr);
-console.log(arr[some.length][some.charCodeAt(0)][0])
-let positions = [1]
-let [pos,...rest] = [...positions]//
-console.log(rest.length);
-console.log(pos,rest);
+let me = SD.Create.mountMappingArr(objArr).mapObjToPrimaryKey('dest').getObjArr();
+console.log(me);
