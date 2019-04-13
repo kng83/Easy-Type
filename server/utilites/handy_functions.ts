@@ -19,3 +19,13 @@ function mapValueInPositionedArray(arr: any[][], value, ...positions: number[]) 
     }
     return arr;
 }
+
+//**Function to pass object from arrays using primary key from object like for example email */
+function createMap<T>(objArr: T[], primaryObjKey: string) {
+    let mapObj = new Map<string, T>();
+    objArr.forEach(el => {
+        mapObj.set(el[primaryObjKey], el)
+    })
+    return mapObj;
+}
+

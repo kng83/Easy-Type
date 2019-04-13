@@ -6,7 +6,7 @@ interface SocketClientMessage {
     user: string;
     token: string;
     userType: string;
-    desc: string;
+    dest: string;
     data: string;
 }
 
@@ -14,64 +14,23 @@ type SocketData = SocketClientMessage & WebSocket.Data;
 
 
 export default function socket_analyzer(message: SocketData) {
-    console.log(message);
-    //Todo something like this
-    //SocketDemultiplexer.MountMessage(message).ValidateAgainstUser('admin').MountController(exampleController)
-    //SD.mountMessage(message).MountControllers([
-    //    {verifyUser:'admin',ctrl:ExampleCtrl}
-    //])
-    //SocketDemultiplexer.CreateInstance.mountMessage(message)
-    //SD.mountMessage(message).verifyUser('admin')
-    return SocketDemultiplexer.CreateInstance.messageResolver(message);
+    let me = SD.Create
+    .mountMappingArr(objArr)
+    .mapObjToPrimaryKey('dest').mountMessage(message)
+    
+    return me
 
 }
 
-//** SocketDemultiplexer resolve socket to specify controller and user */
-class SocketDemultiplexer {
 
 
-    //**Create singleton instance */
-    public static get CreateInstance() {
-        return ((this as any)._instance || ((this as any)._instance = new SocketDemultiplexer())) as SocketDemultiplexer
-
-    }
-    //**Singleton Instance of SocketDemultiplexer */
-    private _instance: SocketDemultiplexer;
-
-    /**Private data taken from message context */
-    private userType: string;
-    private token: string;
-    private desc: string;
-    private data: string;
-
-    //**Mount message for  */
-    messageResolver(message: SocketData) {
-        this.userType = message.userType;
-        this.token = message.token;
-        this.desc = message.desc;
-        this.data = message.data;
-        return message;
-    }
-
+let someMsg:SocketClientMessage ={
+    user: 'Pawel',
+    token: 'some',
+    userType: '3',
+    dest: 'some',
+    data: 'string'
 }
-
-class SocketParser {
-    private userType: string;
-    private token: string;
-    private desc: string;
-    private data: string;
-
-    verifyUser(userType: string) {
-        this.userType = userType;
-    }
-    mountCtrl(desc: string, fn: (data: string) => string) {
-        if (desc = this.desc)
-            return fn(this.data)
-    }
-}
-let mes = new SocketParser();
-mes.mountCtrl('some', (some) => some);
-
 
 /* Here is pattern object for handling requests 
     let be = [
@@ -81,8 +40,6 @@ mes.mountCtrl('some', (some) => some);
     ]
 */
 
-
-
 let objArr = [
     { verifyUser: 'admin', dest: 'some' },
     { verifyUser: 'admin', dest: 'somd' },
@@ -90,32 +47,27 @@ let objArr = [
     { verifyUser: 'admin', dest: 'other/some' },
 ]
 
-
-function createMap<T>(objArr: T[], primaryObjKey: string) {
-    let mapObj = new Map<string, T>();
-    objArr.forEach(el => {
-        mapObj.set(el[primaryObjKey], el)
-    })
-    return mapObj;
-}
-
-let s = createMap(objArr, 'dest');
-console.log(s);
-
 class SD {
 
     //**Create singleton instance */
     public static get Create() {
         return ((this as any)._instance || ((this as any)._instance = new SD())) as SD;
     }
+    //**Private variables */
+    private _instance: SD;
+    private _objArr: any[];
+    private _mapObj: Map<string, any>;
+    private _primaryKey:string;
 
+    //**Public api */
     public mountMappingArr<T>(objArr: T[]) {
         this._objArr = [...objArr] as T[]
-        return this;
+        return this as Pick<SD,'mapObjToPrimaryKey'>
     }
 
     //**Map object to primary key */
     public mapObjToPrimaryKey<T>(primaryObjKey: string) {
+        this._primaryKey = primaryObjKey;
         this._mapObj = new Map<string, T>();
         this._objArr.forEach(el => {
             this._mapObj.set(el[primaryObjKey], el)
@@ -123,14 +75,44 @@ class SD {
         return this;
     }
 
-    private _instance: SD;
-    private _objArr: any[];
-    private _mapObj: Map<string, any>;
-
-    getObjArr() {
-        return this._mapObj
+    //**Mount message */
+    public mountMessage<T>(message:T) {
+        //this should be destination key 
+        return [message ,this._mapObj.get(message[this._primaryKey])];
     }
+
 }
 
-let me = SD.Create.mountMappingArr(objArr).mapObjToPrimaryKey('dest').getObjArr();
-console.log(me);
+
+class SDD<K> {
+    
+    //**Create singleton instance */
+    public static  mountMappingArr<T>(objArr: T[]) {
+        return new SDD(objArr) as Pick<SDD<T>,'mapObjToPrimaryKey'>      
+    }
+
+    //**Private variables */
+    private _mapObj: Map<string, K>;
+    private _primaryKey:string;
+    private constructor(private readonly _objArr:K[]){}
+
+    //**Map object to primary key */
+    public mapObjToPrimaryKey(primaryObjKey: string) {
+        this._primaryKey = primaryObjKey;
+        this._mapObj = new Map<string, K>();
+        this._objArr.forEach(el => {
+            this._mapObj.set(el[primaryObjKey], el)
+        })
+        return this as Pick<SDD<K>,'mountMessage'>
+    }
+
+    //**Mount message */
+    public mountMessage<T>(message:T) {
+        //this should be destination key 
+        return [message ,this._mapObj.get(message[this._primaryKey])] as [T,K]
+    } 
+
+}
+
+let a = SDD.mountMappingArr(objArr).mapObjToPrimaryKey('dest').mountMessage(someMsg)
+console.log(a[1]);
