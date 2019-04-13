@@ -14,11 +14,10 @@ type SocketData = SocketClientMessage & WebSocket.Data;
 
 
 export default function socket_analyzer(message: SocketData) {
-    let me = SD.Create
-    .mountMappingArr(objArr)
-    .mapObjToPrimaryKey('dest').mountMessage(message)
-    
-    return me
+    let mountMsg = SD.mountMappingArr(objArr)
+                      .mapObjToPrimaryKey('dest')
+                      .createMountMsgFn()
+
 
 }
 
@@ -47,48 +46,14 @@ let objArr = [
     { verifyUser: 'admin', dest: 'other/some' },
 ]
 
-class SD {
-
-    //**Create singleton instance */
-    public static get Create() {
-        return ((this as any)._instance || ((this as any)._instance = new SD())) as SD;
-    }
-    //**Private variables */
-    private _instance: SD;
-    private _objArr: any[];
-    private _mapObj: Map<string, any>;
-    private _primaryKey:string;
-
-    //**Public api */
-    public mountMappingArr<T>(objArr: T[]) {
-        this._objArr = [...objArr] as T[]
-        return this as Pick<SD,'mapObjToPrimaryKey'>
-    }
-
-    //**Map object to primary key */
-    public mapObjToPrimaryKey<T>(primaryObjKey: string) {
-        this._primaryKey = primaryObjKey;
-        this._mapObj = new Map<string, T>();
-        this._objArr.forEach(el => {
-            this._mapObj.set(el[primaryObjKey], el)
-        })
-        return this;
-    }
-
-    //**Mount message */
-    public mountMessage<T>(message:T) {
-        //this should be destination key 
-        return [message ,this._mapObj.get(message[this._primaryKey])];
-    }
-
-}
 
 
-class SDD<K> {
+//***Socket Demultiplexer */
+class SD<K> {
     
     //**Create singleton instance */
     public static  mountMappingArr<T>(objArr: T[]) {
-        return new SDD(objArr) as Pick<SDD<T>,'mapObjToPrimaryKey'>      
+        return new SD(objArr) as Pick<SD<T>,'mapObjToPrimaryKey'>      
     }
 
     //**Private variables */
@@ -103,16 +68,44 @@ class SDD<K> {
         this._objArr.forEach(el => {
             this._mapObj.set(el[primaryObjKey], el)
         })
-        return this as Pick<SDD<K>,'mountMessage'>
+        return this as any as Pick<SD<K>,'mountMessage' | 'createMountMsgFn'>
     }
 
     //**Mount message */
     public mountMessage<T>(message:T) {
         //this should be destination key 
         return [message ,this._mapObj.get(message[this._primaryKey])] as [T,K]
-    } 
+    }
 
+    //**Bind function which returns [message,mappingElement] */
+    public createMountMsgFn() {
+        //this should be destination key 
+        return <T>(message:T) => [message ,this._mapObj.get(message[this._primaryKey])] as [T,K]
+    }
 }
 
-let a = SDD.mountMappingArr(objArr).mapObjToPrimaryKey('dest').mountMessage(someMsg)
-console.log(a[1]);
+let mountMsg = SD.mountMappingArr(objArr).mapObjToPrimaryKey('dest').createMountMsgFn()
+console.log(mountMsg(someMsg))
+
+const pipe = <T>(fn1: (a: T) => T, ...fns: Array<(a: T) => T>) =>
+  fns.reduce((prevFn, nextFn) => value => nextFn(prevFn(value)), fn1);
+
+let add2 = (a:number) =>a +2;
+let piped  = pipe(add2,add2)
+console.log(piped(2));
+
+
+function count(){
+    let some = 0;
+    function c() {
+        some++
+        return some
+       
+    }
+    return c()
+}
+let m =count();
+count()
+count()
+count()
+console.log(m);
