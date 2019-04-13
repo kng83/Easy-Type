@@ -104,7 +104,6 @@ console.log(s);
 
 class SD {
 
-
     //**Create singleton instance */
     public static get Create() {
         return ((this as any)._instance || ((this as any)._instance = new SD())) as SD;
@@ -118,19 +117,18 @@ class SD {
     //**Map object to primary key */
     public mapObjToPrimaryKey<T>(primaryObjKey: string) {
         this._mapObj = new Map<string, T>();
-        console.log(this._objArr);
         this._objArr.forEach(el => {
-          //  this._mapObj.set(el[primaryObjKey], el)
+            this._mapObj.set(el[primaryObjKey], el)
         })
         return this;
     }
-    //**Singleton Instance of SocketDemultiplexer */
+
     private _instance: SD;
-    private _objArr: any;
-    private _mapObj: any;
+    private _objArr: any[];
+    private _mapObj: Map<string, any>;
 
     getObjArr() {
-        return this._objArr;
+        return this._mapObj
     }
 }
 
