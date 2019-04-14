@@ -1,34 +1,15 @@
 import WebSocket from 'ws';
 import { stringify } from 'querystring';
+import {pipe} from '../utilites/utilites';
+
 
 //Here is example interface which each socket have to run 
-interface SocketClientMessage {
+interface SCMessage {
     user: string;
     token: string;
     userType: string;
     dest: string;
-    data: string;
-}
-
-type SocketData = SocketClientMessage & WebSocket.Data;
-
-
-export default function socket_analyzer(message: SocketData) {
-    let mountMsg = SD.mountMappingArr(objArr)
-                      .mapObjToPrimaryKey('dest')
-                      .createMountMsgFn()
-
-
-}
-
-
-
-let someMsg:SocketClientMessage ={
-    user: 'Pawel',
-    token: 'some',
-    userType: '3',
-    dest: 'some',
-    data: 'string'
+    data: WebSocket.Data;
 }
 
 /* Here is pattern object for handling requests 
@@ -39,6 +20,45 @@ let someMsg:SocketClientMessage ={
     ]
 */
 
+interface Mapper {
+    verfiyUser: string;
+    dest: string;
+    ctrl: <T, U>(data: T) => U
+}
+interface PassErr {
+    err: boolean | null | undefined;
+    [key: string]: any;
+}
+type PassData<T> = PassErr & T;
+
+
+
+//***passData is used also to pass errors */
+interface PassingData<R, S, T> {
+    message: R,
+    mapper: S,
+    passData: T,
+}
+
+export default function socket_analyzer(message) {
+    let mountMsgFn = SD.mountMappingArr(objArr)
+        .mapObjToPrimaryKey('dest')
+        .createMountMsgFn()
+
+    return pipe(runCtrl,verifyUser,sendMessage);
+    
+}
+
+
+
+let someMsg: SCMessage = {
+    user: 'Pawel',
+    token: 'some',
+    userType: '3',
+    dest: 'some',
+    data: 'string'
+}
+
 let objArr = [
     { verifyUser: 'admin', dest: 'some' },
     { verifyUser: 'admin', dest: 'somd' },
@@ -46,66 +66,69 @@ let objArr = [
     { verifyUser: 'admin', dest: 'other/some' },
 ]
 
-
-
 //***Socket Demultiplexer */
 class SD<K> {
-    
+
     //**Create singleton instance */
-    public static  mountMappingArr<T>(objArr: T[]) {
-        return new SD(objArr) as Pick<SD<T>,'mapObjToPrimaryKey'>      
+    public static mountMappingArr<T>(objArr: T[]) {
+        return new SD(objArr) as Pick<SD<T>, 'mapObjToPrimaryKey'>
     }
 
     //**Private variables */
-    private _mapObj: Map<string, K>;
-    private _primaryKey:string;
-    private constructor(private readonly _objArr:K[]){}
+    private _mapper: Map<string, K>;
+    private _primaryKey: string;
+    private constructor(private readonly _objArr: K[]) { }
 
     //**Map object to primary key */
     public mapObjToPrimaryKey(primaryObjKey: string) {
         this._primaryKey = primaryObjKey;
-        this._mapObj = new Map<string, K>();
+        this._mapper = new Map<string, K>();
         this._objArr.forEach(el => {
-            this._mapObj.set(el[primaryObjKey], el)
+            this._mapper.set(el[primaryObjKey], el)
         })
-        return this as any as Pick<SD<K>,'mountMessage' | 'createMountMsgFn'>
-    }
-
-    //**Mount message */
-    public mountMessage<T>(message:T) {
-        //this should be destination key 
-        return [message ,this._mapObj.get(message[this._primaryKey])] as [T,K]
+        return this as any as Pick<SD<K>, 'createMountMsgFn'>
     }
 
     //**Bind function which returns [message,mappingElement] */
     public createMountMsgFn() {
         //this should be destination key 
-        return <T>(message:T) => [message ,this._mapObj.get(message[this._primaryKey])] as [T,K]
+        return <T>(message: T) => {
+            return {
+                message,
+                mapper: this._mapper.get(message[this._primaryKey]),
+                err: null
+            }
+        }
     }
 }
+
 
 let mountMsg = SD.mountMappingArr(objArr).mapObjToPrimaryKey('dest').createMountMsgFn()
 console.log(mountMsg(someMsg))
 
-const pipe = <T>(fn1: (a: T) => T, ...fns: Array<(a: T) => T>) =>
-  fns.reduce((prevFn, nextFn) => value => nextFn(prevFn(value)), fn1);
-
-let add2 = (a:number) =>a +2;
-let piped  = pipe(add2,add2)
-console.log(piped(2));
-
-
-function count(){
-    let some = 0;
-    function c() {
-        some++
-        return some
-       
-    }
-    return c()
+//**Verification for now is dummy */
+function verifyUser<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
+    if (payload.passData.err) return payload;
+    const { mapper } = payload;
+    //Todo some staff
+    return payload;
 }
-let m =count();
-count()
-count()
-count()
-console.log(m);
+
+//**Running the ctrl */
+function runCtrl<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
+    if (payload.passData.err) return payload;
+    //---
+    const { mapper } = payload;
+    payload.passData = mapper.ctrl(payload.message.data)
+    return payload;
+}
+
+//** send message*/
+function sendMessage<T>( payload : PassingData<SCMessage, Mapper, PassData<T>>) {
+    //** TODO make some error handling before sending */
+    let {passData} = payload;
+    return passData;
+}
+
+
+
