@@ -1,16 +1,15 @@
 import WebSocket from 'ws';
 import { stringify } from 'querystring';
-import {pipe} from './utilites/utilites';
-//import {pipe} from './utilites/pipe';
+import { pipe } from './utilites/src/pipe';
+import { isNumber } from 'util';
+//import {pipe} from './utilites/utilites';
 
 
-//Here is example interface which each socket have to run 
+
 interface SCMessage {
-    user: string;
-    token: string;
-    userType: string;
-    dest: string;
-    data: WebSocket.Data;
+    user:string;
+    userType:string;
+    data:any;
 }
 
 /* Here is pattern object for handling requests 
@@ -22,7 +21,7 @@ interface SCMessage {
 */
 
 interface Mapper {
-    verfiyUser: string;
+    verifyUser: string;
     dest: string;
     ctrl: <T, U>(data: T) => U
 }
@@ -30,9 +29,9 @@ interface PassErr {
     err: boolean | null | undefined;
     [key: string]: any;
 }
-type PassData<T> = PassErr & T;
+interface PassData<T> extends PassErr {
 
-
+} 
 
 //***passData is used also to pass errors */
 interface PassingData<R, S, T> {
@@ -42,30 +41,22 @@ interface PassingData<R, S, T> {
 }
 
 export default function socket_analyzer(message) {
+    let objArr = [
+        { verifyUser: 'admin', dest: 'some', ctrl: makeEchoCtrl },
+        { verifyUser: 'admin', dest: 4, ctrl: makeEchoCtrl },
+        { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
+        { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
+    ]
+
     let mountMsgFn = SD.mountMappingArr(objArr)
         .mapObjToPrimaryKey('dest')
         .createMountMsgFn()
-    
-    return pipe(runCtrl,verifyUser,sendMessage);
-    
+
+    let passer = mountMsgFn(message)
+    console.log(passer);
+    let msg = pipe(runCtrl, sendMessage)(passer);
+
 }
-
-
-
-let someMsg: SCMessage = {
-    user: 'Pawel',
-    token: 'some',
-    userType: '3',
-    dest: 'some',
-    data: 'string'
-}
-
-let objArr = [
-    { verifyUser: 'admin', dest: 'some' },
-    { verifyUser: 'admin', dest: 'somd' },
-    { verifyUser: 'admin', dest: 'some/other' },
-    { verifyUser: 'admin', dest: 'other/some' },
-]
 
 //***Socket Demultiplexer */
 class SD<K> {
@@ -80,6 +71,7 @@ class SD<K> {
     private _primaryKey: string;
     private constructor(private readonly _objArr: K[]) { }
 
+
     //**Map object to primary key */
     public mapObjToPrimaryKey(primaryObjKey: string) {
         this._primaryKey = primaryObjKey;
@@ -93,19 +85,29 @@ class SD<K> {
     //**Bind function which returns [message,mappingElement] */
     public createMountMsgFn() {
         //this should be destination key 
-        return <T>(message: T) => {
+        return (message: string) => {
+            const passData:PassData<any> = { err: false }
+            let msg = JSON.stringify("");
+
+            try {
+                msg = JSON.parse(message)
+            } catch (e) {
+                passData.err = true;
+            }
+            
+            const mapper = this._mapper.get(msg[this._primaryKey])
+            mapper == undefined ? passData.err = true : passData.err = false;
+
             return {
-                message,
-                mapper: this._mapper.get(message[this._primaryKey]),
-                err: null
+                message: msg,
+                mapper,
+                passData
             }
         }
     }
 }
 
-
-let mountMsg = SD.mountMappingArr(objArr).mapObjToPrimaryKey('dest').createMountMsgFn()
-console.log(mountMsg(someMsg))
+//
 
 //**Verification for now is dummy */
 function verifyUser<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
@@ -117,18 +119,30 @@ function verifyUser<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
 
 //**Running the ctrl */
 function runCtrl<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
+    console.log(payload);
     if (payload.passData.err) return payload;
     //---
+    console.log(payload);
     const { mapper } = payload;
     payload.passData = mapper.ctrl(payload.message.data)
     return payload;
-}
-
+}//
+//
 //** send message*/
-function sendMessage<T>( payload : PassingData<SCMessage, Mapper, PassData<T>>) {
+function sendMessage<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
     //** TODO make some error handling before sending */
-    let {passData} = payload;
+    let { passData } = payload;
     return passData;
 }
 
 
+let makeEchoCtrl = <T>(data: T) => {
+    return data;
+}
+
+let objArr = [
+    { verifyUser: 'admin', dest: 'some', ctrl: makeEchoCtrl },
+    { verifyUser: 'admin', dest: 'somd', ctrl: makeEchoCtrl },
+    { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
+    { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
+]
