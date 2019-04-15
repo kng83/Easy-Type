@@ -6,44 +6,39 @@ import { isNumber } from 'util';
 
 
 
-interface SCMessage {
+interface SCMessage  {
     user:string;
     userType:string;
+    dest:string;
     data:any;
 }
 
-/* Here is pattern object for handling requests 
-    let be = [
-       {verifyUser:'admin',dest:'some', ctrl:ExampleCtrl},
-       {verifyUser:'admin',dest:'some/other',ctrl:SuperCtrl},
-       {verifyUser:'admin',dest:'other/some',ctrl:extraCtrl},
-    ]
-*/
+type Foo<T> = T extends { a: infer U, b: infer U } ? U : never;
+type Ctrl<T,R> = (data:T) => R;
 
-interface Mapper {
+interface Mapper<T,R> {
     verifyUser: string;
     dest: string;
-    ctrl: <T, U>(data: T) => U
+    ctrl: Ctrl<T,R>;
 }
-interface PassErr {
-    err: boolean | null | undefined;
-    [key: string]: any;
-}
-interface PassData<T> extends PassErr {
 
+interface PassData<K>{
+    err: boolean | null | undefined;
+    data?:K;
+    [key: string]: any;
 } 
 
 //***passData is used also to pass errors */
-interface PassingData<R, S, T> {
-    message: R,
-    mapper: S,
-    passData: T,
+interface Payload<T,K> {
+    message: SCMessage,
+    mapper: Mapper<T,K>,
+    passData: PassData<K>,
 }
 
 export default function socket_analyzer(message) {
-    let objArr = [
+    let objArr= [
         { verifyUser: 'admin', dest: 'some', ctrl: makeEchoCtrl },
-        { verifyUser: 'admin', dest: 4, ctrl: makeEchoCtrl },
+        { verifyUser: 'admin', dest: '5', ctrl: retFive },
         { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
         { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
     ]
@@ -56,6 +51,7 @@ export default function socket_analyzer(message) {
     console.log(passer);
     let msg = pipe(runCtrl, sendMessage)(passer);
 
+    return msg;
 }
 
 //***Socket Demultiplexer */
@@ -86,11 +82,11 @@ class SD<K> {
     public createMountMsgFn() {
         //this should be destination key 
         return (message: string) => {
-            const passData:PassData<any> = { err: false }
-            let msg = JSON.stringify("");
+            const passData = { err: false, data: {} }
+            let msg = JSON.stringify("") as any as SCMessage;
 
             try {
-                msg = JSON.parse(message)
+                msg = JSON.parse(message) 
             } catch (e) {
                 passData.err = true;
             }
@@ -110,7 +106,7 @@ class SD<K> {
 //
 
 //**Verification for now is dummy */
-function verifyUser<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
+function verifyUser<T,K>(payload: Payload<T,K>) {
     if (payload.passData.err) return payload;
     const { mapper } = payload;
     //Todo some staff
@@ -118,31 +114,56 @@ function verifyUser<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
 }
 
 //**Running the ctrl */
-function runCtrl<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
+function runCtrl<T,K>(payload: Payload<T,K>) {
     console.log(payload);
     if (payload.passData.err) return payload;
     //---
     console.log(payload);
     const { mapper } = payload;
-    payload.passData = mapper.ctrl(payload.message.data)
+    payload.passData.data = mapper.ctrl(payload.message.data)
     return payload;
-}//
+}
 //
 //** send message*/
-function sendMessage<T>(payload: PassingData<SCMessage, Mapper, PassData<T>>) {
+function sendMessage<T,K>(payload: Payload<T,K>) {
     //** TODO make some error handling before sending */
     let { passData } = payload;
-    return passData;
+    if(passData.err){
+        return passData.err;
+    }
+    return passData.data;
 }
 
 
-let makeEchoCtrl = <T>(data: T) => {
+let makeEchoCtrl= (data: string) => {
     return data;
 }
 
-let objArr = [
-    { verifyUser: 'admin', dest: 'some', ctrl: makeEchoCtrl },
-    { verifyUser: 'admin', dest: 'somd', ctrl: makeEchoCtrl },
-    { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
-    { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
-]
+let retFive = (data:string) =>{
+    return 5;
+}
+
+let cbCtrl = (data:string, fn)=>{
+    return fn(data);
+}
+
+let w =cbCtrl('1sss0',(d)=>{
+    setTimeout(()=>{
+        return d.length;
+    },4000)  
+})
+console.log(w);
+
+
+
+var async = function (data,func) {
+  return function () {
+    var args = arguments;
+    setTimeout(function () {
+      func.apply(this, args)
+    }, 0);
+  }
+};
+
+
+
