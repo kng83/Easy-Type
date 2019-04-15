@@ -1,6 +1,7 @@
 import WebSocket from 'ws';
 import { stringify } from 'querystring';
-import {pipe} from '../utilites/utilites';
+import {pipe} from './utilites/utilites';
+//import {pipe} from './utilites/pipe';
 
 
 //Here is example interface which each socket have to run 
@@ -44,7 +45,7 @@ export default function socket_analyzer(message) {
     let mountMsgFn = SD.mountMappingArr(objArr)
         .mapObjToPrimaryKey('dest')
         .createMountMsgFn()
-
+    
     return pipe(runCtrl,verifyUser,sendMessage);
     
 }
@@ -129,6 +130,5 @@ function sendMessage<T>( payload : PassingData<SCMessage, Mapper, PassData<T>>) 
     let {passData} = payload;
     return passData;
 }
-
 
 

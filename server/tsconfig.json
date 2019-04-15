@@ -25,6 +25,7 @@
     "dump"
   ],
   "typeRoots": [
-    "../node_modules/@types"
+    "../node_modules/@types",
+    "../server/Socket_Controller/utilites/@types"
   ]
 }

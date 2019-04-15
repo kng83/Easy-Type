@@ -1,8 +1,6 @@
-//import { pipe } from "./LocalTypes/pipe";
-
-//** Implementation of pipe*/
 
 
+//** Implementation of pipe based on @types/rampda*/
 
 export function pipe<T1>(fn0: () => T1): () => T1;
 export function pipe<V0, T1>(fn0: (x0: V0) => T1): (x0: V0) => T1;
@@ -194,6 +192,6 @@ export function pipe<V0, V1, V2, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
     fn7: (x: T7) => T8,
     fn8: (x: T8) => T9,
     fn9: (x: T9) => T10): (x0: V0, x1: V1, x2: V2) => T10;
-export function pipe (...fns) {
+export default function pipe (...fns) {
    return  x => fns.reduce((acc, fn) => fn(acc), x)
 } 
