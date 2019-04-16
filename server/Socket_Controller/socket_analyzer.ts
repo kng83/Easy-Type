@@ -156,14 +156,20 @@ console.log(w);
 
 
 
-var async = function (data,func) {
-  return function () {
-    var args = arguments;
-    setTimeout(function () {
-      func.apply(this, args)
+function asyncFn(params, callback) {
+    setTimeout(function() {
+        if (callback) {callback(params);}
     }, 0);
-  }
-};
+}
 
+console.log('a')
+let k = asyncFn('some',console.log);
+console.log('b');
 
+let f =  asyncFn('so',(w)=>{
+    setTimeout(()=>{
+        return 5;
+    },2000)
+})
 
+console.log(w);

@@ -29,3 +29,9 @@ function createMap<T>(objArr: T[], primaryObjKey: string) {
     return mapObj;
 }
 
+//**Async representation of callback */
+function asyncFn(params, callback) {
+    setTimeout(function() {
+        if (callback) {callback(params);}
+    }, 0);
+}
