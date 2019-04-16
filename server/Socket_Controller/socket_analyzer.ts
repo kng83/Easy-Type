@@ -1,6 +1,7 @@
 import WebSocket from 'ws';
 import { stringify } from 'querystring';
 import { pipe } from './utilites/src/pipe';
+//import {asyncPipe} from './utilites/src/async_pipe';
 import { isNumber } from 'util';
 //import {pipe} from './utilites/utilites';
 
@@ -23,7 +24,7 @@ interface Mapper<T,R> {
 }
 
 interface PassData<K>{
-    err: boolean | null | undefined;
+    err: boolean | null | undefined | Promise<boolean | null | undefined> 
     data?:K;
     [key: string]: any;
 } 
@@ -42,16 +43,23 @@ export default function socket_analyzer(message) {
         { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
         { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
     ]
+//
+    let objArr2= [
+        { verifyUser: 'admin', dest: 'some', ctrl: makeEchoCtrl },
+        { verifyUser: 'admin', dest: '5', ctrl: retFive },
+        { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
+        { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
+    ]
 
     let mountMsgFn = SD.mountMappingArr(objArr)
         .mapObjToPrimaryKey('dest')
         .createMountMsgFn()
 
     let passer = mountMsgFn(message)
-    console.log(passer);
+    console.log(passer,'sss');
     let msg = pipe(runCtrl, sendMessage)(passer);
-
-    return msg;
+    console.log(msg,'msg');
+    return msg;//
 }
 
 //***Socket Demultiplexer */
@@ -82,15 +90,16 @@ class SD<K> {
     public createMountMsgFn() {
         //this should be destination key 
         return (message: string) => {
-            const passData = { err: false, data: {} }
-            let msg = JSON.stringify("") as any as SCMessage;
+          //  console.log(message);
+            let passData = { err: false, data: {} }
+            let msg:SCMessage;
 
             try {
                 msg = JSON.parse(message) 
             } catch (e) {
                 passData.err = true;
             }
-            
+
             const mapper = this._mapper.get(msg[this._primaryKey])
             mapper == undefined ? passData.err = true : passData.err = false;
 
@@ -103,10 +112,9 @@ class SD<K> {
     }
 }
 
-//
-
 //**Verification for now is dummy */
 function verifyUser<T,K>(payload: Payload<T,K>) {
+    console.log('verifyUser');
     if (payload.passData.err) return payload;
     const { mapper } = payload;
     //Todo some staff
@@ -115,19 +123,39 @@ function verifyUser<T,K>(payload: Payload<T,K>) {
 
 //**Running the ctrl */
 function runCtrl<T,K>(payload: Payload<T,K>) {
-    console.log(payload);
+    console.log(payload,'runCtrl');
     if (payload.passData.err) return payload;
     //---
-    console.log(payload);
+    console.log(payload,'errr');
     const { mapper } = payload;
     payload.passData.data = mapper.ctrl(payload.message.data)
     return payload;
 }
+
+//**Running the ctrl */
+async function  rCtrl<T,K>(payload: Payload<T,K>) {
+    let asyncPayload = await payload;
+    if (payload.passData.err) return payload;
+    //---
+    console.log(payload,'dddd');
+    const { mapper } = payload;
+    payload.passData.data = mapper.ctrl(payload.message.data)
+    return payload;
+}
+
+
 //
 //** send message*/
 function sendMessage<T,K>(payload: Payload<T,K>) {
     //** TODO make some error handling before sending */
     let { passData } = payload;
+        return JSON.stringify(passData.err ? passData.err : passData);
+    
+}
+
+async function sMessage<T,K>(payload: Payload<T,K>) {
+    //** TODO make some error handling before sending */
+    let { passData } = await payload;
     if(passData.err){
         return passData.err;
     }
@@ -139,31 +167,13 @@ let makeEchoCtrl= (data: string) => {
     return data;
 }
 
+let  asyncEcho = async(data:Promise<string>)=>{
+    return await data;
+}
+
 let retFive = (data:string) =>{
     return 5;
 }
-
-let cbCtrl = (data:string, fn)=>{
-    return fn(data);
-}
-
-let w =cbCtrl('1sss0',(d)=>{
-    setTimeout(()=>{
-        return d.length;
-    },4000)  
-})
-console.log(w);
-
-
-
-var async = function (data,func) {
-  return function () {
-    var args = arguments;
-    setTimeout(function () {
-      func.apply(this, args)
-    }, 0);
-  }
-};
 
 
 
