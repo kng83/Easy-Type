@@ -2,7 +2,9 @@ import express from "express";
 import txt from './Text_Files/alpha.txt';
 import WebSocket from 'ws';
 import mainController from './Socket_Controller/Main_Controller';
+import {startErrorHandling} from './Socket_Controller/utilites/src/error_handling/error_handling'
 
+startErrorHandling({});
 const app = express();
 const port = 3000;
 console.log(txt);

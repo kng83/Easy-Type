@@ -1,9 +1,10 @@
 import WebSocket from 'ws';
 import { stringify } from 'querystring';
-import { pipe } from './utilites/src/pipe';
+import { pipe } from './utilites/src/pipe/pipe';
 //import {asyncPipe} from './utilites/src/async_pipe';
 import { isNumber } from 'util';
 //import {pipe} from './utilites/utilites';
+import {checkForUndefined} from './utilites/src/error_handling/error_handling';
 
 
 
@@ -13,8 +14,7 @@ interface SCMessage  {
     dest:string;
     data:any;
 }
-
-type Foo<T> = T extends { a: infer U, b: infer U } ? U : never;
+ 
 type Ctrl<T,R> = (data:T) => R;
 
 interface Mapper<T,R> {
@@ -56,9 +56,9 @@ export default function socket_analyzer(message) {
         .createMountMsgFn()
 
     let passer = mountMsgFn(message)
-    console.log(passer,'sss');
+  ////  console.log(passer,'sss');
     let msg = pipe(runCtrl, sendMessage)(passer);
-    console.log(msg,'msg');
+   // console.log(msg,'msg');
     return msg;//
 }
 
@@ -90,7 +90,8 @@ class SD<K> {
     public createMountMsgFn() {
         //this should be destination key 
         return (message: string) => {
-          //  console.log(message);
+           let s = checkForUndefined(undefined,this.createMountMsgFn);
+            console.log(s);
             let passData = { err: false, data: {} }
             let msg:SCMessage;
 
