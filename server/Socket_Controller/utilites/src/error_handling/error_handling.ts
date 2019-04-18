@@ -1,4 +1,3 @@
-import { Data } from "ws";
 
 let INSTANCE_ERROR: ErrorHandling;
 
@@ -10,12 +9,11 @@ interface ErrorData extends Partial<Error> {
     caller?: string | any;
 }
 
-/** Error Level expanation:
-    * 'none' - without error logginh 
+/** Error Level explanation:
+    * 'none' - without error login
     * 'low' - only message is logged
     * 'caller' - message and caller if exists is logged
-    * 'stack' - with message is logged
-    * 'full' -  name message and stack is logged
+    * 'stack' - message with stack  is logged
 */
 type ErrorLevel = 'none' | 'low' | 'caller' | 'stack';
 
@@ -34,11 +32,14 @@ class ErrorHandling {
         errorLevel: 'low'
     }
 
-    private _defaultError: ErrorData = {
-        name: '',
-        caller: '',
-        message: '',
-        stack: ''
+    //*** Getter i used to prevent mutation */
+    private  get _defaultError():ErrorData {
+        return {
+            name: '',
+            caller: '',
+            message: '',
+            stack: ''
+        }
     }
 
     private constructor(private config?: ErrorConfig) {
@@ -46,7 +47,7 @@ class ErrorHandling {
         return this;
     }
     //***Override existing object with fixed values  */
-    private _override<R,T>(source: R,target:T) {
+    private _override<R extends Partial<T>,T>(source: R,target:T) {
         Object.keys(source).forEach((key) => {
              target[key] = source[key]
         })
@@ -74,10 +75,9 @@ class ErrorHandling {
             err: false,
         }
     }
-
-    public throwCustomError(message: string, caller?: any) {
-
-        let err: ErrorData = {...this._defaultError};
+//*** Throw error when stack tracing is enabled config:{errorLevel:stack} */
+    public throwStackError(message: string, caller?: any) {
+        let err: ErrorData = this._defaultError;
         if (this._config.errorLevel === 'stack') {
             try {
                 throw Error(message)
@@ -89,12 +89,15 @@ class ErrorHandling {
     }
 }
 
+
+//**Make Global error handling instance for error state management */
 export function startErrorHandling(config: ErrorConfig) {
     INSTANCE_ERROR = ErrorHandling.initialize(config);
 }
 
 export function checkForUndefined(value, fn) {
     if (value) {
+        
         return INSTANCE_ERROR.noError();
     } else {
 
@@ -103,7 +106,7 @@ export function checkForUndefined(value, fn) {
 
 }
 
-export function tryValaue(value) {
+export function tryValue(value) {
     let v = value;
     try {
         throw Error(`${value} is null`)
