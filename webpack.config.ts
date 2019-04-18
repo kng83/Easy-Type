@@ -17,6 +17,7 @@ const config: webpack.Configuration = {
   mode: 'development',
   entry: "./server/app.ts",
   target: "node",
+  devtool: 'inline-source-map',
   watchOptions: {
     aggregateTimeout: 100,
     poll: true
@@ -53,7 +54,6 @@ const config: webpack.Configuration = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   },
-  devtool: 'source-map',
   externals: nodeModules,
   plugins: [
     new NodemonPlugin()

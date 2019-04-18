@@ -90,11 +90,10 @@ class SD<K> {
     public createMountMsgFn() {
         //this should be destination key 
         return (message: string) => {
-           let s = checkForUndefined(undefined,this.createMountMsgFn);
-            console.log(s);
-            let passData = { err: false, data: {} }
-            let msg:SCMessage;
+          let errPassObj = checkForUndefined(message,this.createMountMsgFn);
+          if(errPassObj.err) return errPassObj;
 
+            let msg:SCMessage;
             try {
                 msg = JSON.parse(message) 
             } catch (e) {
