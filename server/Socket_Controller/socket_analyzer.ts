@@ -4,7 +4,7 @@ import { pipe } from './utilites/src/pipe/pipe';
 //import {asyncPipe} from './utilites/src/async_pipe';
 import { isNumber } from 'util';
 //import {pipe} from './utilites/utilites';
-import {checkForUndefined} from './utilites/src/error_handling/error_handling';
+import {checkForUndefined,tryFnReturn,ErrPassingObj} from './utilites/src/error_handling/error_handling';
 
 
 
@@ -24,7 +24,7 @@ interface Mapper<T,R> {
 }
 
 interface PassData<K>{
-    err: boolean | null | undefined | Promise<boolean | null | undefined> 
+    err: ErrPassingObj
     data?:K;
     [key: string]: any;
 } 
@@ -100,6 +100,9 @@ class SD<K> {
                 passData.err = true;
             }
 
+            let m = tryFnReturn(JSON.parse,message)
+            if(m.err) return err
+            
             const mapper = this._mapper.get(msg[this._primaryKey])
             mapper == undefined ? passData.err = true : passData.err = false;
 

@@ -1,7 +1,7 @@
 
 let INSTANCE_ERROR: ErrorHandling;
 
-interface ErrPassingObj {
+export interface ErrPassingObj {
     err: boolean | undefined;
     errorData?: ErrorData
 }
@@ -110,11 +110,11 @@ export function checkForUndefined(value, fn) {
 }
 
 //** */
-export function tryFnReturn<T extends Function,D>(fn:T,...args:D[]):ReturnType<T> | ErrorData {
+export function tryFnReturn<T,D>(fn:T,...args:D[]):ReturnType<T> | ErrorData {
     let f:ReturnType<T>;
     let err: ErrorData;
     try {
-        f = fn();
+        f = fn(...args);
     } catch (e) {
         INSTANCE_ERROR.override(err,e);
         INSTANCE_ERROR.error(err);
