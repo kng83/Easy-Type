@@ -6,6 +6,7 @@ import { isNumber } from 'util';
 //import {pipe} from './utilites/utilites';
 import { checkForUndefined, tryFnReturn, ErrPassingObj } from './utilites/src/error_handling/error_handling';
 import { Z_UNKNOWN } from 'zlib';
+import { platform } from 'os';
 
 
 
@@ -82,11 +83,15 @@ class Payload<T, K> implements Payload<T, K>{
 
         }
     }
-    public isError() {
+    public get hasError() {
         return this.acc.Err.err;
     }
-    public get getError() {
+    public get getErrorObj() {
         return this.acc.Err;
+    }
+    public overrideError(err:ErrPassingObj){
+        this.acc.Err = err;
+        return this;
     }
     public set setError(err:ErrPassingObj){
         this.acc.Err = err;
@@ -103,6 +108,19 @@ class Payload<T, K> implements Payload<T, K>{
     public getMessageData() {
         return this.message.data;
     }
+    public assignMessage(message:SCMessage){
+        this.message = message;
+        return this;
+    }
+    public assignMapper(mapper:Mapper<T, K>){
+        this.mapper = mapper;
+        return this;
+    }
+    public assignAcc(acc:Acc<K>){
+        this.acc = this.acc
+        return this;
+    }
+
 
 }
 
@@ -137,21 +155,17 @@ class SD<K> {
     public createMountMsgFn() {
         //this should be destination key 
         return (message: string) => {
-            let acc: Acc<unknown> = {
-                Err: { err: false },
-                data: undefined
-            }
             let payload = new Payload();
 
-            acc.Err = checkForUndefined(message, this.createMountMsgFn);
-            if (acc.Err.err) return { acc: acc };
+            payload.setError = checkForUndefined(message, this.createMountMsgFn);
+            if (payload.hasError) return payload;
 
             let [maybeMsg, maybeErr] = tryFnReturn(JSON.parse, message) as [SCMessage, ErrPassingObj]
-            if (maybeErr.err) return Object.assign(acc, { Err: maybeErr });
+            if (maybeErr.err) return payload.overrideError(maybeErr)
 
             let maybeMapper = this._mapper.get(maybeMsg[this._primaryKey])
-            acc.Err = checkForUndefined(maybeMapper, this.createMountMsgFn);
-            if (acc.Err.err) return { acc: acc }
+            payload.setError = checkForUndefined(maybeMapper, this.createMountMsgFn);
+            if (payload.hasError) return payload;
 
             return {
                 message: maybeMsg,
