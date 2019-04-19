@@ -19,10 +19,10 @@ interface SCMessage {
 
 type Ctrl<T, R> = (data: T) => R;
 
-interface Mapper<T, R> {
+interface Mapper<T, K> {
     verifyUser?: string;
     dest?: string;
-    ctrl?: Ctrl<T, R>;
+    ctrl?: Ctrl<T, K>;
 }
 
 interface Acc<K> {
@@ -54,11 +54,13 @@ export default function socket_analyzer(message) {
         .mapObjToPrimaryKey('dest')
         .createMountMsgFn()
 
+
+
     let passer = mountMsgFn(message)
     //   console.log(passer,'sss');
     let msg = pipe(runCtrl, sendMessage)(passer);
     console.log(msg, 'msg/n');
-    return 'msg';//
+    return msg;
 }
 
 class Payload<T, K> implements Payload<T, K>{
@@ -93,6 +95,10 @@ class Payload<T, K> implements Payload<T, K>{
         this.acc.Err = err;
         return this;
     }
+    public overrideData(data:K){
+        this.acc.data = data;
+        return this;
+    }
     public set setError(err:ErrPassingObj){
         this.acc.Err = err;
     }
@@ -124,7 +130,6 @@ class Payload<T, K> implements Payload<T, K>{
 
 }
 
-let payload = new Payload();
 
 
 //***Socket Demultiplexer */
@@ -155,23 +160,22 @@ class SD<K> {
     public createMountMsgFn() {
         //this should be destination key 
         return (message: string) => {
-            let payload = new Payload();
+            let payload = new Payload<unknown,K>();
 
             payload.setError = checkForUndefined(message, this.createMountMsgFn);
             if (payload.hasError) return payload;
 
             let [maybeMsg, maybeErr] = tryFnReturn(JSON.parse, message) as [SCMessage, ErrPassingObj]
+            console.log(maybeErr);
             if (maybeErr.err) return payload.overrideError(maybeErr)
 
             let maybeMapper = this._mapper.get(maybeMsg[this._primaryKey])
             payload.setError = checkForUndefined(maybeMapper, this.createMountMsgFn);
             if (payload.hasError) return payload;
 
-            return {
-                message: maybeMsg,
-                mapper: maybeMapper,
-                acc: acc
-            }
+            return payload.assignMessage(maybeMsg)
+                          .assignMapper(maybeMapper)
+                          
         }
     }
 }
@@ -187,17 +191,14 @@ function verifyUser<T, K>(payload: Payload<T, K>) {
 
 //**Running the ctrl */
 function runCtrl<T, K>(payload: Payload<T, K>) {
-    if (payload.acc.Err.err) return payload;
+    if (payload.hasError) return payload;
     //--
     const { mapper } = payload;
-    console.log(payload, '\n');
     let [maybeData, maybeErr] = tryFnReturn(mapper.ctrl, payload.message.data);
+    if (maybeErr.err) return  payload.overrideError(maybeErr);
     console.log('=====================================');
-    console.log(payload);
-    if (maybeErr.err) return Object.assign(payload, { passData: '' }, { Err: maybeErr });
-    payload.acc.data = maybeData; //Todo override data;
-    console.log(payload)
-    return payload;
+    
+    return payload.overrideData(maybeData);
 }
 
 //**Running the ctrl */
@@ -206,8 +207,8 @@ function runCtrl<T, K>(payload: Payload<T, K>) {
 //** send message*/
 function sendMessage<T, K>(payload: Payload<T, K>) {
     //** TODO make some error handling before sending */
-    let { acc } = payload;
-    return JSON.stringify(acc.Err.err ? acc.Err : acc.data);
+    if(payload.hasError) return JSON.stringify(payload.getErrorObj);
+    return JSON.stringify(payload.getAccData());
 }
 
 

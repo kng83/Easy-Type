@@ -96,7 +96,10 @@ class ErrorHandling {
             try {
                 throw Error(message)
             } catch (e) {
-                err = EI.mergeLeft(err, e as Error,{caller});
+                let eee:Error;
+                eee = e;
+                console.log('ee');
+              //  EI.override(err, e as Error,{caller});
             }
         } else {
             err = this.mergeLeft(err,{message,caller})
@@ -127,7 +130,9 @@ export function tryFnReturn<T extends Function,D extends any[],R>(fn:{(...args):
         //f= fn.apply(null,args)
         ans = fn(...args);
     } catch (e){
-        passErrObj = EI.error(EI.mergeLeft(EI.defaultErrObj,e,{caller:fn}))
+        //passErrObj = EI.error(EI.mergeLeft(EI.defaultErrObj,e,{caller:fn}))
+        passErrObj = EI.error(e)
+        console.log(passErrObj);
     }
     return [ans,passErrObj];
 }
