@@ -4,47 +4,47 @@ import { pipe } from './utilites/src/pipe/pipe';
 //import {asyncPipe} from './utilites/src/async_pipe';
 import { isNumber } from 'util';
 //import {pipe} from './utilites/utilites';
-import {checkForUndefined,tryFnReturn,ErrPassingObj} from './utilites/src/error_handling/error_handling';
+import { checkForUndefined, tryFnReturn, ErrPassingObj } from './utilites/src/error_handling/error_handling';
 
 
 
-interface SCMessage  {
-    user:string;
-    userType:string;
-    dest:string;
-    data:any;
+interface SCMessage {
+    user: string;
+    userType: string;
+    dest: string;
+    data: any;
 }
- 
-type Ctrl<T,R> = (data:T) => R;
 
-interface Mapper<T,R> {
+type Ctrl<T, R> = (data: T) => R;
+
+interface Mapper<T, R> {
     verifyUser: string;
     dest: string;
-    ctrl: Ctrl<T,R>;
+    ctrl: Ctrl<T, R>;
 }
 
-interface PassData<K>{
-    err: ErrPassingObj
-    data?:K;
+interface PassData<K> {
+    Err: ErrPassingObj
+    data?: K;
     [key: string]: any;
-} 
+}
 
 //***passData is used also to pass errors */
-interface Payload<T,K> {
-    message: SCMessage,
-    mapper: Mapper<T,K>,
+interface Payload<T, K> {
+    message?: SCMessage,
+    mapper?: Mapper<T, K>,
     passData: PassData<K>,
 }
 
 export default function socket_analyzer(message) {
-    let objArr= [
+    let objArr = [
         { verifyUser: 'admin', dest: 'some', ctrl: makeEchoCtrl },
         { verifyUser: 'admin', dest: '5', ctrl: retFive },
         { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
         { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
     ]
-//
-    let objArr2= [
+    //
+    let objArr2 = [
         { verifyUser: 'admin', dest: 'some', ctrl: makeEchoCtrl },
         { verifyUser: 'admin', dest: '5', ctrl: retFive },
         { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
@@ -56,10 +56,10 @@ export default function socket_analyzer(message) {
         .createMountMsgFn()
 
     let passer = mountMsgFn(message)
-  ////  console.log(passer,'sss');
+   //   console.log(passer,'sss');
     let msg = pipe(runCtrl, sendMessage)(passer);
-   // console.log(msg,'msg');
-    return msg;//
+     console.log(msg,'msg/n');
+    return 'msg';//
 }
 
 //***Socket Demultiplexer */
@@ -87,95 +87,104 @@ class SD<K> {
     }
 
     //**Bind function which returns [message,mappingElement] */
-    public createMountMsgFn() {
+    public createMountMsgFn(){
         //this should be destination key 
         return (message: string) => {
-          let errPassObj = checkForUndefined(message,this.createMountMsgFn);
-          if(errPassObj.err) return errPassObj;
-
-            let msg:SCMessage;
-            try {
-                msg = JSON.parse(message) 
-            } catch (e) {
-                passData.err = true;
+            let passData: PassData<unknown> = {
+                Err: { err: false },
+                data: undefined
             }
+            passData.Err = checkForUndefined(message, this.createMountMsgFn);
+            if (passData.Err.err) return { passData: passData };
 
-            let m = tryFnReturn(JSON.parse,message)
-            if(m.err) return err
-            
-            const mapper = this._mapper.get(msg[this._primaryKey])
-            mapper == undefined ? passData.err = true : passData.err = false;
+            let [maybeMsg ,maybeErr] = tryFnReturn(JSON.parse, message) as [SCMessage, ErrPassingObj]
+            if (maybeErr.err) return Object.assign(passData,{Err:maybeErr});
+
+            let maybeMapper = this._mapper.get(maybeMsg[this._primaryKey])
+            passData.Err = checkForUndefined(maybeMapper, this.createMountMsgFn);
+            if (passData.Err.err) return { passData: passData }
 
             return {
-                message: msg,
-                mapper,
-                passData
+                message: maybeMsg,
+                mapper: maybeMapper,
+                passData: passData               //
             }
         }
     }
 }
 
 //**Verification for now is dummy */
-function verifyUser<T,K>(payload: Payload<T,K>) {
-    console.log('verifyUser');
-    if (payload.passData.err) return payload;
+function verifyUser<T, K>(payload: Payload<T, K>) {
+    if (payload.passData.Err.err) return payload;
     const { mapper } = payload;
     //Todo some staff
     return payload;
 }
 
 //**Running the ctrl */
-function runCtrl<T,K>(payload: Payload<T,K>) {
-    console.log(payload,'runCtrl');
-    if (payload.passData.err) return payload;
-    //---
-    console.log(payload,'errr');
+function runCtrl<T, K>(payload: Payload<T, K>) {
+    if (payload.passData.Err.err) return payload;
+    //--
     const { mapper } = payload;
-    payload.passData.data = mapper.ctrl(payload.message.data)
+    console.log(payload,'\n');
+    let [maybeData ,maybeErr] = tryFnReturn(mapper.ctrl, payload.message.data);
+    console.log('=====================================');
+    console.log(payload);
+    if (maybeErr.err) return Object.assign(payload.passData.Err,maybeErr);
+    payload.passData.data = maybeData; //Todo override data;
+    console.log(payload)
     return payload;
 }
 
 //**Running the ctrl */
-async function  rCtrl<T,K>(payload: Payload<T,K>) {
+async function rCtrl<T, K>(payload: Payload<T, K>) {
     let asyncPayload = await payload;
-    if (payload.passData.err) return payload;
+    if (payload.passData.Err.err) return payload;
     //---
-    console.log(payload,'dddd');
-    const { mapper } = payload;
-    payload.passData.data = mapper.ctrl(payload.message.data)
+    const { mapper, passData } = payload;
+            
+    let [maybeData ,maybeErr] = tryFnReturn(mapper.ctrl, payload.message.data);
+    console.log('=====================================');
+    console.log(payload);
+    if (maybeErr.err) return Object.assign(payload.passData.Err,maybeErr);
+
+    payload.passData.data = maybeData;
     return payload;
 }
 
 
 //
 //** send message*/
-function sendMessage<T,K>(payload: Payload<T,K>) {
+function sendMessage<T, K>(payload: Payload<T, K>) {
     //** TODO make some error handling before sending */
     let { passData } = payload;
-        return JSON.stringify(passData.err ? passData.err : passData);
-    
+    return JSON.stringify(passData.Err.err ? passData.Err: passData.data);
 }
 
-async function sMessage<T,K>(payload: Payload<T,K>) {
+async function sMessage<T, K>(payload: Payload<T, K>) {
     //** TODO make some error handling before sending */
     let { passData } = await payload;
-    if(passData.err){
+    if (passData.err) {
         return passData.err;
     }
     return passData.data;
 }
 
 
-let makeEchoCtrl= (data: string) => {
+let makeEchoCtrl = (data: string) => {
     return data;
 }
 
-let  asyncEcho = async(data:Promise<string>)=>{
+let asyncEcho = async (data: Promise<string>) => {
     return await data;
 }
 
-let retFive = (data:string) =>{
+let retFive = (data: string) => {
     return 5;
 }
 
+
+function add(n1: number, n2: number) {
+    return n1 + n2;
+}
 

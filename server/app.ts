@@ -4,7 +4,8 @@ import WebSocket from 'ws';
 import mainController from './Socket_Controller/Main_Controller';
 import {startErrorHandling} from './Socket_Controller/utilites/src/error_handling/error_handling'
 
-startErrorHandling({});
+console.log('------------------------------------------------------------------------')
+startErrorHandling({errorLevel:'low'});
 const app = express();
 const port = 3000;
 console.log(txt);

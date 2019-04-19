@@ -1,5 +1,5 @@
 
-let INSTANCE_ERROR: ErrorHandling;
+let EI: ErrorHandling;
 
 export interface ErrPassingObj {
     err: boolean | undefined;
@@ -47,10 +47,17 @@ class ErrorHandling {
         return this;
     }
     //**Override existing object with fixed values  */
-    public override<R extends Partial<T>, T>(target: T, source: R) {
+    public overrideOne<R extends Partial<T>, T>(target: T, source: R) {
         Object.keys(source).forEach((key) => {
             target[key] = source[key]
         })
+    }
+    public mergeLeft<R extends Partial<T>[], T>(pattern:T,...source:R):T{
+        return Object.assign({},pattern,...source) as T;
+    }
+
+    public override<R extends Partial<T>[], T extends Object>(target:T,...source:R){
+        Object.assign(target,...source);
     }
     //***Switch between logging options */
     public logError(e: ErrorData) {
@@ -61,6 +68,9 @@ class ErrorHandling {
             case 'stack': console.log(e.name, e.message, e.stack); break;
             default: ;
         }
+    }
+    public get defaultErrObj(){
+        return this._defaultError;
     }
 
     //** */
@@ -75,21 +85,21 @@ class ErrorHandling {
     public noError(): ErrPassingObj {
         return {
             err: false,
+            errorData:this._defaultError
         }
     }
 
     //*** Throw error when stack tracing is enabled config:{errorLevel:stack} */
-    public throwUserError(message: string, caller?: unknown) {
+    public throwUserError(message: string, caller?: Function | string) {
         let err: ErrorData = this._defaultError;
         if (this._config.errorLevel === 'stack') {
             try {
                 throw Error(message)
             } catch (e) {
-                this.override(err, e as Error);
-                this.override(err, { caller });
+                err = EI.mergeLeft(err, e as Error,{caller});
             }
         } else {
-            this.override(err, { message, caller })
+            err = this.mergeLeft(err,{message,caller})
         }
         return err;
     }
@@ -97,27 +107,27 @@ class ErrorHandling {
 
 //**Make Global error handling instance for error state management */
 export function startErrorHandling(config: ErrorConfig) {
-    INSTANCE_ERROR = ErrorHandling.initialize(config);
+    EI = ErrorHandling.initialize(config);
 }
 
 //** */
 export function checkForUndefined(value, fn) {
     if (value) {
-        return INSTANCE_ERROR.noError();
+        return EI.noError();
     } else {
-        return INSTANCE_ERROR.error( INSTANCE_ERROR.throwUserError('value is undefined',fn))
+        return EI.error( EI.throwUserError('value is undefined',fn))
     }
 }
 
 //** */
-export function tryFnReturn<T,D>(fn:T,...args:D[]):ReturnType<T> | ErrorData {
-    let f:ReturnType<T>;
-    let err: ErrorData;
+export function tryFnReturn<T extends Function,D extends any[],R>(fn:{(...args):R},...args:D):[R,  ErrPassingObj]{
+    let ans:R; 
+    let passErrObj = EI.noError();
     try {
-        f = fn(...args);
-    } catch (e) {
-        INSTANCE_ERROR.override(err,e);
-        INSTANCE_ERROR.error(err);
+        //f= fn.apply(null,args)
+        ans = fn(...args);
+    } catch (e){
+        passErrObj = EI.error(EI.mergeLeft(EI.defaultErrObj,e,{caller:fn}))
     }
-    return f;
+    return [ans,passErrObj];
 }
