@@ -122,8 +122,16 @@ export function checkForUndefined(value, fn) {
     }
 }
 
+export function checkAgainstUndefined(value) {
+    if (value) {
+        return EI.noError();
+    } else {
+        return EI.error( EI.throwUserError('value is undefined'))
+    }
+}
+
 //** */
-export function tryFnReturn<T extends Function,D extends any[],R>(fn:{(...args):R},...args:D):[R,  ErrPassingObj]{
+export function tryFnReturn<T extends Function,D extends any[],R>(fn:{(...args:D):R},...args:D):[R,  ErrPassingObj]{
     let ans:R; 
     let passErrObj = EI.noError();
     try {
@@ -132,7 +140,6 @@ export function tryFnReturn<T extends Function,D extends any[],R>(fn:{(...args):
     } catch (e){
         //passErrObj = EI.error(EI.mergeLeft(EI.defaultErrObj,e,{caller:fn}))
         passErrObj = EI.error(e)
-        console.log(passErrObj);
     }
     return [ans,passErrObj];
 }
