@@ -4,7 +4,7 @@ import { pipe } from './utilites/src/pipe/pipe';
 //import {asyncPipe} from './utilites/src/async_pipe';
 import { isNumber } from 'util';
 //import {pipe} from './utilites/utilites';
-import { checkForUndefined, tryFnReturn, ErrPassingObj, checkAgainstUndefined } from './utilites/src/error_handling/error_handling';
+import { checkForUndefined, tryFnReturn as tryFnRun, ErrPassingObj, checkAgainstUndefined } from './utilites/src/error_handling/error_handling';
 import { Z_UNKNOWN } from 'zlib';
 import { platform } from 'os';
 
@@ -62,7 +62,6 @@ export default function socket_analyzer(message) {
     let passer = mountMsgFn(message)
     //   console.log(passer,'sss');
     let msg = pipe(runCtrl, sendMessage)(passer);
-    console.log(msg, 'msg/n');
     return msg;
 }
 
@@ -172,12 +171,12 @@ class SD<K> {
         return (message: string) => {
             let payload = new PayloadWrapper<unknown,K>();
             let p = {...payload};
-            console.log(Object.keys(p));
+
 
             const msgErr = checkAgainstUndefined(message);
             if(msgErr.err) return payload.overrideError(msgErr);
             
-            const [maybeMsg, maybeJsonErr] = tryFnReturn(JSON.parse, message) as [SCMessage, ErrPassingObj]
+            const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message) as [SCMessage, ErrPassingObj]
             if (maybeJsonErr.err) return payload.overrideError(maybeJsonErr)
 
             const maybeMapper = this._mapper.get(maybeMsg[this._primaryKey])
@@ -204,7 +203,7 @@ function verifyUser<T, K>(payload: PayloadWrapper<T, K>) {
 //**Running the ctrl */
 function runCtrl<T, K>(payload: PayloadWrapper<T, K>) {
     if (payload.hasError) return payload.rollErr();
-    let [maybeData, maybeErr] = tryFnReturn(payload.mapper.ctrl, payload.message.data);
+    let [maybeData, maybeErr] = tryFnRun(payload.mapper.ctrl, payload.message.data);
     if (maybeErr.err) return  payload.overrideError(maybeErr);
 
     
@@ -217,6 +216,7 @@ function runCtrl<T, K>(payload: PayloadWrapper<T, K>) {
 //** send message*/
 function sendMessage<T, K>(payload: PayloadWrapper<T, K>) {
     //** TODO make some error handling before sending */
+    console.log(payload.getErrorObj.errorData);
     if(payload.hasError) return JSON.stringify(payload.getErrorObj);
     return JSON.stringify(payload.getAccData);
 }

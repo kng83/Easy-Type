@@ -5,8 +5,12 @@ export interface ErrPassingObj {
     err: boolean | undefined;
     errorData?: ErrorData
 }
-interface ErrorData extends Partial<Error> {
+//interface ErrorData extends Partial<Error> 
+interface ErrorData {
     caller?: string | any;
+    name?: string;
+    message?: string;
+    stack?: string | string[];
 }
 
 /** Error Level explanation:
@@ -21,6 +25,8 @@ interface ErrorConfig {
     errorLevel: ErrorLevel
 }
 
+
+//TODO extract logger from Error handling
 class ErrorHandling {
     //**Create singleton instance */
     static initialize(config: ErrorConfig) {
@@ -52,12 +58,12 @@ class ErrorHandling {
             target[key] = source[key]
         })
     }
-    public mergeLeft<R extends Partial<T>[], T>(pattern:T,...source:R):T{
-        return Object.assign({},pattern,...source) as T;
+    public mergeLeft<R extends Partial<T>[], T>(pattern: T, ...source: R): T {
+        return Object.assign({}, pattern, ...source) as T;
     }
 
-    public override<R extends Partial<T>[], T extends Object>(target:T,...source:R){
-        Object.assign(target,...source);
+    public override<R extends Partial<T>[], T extends Object>(target: T, ...source: R) {
+        Object.assign(target, ...source);
     }
     //***Switch between logging options */
     public logError(e: ErrorData) {
@@ -69,7 +75,7 @@ class ErrorHandling {
             default: ;
         }
     }
-    public get defaultErrObj(){
+    public get defaultErrObj() {
         return this._defaultError;
     }
 
@@ -81,11 +87,11 @@ class ErrorHandling {
         }
     }
 
-    //** */
+    //** This is used when good error object is needed*/
     public noError(): ErrPassingObj {
         return {
             err: false,
-            errorData:this._defaultError
+            errorData: this._defaultError
         }
     }
 
@@ -96,13 +102,10 @@ class ErrorHandling {
             try {
                 throw Error(message)
             } catch (e) {
-                let eee:Error;
-                eee = e;
-                console.log('ee');
-              //  EI.override(err, e as Error,{caller});
+                EI.override(err, e as Error, { caller });
             }
         } else {
-            err = this.mergeLeft(err,{message,caller})
+            err = this.mergeLeft(err, { message, caller }) //TODO
         }
         return err;
     }
@@ -118,7 +121,7 @@ export function checkForUndefined(value, fn) {
     if (value) {
         return EI.noError();
     } else {
-        return EI.error( EI.throwUserError('value is undefined',fn))
+        return EI.error(EI.throwUserError('value is undefined', fn))
     }
 }
 
@@ -126,20 +129,50 @@ export function checkAgainstUndefined(value) {
     if (value) {
         return EI.noError();
     } else {
-        return EI.error( EI.throwUserError('value is undefined'))
+        return EI.error(EI.throwUserError('value is undefined'))
+    }
+}
+
+//**Run function in safe environment and return error object if occurs*/
+export function tryFnReturn<D extends any[], R>(fn: { (...args: D): R }, ...args: D): [R, ErrPassingObj] {
+    let ans: R;
+    let passErrObj = EI.noError();
+    try {
+        ans = fn(...args);
+    } catch (e) {
+        console.dir(e.stack);
+        passErrObj = EI.error(errorResolver(e));
+    }
+    return [ans, passErrObj];
+}
+
+//**Resole error and put to ErrorData object */
+function errorResolver(e: Error): ErrorData{
+    let errName = e.name;
+    let errMessage = e.message;
+    let errStack = convertErrStack(e.stack);
+
+    return {
+            name: errName,
+            message: errMessage,
+            caller: '',
+            stack: errStack
     }
 }
 
 //** */
-export function tryFnReturn<T extends Function,D extends any[],R>(fn:{(...args:D):R},...args:D):[R,  ErrPassingObj]{
-    let ans:R; 
-    let passErrObj = EI.noError();
-    try {
-        //f= fn.apply(null,args)
-        ans = fn(...args);
-    } catch (e){
-        //passErrObj = EI.error(EI.mergeLeft(EI.defaultErrObj,e,{caller:fn}))
-        passErrObj = EI.error(e)
-    }
-    return [ans,passErrObj];
+function convertErrStack(errStack: string) {
+    //make this simpler s{2,} means to or more spaces 
+    let s = errStack.match(/(?<=\n\s+at\s+).*?(?=\s+at)/g);
+    let sArr = [];
+    s.forEach(el => {
+        //split string to module and link
+        //let [module, link] = el.split('(', 2);
+        //remove and bracelet;
+        //link = link.slice(0, link.length - 1);
+        //push module link object
+        sArr.push(el);
+    })
+    return sArr;
 }
+

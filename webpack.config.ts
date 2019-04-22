@@ -17,7 +17,7 @@ const config: webpack.Configuration = {
   mode: 'development',
   entry: "./server/app.ts",
   target: "node",
-  devtool: 'inline-source-map',
+  devtool: '#source-map',
   watchOptions: {
     aggregateTimeout: 100,
     poll: true
