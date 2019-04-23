@@ -105,7 +105,7 @@ class ErrorHandling {
                 EI.override(err, e as Error, { caller });
             }
         } else {
-            err = this.mergeLeft(err, { message, caller }) //TODO
+            err = this.mergeLeft(err, { message, caller }) //TODO merge left is not working
         }
         return err;
     }
@@ -134,7 +134,7 @@ export function checkAgainstUndefined(value) {
 }
 
 //**Run function in safe environment and return error object if occurs*/
-export function tryFnReturn<D extends any[], R>(fn: { (...args: D): R }, ...args: D): [R, ErrPassingObj] {
+export function tryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): [R, ErrPassingObj] {
     let ans: R;
     let passErrObj = EI.noError();
     try {

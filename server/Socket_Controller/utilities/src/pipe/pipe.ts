@@ -1,4 +1,4 @@
-//** Implementation of pipe based on @types/rampda*/
+//** Implementation of type pipe based on @types/rampda
 
 
 export function pipe<V0, T1>(
@@ -51,6 +51,7 @@ export function pipe<V0, T1, T2, T3, T4, T5, T6, T7, T8>(
     fn5: (x: T5) => T6,
     fn6: (x: T6) => T7,
     fn7: (x: T7) => T8): (x0: V0) => T8
+
 export function pipe<V0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
     fn0: (x0: V0) => T1,
     fn1: (x: T1) => T2,
@@ -61,6 +62,7 @@ export function pipe<V0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
     fn6: (x: T6) => T7,
     fn7: (x: T7) => T8,
     fn8: (x: T8) => T9): (x0: V0) => T9
+    
 export function pipe<V0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
     fn0: (x0: V0) => T1,
     fn1: (x: T1) => T2,
