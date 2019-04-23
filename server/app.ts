@@ -26,6 +26,6 @@ const wss = new WebSocket.Server({
       ws.send(msg)
     }).catch(err=>console.log(err))
   });
-});
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
