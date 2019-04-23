@@ -23,7 +23,11 @@ const wss = new WebSocket.Server({
   }
 }).on('connection', (ws) => {
   ws.on('message', (message) => {
-  ws.send(mainController(message));
+    mainController(message).then((msg)=>{  
+      console.log(msg);
+      ws.send(msg)
+    })
+//  ws.send(mainController(message));
   });
 });
 

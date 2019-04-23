@@ -1,9 +1,7 @@
 import WebSocket from 'ws';
 import { stringify } from 'querystring';
 import { pipe } from './utilites/src/pipe/pipe';
-//import {asyncPipe} from './utilites/src/async_pipe';
 import { isNumber } from 'util';
-//import {pipe} from './utilites/utilites';
 import { checkForUndefined, tryFnReturn as tryFnRun, ErrPassingObj, checkAgainstUndefined } from './utilites/src/error_handling/error_handling';
 import { Z_UNKNOWN } from 'zlib';
 import { platform } from 'os';
@@ -46,23 +44,25 @@ export default function socket_analyzer(message) {
         { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
         { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
     ]
-    //
+
     let objArr2 = [
-        { verifyUser: 'admin', dest: 'some', ctrl: makeEchoCtrl },
-        { verifyUser: 'admin', dest: 'some/other', ctrl: makeEchoCtrl },
-        { verifyUser: 'admin', dest: 'other/some', ctrl: makeEchoCtrl },
+        { verifyUser: 'admin', dest: 'some', ctrl: asyncMakeEchoCtrl },
+        { verifyUser: 'admin', dest: 'bobo', ctrl: asyncFetchCtrl },
+        { verifyUser: 'admin', dest: 'other/some', ctrl: asyncMakeEchoCtrl },
     ]
 
-    let mountMsgFn = SD.mountMappingArr(objArr)
+    let mountMsgFn = SD.mountMappingArr(objArr2)
         .mapObjToPrimaryKey('dest')
-        .createMountMsgFn()
+        .createMountMsgFn();
 
 
 
-    let passer = mountMsgFn(message)
-    //   console.log(passer,'sss');
-    let msg = pipe(runCtrl, sendMessage)(passer);
-    return msg;
+     let passer = mountMsgFn(message);
+     let msg = pipe(convertPayloadToPromise,asyncRunCtrl,asyncSendMessage)(passer);
+    //    console.log(passer,'sss');
+    // let msg = pipe(runCtrl, sendMessage)(passer);
+     return msg;
+
 }
 
 class PayloadWrapper<T,K> implements Payload<T,K>{
@@ -137,7 +137,6 @@ class PayloadWrapper<T,K> implements Payload<T,K>{
         this.acc.data= undefined;
         return this;
     }
-
 }
 
 
@@ -162,7 +161,7 @@ class SD<K> {
         this._objArr.forEach(el => {
             this._mapper.set(el[primaryObjKey], el)
         })
-        return this as any as Pick<SD<K>, 'createMountMsgFn'>
+        return this as any as Pick<SD<K>, 'createMountMsgFn'| 'asyncMountMsgFn'>
     }
 
     //**Bind function which returns [message,mappingElement] */
@@ -170,8 +169,6 @@ class SD<K> {
         //this should be destination key 
         return (message: string) => {
             let payload = new PayloadWrapper<unknown,K>();
-            let p = {...payload};
-
 
             const msgErr = checkAgainstUndefined(message);
             if(msgErr.err) return payload.overrideError(msgErr);
@@ -185,10 +182,31 @@ class SD<K> {
             if(maybeMapperErr.err) return payload.overrideError(maybeJsonErr);
             return payload.assignMessage(maybeMsg)
                           .assignMapper(maybeMapper)
-                          .clearErr()
-                          
+                          .clearErr()                       
         }
     }
+    public async asyncMountMsgFn(){
+        return (message: string) => {
+            let payload = new PayloadWrapper<unknown,K>();
+
+            const msgErr = checkAgainstUndefined(message);
+            if(msgErr.err) return payload.overrideError(msgErr);
+            
+            const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message) as [SCMessage, ErrPassingObj]
+            if (maybeJsonErr.err) return payload.overrideError(maybeJsonErr)
+
+            const maybeMapper = this._mapper.get(maybeMsg[this._primaryKey])
+            const maybeMapperErr = checkAgainstUndefined(maybeMapper);
+
+            if(maybeMapperErr.err) return payload.overrideError(maybeJsonErr);
+
+            return Promise.resolve(payload.assignMessage(maybeMsg)
+                          .assignMapper(maybeMapper)
+                          .clearErr()) 
+                       
+        }
+    }
+
 }
 
 //**Verification for now is dummy */
@@ -211,23 +229,60 @@ function runCtrl<T, K>(payload: PayloadWrapper<T, K>) {
 }
 
 //**Running the ctrl */
+async function asyncRunCtrl<T, K>(payload: Promise<PayloadWrapper<T, K>>) {
+    let p = await payload;
+    if ( p.hasError) return p.rollErr();
+    let [maybeData, maybeErr] =tryFnRun(p.mapper.ctrl, p.message.data);
+    if (maybeErr.err) return  p.overrideError(maybeErr);
+    return p.overrideData(maybeData);
+}
 
-
-//** send message*/
+//**send message*/
 function sendMessage<T, K>(payload: PayloadWrapper<T, K>) {
     //** TODO make some error handling before sending */
-    console.log(payload.getErrorObj.errorData);
     if(payload.hasError) return JSON.stringify(payload.getErrorObj);
     return JSON.stringify(payload.getAccData);
 }
 
+async function asyncSendMessage<T, K>(payload: Promise<PayloadWrapper<T, K>>) {
+    let p = await payload;
+    //** TODO make some error handling before sending */
+    if( p.hasError) return JSON.stringify(p.getErrorObj);
+    return JSON.stringify(await p.getAccData);
+}
 
+ function convertPayloadToPromise<T,K>(payload:PayloadWrapper<T,K>){
+    return Promise.resolve(payload);
+}
 let makeEchoCtrl = (data: string) => {
     return data;
 }
 
+let asyncMakeEchoCtrl = async (data:Promise<string>) =>{
+    return await data;
+}
+
+let asyncFetchCtrl = async(data:Promise<string>)=>{
+    return await fetchSimulator();
+}
 
 function add(n1: number, n2: number) {
     return n1 + n2;
 }
 
+async function makeAsync(){
+    return  new Promise((resolve)=>{
+        resolve('ko')
+    })
+}
+function normal(){
+    makeAsync()
+}
+
+function fetchSimulator(){
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve('Juz koniec')
+        },4000)
+    })
+}
