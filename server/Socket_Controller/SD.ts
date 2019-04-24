@@ -1,9 +1,15 @@
 import WebSocket from 'ws';
 import { tryFnRun, ErrPassingObj, checkAgainstUndefined } from './utilities/src/error_handling/error_handling';
 import { PayloadWrapper, SCMessage } from './socket_analyzer';
-import { stringify } from 'querystring';
+import {Merge,Omit} from 'type-fest';
 
+type Diff<T, U> = T extends U ? never : T
+type Without<T, K> = Pick<T, Exclude<keyof T, K>>;
 
+type First<T> =
+  T extends [infer U]
+    ? U
+    : never;
 
 //TODO make better
 //***Socket Demultiplexer */
@@ -35,9 +41,14 @@ export class SD<K> {
         return this as any as Pick<SD<K>, 'mountPayloadObj'>;
     }
 
-    public mountPayloadObj<T,D extends  keyof T>(payloadObj: T, targetForMapper:D ) {
-        let newPayload = { ...payloadObj, [targetForMapper]: this._mapper }
-        return newPayload;
+    public mountPayloadObj<T,D extends  keyof T,W extends {[key in D]: Map<string,K>},Z extends string>(payloadObj: T, targetForMapper:D){
+
+    //Make copy of payloadObj and replace old property content with new content;
+    const  {[targetForMapper]:oldProp,...rest} = {...payloadObj};
+  //  const newProp= {} as Map<D,K> ;
+  //  newProp[targetForMapper] = this._mapper as Map<D,K> ;
+    const newProp= {[targetForMapper]:this._mapper} as {[key in D]: Map<string,K>};
+    return {...rest,...newProp};
     }
 
 

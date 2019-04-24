@@ -4,6 +4,8 @@ import { pipe } from './utilities/src/pipe/pipe';
 import {MessageResolver} from './SD';
 
 
+
+
 let asyncMakeEchoCtrl = async (data: Promise<string>) => {
     return await data;
 }
@@ -37,8 +39,8 @@ let defaultPayload = {
         },
         data: undefined
     },
-    message: {},
-    mapper: {}
+    message: undefined,
+    mapper: undefined
 }
 
 
