@@ -1,11 +1,11 @@
-import WebSocket from 'ws';
 import { pipe } from './utilities/src/pipe/pipe';
-import { checkForUndefined, tryFnRun, ErrPassingObj, checkAgainstUndefined } from './utilities/src/error_handling/error_handling';
+import { checkForUndefined, tryFnRun, ErrPassingObj } from './utilities/src/error_handling/error_handling';
+import { SD } from './SD';
 
 
 
 
-interface SCMessage {
+export interface SCMessage {
     user?: string;
     userType?: string;
     dest?: string;
@@ -58,7 +58,7 @@ export function socketAnalyzer(router: SocketRouter[]) {
 
 }
 
-class PayloadWrapper<T, K> implements Payload<T, K>{
+export class PayloadWrapper<T, K> implements Payload<T, K>{
     message?: SCMessage;
     mapper?: Mapper<T, K>;
     acc: Acc<K>;
@@ -132,54 +132,6 @@ class PayloadWrapper<T, K> implements Payload<T, K>{
     }
 }
 
-
-//***Socket Demultiplexer */
-class SD<K> {
-
-    //**Create singleton instance */
-    public static mountMappingArr<T>(objArr: T[]) {
-        return new SD(objArr) as Pick<SD<T>, 'mapObjToPrimaryKey'>
-    }
-
-    //**Private variables */
-    private _mapper: Map<string, K>;
-    private _primaryKey: string;
-    private constructor(private readonly _objArr: K[]) { }
-
-
-    //**Map object to primary key. Primary key is used for router powered by Map key value pairs*/
-    public mapObjToPrimaryKey(primaryObjKey: string) {
-        this._primaryKey = primaryObjKey;
-        this._mapper = new Map<string, K>();
-        this._objArr.forEach(el => {
-            this._mapper.set(el[primaryObjKey], el)
-        })
-        return this as any as Pick<SD<K>, 'createMountMsgFn'>
-    }
-
-    //**Bind function which returns [message,mappingElement] */
-    public createMountMsgFn() {
-        //this should be destination key 
-        return (message: WebSocket.Data) => {
-            let payload = new PayloadWrapper<unknown, K>();
-
-            const msgErr = checkAgainstUndefined(message);
-            if (msgErr.err) return payload.overrideError(msgErr);
-            
-            //**Here is message take explicity as string */
-            const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message as string) as [SCMessage, ErrPassingObj]
-            if (maybeJsonErr.err) return payload.overrideError(maybeJsonErr)
-
-            const maybeMapper = this._mapper.get(maybeMsg[this._primaryKey])
-            const maybeMapperErr = checkAgainstUndefined(maybeMapper);
-
-            if (maybeMapperErr.err) return payload.overrideError(maybeJsonErr);
-            return payload.assignMessage(maybeMsg)
-                .assignMapper(maybeMapper)
-                .clearErr()
-        }
-    }
-}
 
 //**Verification for now is dummy */
 export async function verifyUser<T, K>(payload: Promise<PayloadWrapper<T, K>>) {
