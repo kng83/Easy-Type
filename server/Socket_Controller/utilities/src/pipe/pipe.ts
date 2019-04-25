@@ -79,7 +79,7 @@ export function pipe<T extends any[],K>(...args:T) {
    // let args = [...arguments]
     return (value:K) => {
         let fn = args[0](value)
-        for (let i = 0; i < args.length; i++) {
+        for (let i = 1; i < args.length; i++) {
             fn = args[i](fn)
         }
         return fn

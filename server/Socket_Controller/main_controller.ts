@@ -53,10 +53,9 @@ let msgFn = MessageResolver
             .mountPayload(payload)
             .chooseMapKey('mapper')
             .chooseMessageRoutingKey('dest')
-            .createMountMsgFn();
+            .createMountMsgFn()
 
-let makePipe = pipe(convertPayloadToPromise, verifyUser, runCtrl, sendMessage)
-console.log(makePipe.toString());
+let makePipe = pipe(msgFn,convertPayloadToPromise,  runCtrl, sendMessage)
 export default function mainController(message: WebSocket.Data) {
-   return makePipe(msgFn(message));
+   return makePipe((message));
 }

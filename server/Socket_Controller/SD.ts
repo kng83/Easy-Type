@@ -40,8 +40,6 @@ export class SD<K> {
         const newProp = { [targetForMapper]: this._mapper } as { [key in D]: Map<string, K> };
         return { ...rest, ...newProp };
     }
-
-
 }
 
 export class MessageResolver<W>{
@@ -70,36 +68,54 @@ export class MessageResolver<W>{
         return this as any as Pick<MessageResolver<W>, 'chooseMessageRoutingKey'>
     }
 
-    public createMountMsgFn() {
-        //this should be destination key 
+    private sendErrorPayload() {
 
-        const primaryKey = this._primaryKey;
-        const mapperAccessor = this._payloadObj[this._mapKey];
-        const payload = new PayloadWrapper<unknown, W>();
-        const mapperErr = checkAgainstUndefined(mapperAccessor);
-
-        if (mapperErr.err) {
-            payload.overrideError(mapperErr);
-            return (message: WebSocket.Data) => {
-                return payload;
-            }
-        }
-
-        return (message: WebSocket.Data) => {
-
-            //**Here is message take explicity as string */
-            const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message as string) as [SCMessage, ErrPassingObj];
-            if (maybeJsonErr.err) return payload.overrideError(maybeJsonErr);
-
-            const maybeMapper = mapperAccessor.get(maybeMsg[primaryKey]);
-            const maybeMapperErr = checkAgainstUndefined(maybeMapper);
-            if (maybeMapperErr.err) return payload.overrideError(maybeMapperErr);
-
-           let p = payload.assignMessage(maybeMsg)
-                .assignMapper(maybeMapper)
-                .clearErr();
-                console.log(p);
-                return p
-        };
     }
+    private sendGoodPayload(message) {
+        //**Here is message take explicity as string */
+        const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message as string) as [SCMessage, ErrPassingObj];
+        if (maybeJsonErr.err) return payload.overrideError(maybeJsonErr);
+
+        const maybeMapper = mapperAccessor.get(maybeMsg[primaryKey]);
+        const maybeMapperErr = checkAgainstUndefined(maybeMapper);
+        if (maybeMapperErr.err) return payload.overrideError(maybeMapperErr);
+
+        let p = payload.assignMessage(maybeMsg)
+            .assignMapper(maybeMapper)
+            .clearErr();
+        return p
+    };
+
+
+
+    public createMountMsgFn() {
+    //this should be destination key 
+
+    const primaryKey = this._primaryKey;
+    const mapperAccessor = this._payloadObj[this._mapKey];
+    const payload = new PayloadWrapper<unknown, W>();
+    const mapperErr = checkAgainstUndefined(mapperAccessor);
+
+    if (mapperErr.err) {
+        payload.overrideError(mapperErr);
+        return (message: WebSocket.Data) => {
+            return payload;
+        }
+    }
+
+    return (message: WebSocket.Data) => {
+        //**Here is message take explicity as string */
+        const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message as string) as [SCMessage, ErrPassingObj];
+        if (maybeJsonErr.err) return payload.overrideError(maybeJsonErr);
+
+        const maybeMapper = mapperAccessor.get(maybeMsg[primaryKey]);
+        const maybeMapperErr = checkAgainstUndefined(maybeMapper);
+        if (maybeMapperErr.err) return payload.overrideError(maybeMapperErr);
+
+        let p = payload.assignMessage(maybeMsg)
+            .assignMapper(maybeMapper)
+            .clearErr();
+        return p
+    };
+}
 }

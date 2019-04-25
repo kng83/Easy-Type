@@ -140,7 +140,6 @@ export function tryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D
     try {
         ans = fn(...args);
     } catch (e) {
-        console.dir(e.stack);
         passErrObj = EI.error(errorResolver(e));
     }
     return [ans, passErrObj];
