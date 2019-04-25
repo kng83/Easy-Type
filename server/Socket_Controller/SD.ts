@@ -1,15 +1,7 @@
 import WebSocket from 'ws';
 import { tryFnRun, ErrPassingObj, checkAgainstUndefined } from './utilities/src/error_handling/error_handling';
 import { PayloadWrapper, SCMessage } from './socket_analyzer';
-import {Merge,Omit} from 'type-fest';
 
-type Diff<T, U> = T extends U ? never : T
-type Without<T, K> = Pick<T, Exclude<keyof T, K>>;
-
-type First<T> =
-  T extends [infer U]
-    ? U
-    : never;
 
 //TODO make better
 //***Socket Demultiplexer */
@@ -41,14 +33,12 @@ export class SD<K> {
         return this as any as Pick<SD<K>, 'mountPayloadObj'>;
     }
 
-    public mountPayloadObj<T,D extends  keyof T,W extends {[key in D]: Map<string,K>},Z extends string>(payloadObj: T, targetForMapper:D){
+    public mountPayloadObj<T, D extends keyof T, W extends { [key in D]: Map<string, K> }, Z extends string>(payloadObj: T, targetForMapper: D) {
 
-    //Make copy of payloadObj and replace old property content with new content;
-    const  {[targetForMapper]:oldProp,...rest} = {...payloadObj};
-  //  const newProp= {} as Map<D,K> ;
-  //  newProp[targetForMapper] = this._mapper as Map<D,K> ;
-    const newProp= {[targetForMapper]:this._mapper} as {[key in D]: Map<string,K>};
-    return {...rest,...newProp};
+        //Make copy of payloadObj and replace old property content with new content;
+        const { [targetForMapper]: oldProp, ...rest } = { ...payloadObj };
+        const newProp = { [targetForMapper]: this._mapper } as { [key in D]: Map<string, K> };
+        return { ...rest, ...newProp };
     }
 
 
@@ -58,37 +48,58 @@ export class MessageResolver<W>{
     //**Bind function which returns [message,mappingElement] */
 
     public static mountPayload<T>(payloadObj: T) {
-        return new MessageResolver(payloadObj) as Pick<MessageResolver<T>, 'choosePrimaryKey'>;
+        return new MessageResolver(payloadObj) as Pick<MessageResolver<T>, 'chooseMapKey'>;
     }
 
     private _primaryKey: string;
-    private constructor(private payloadObj: W) { }
+    private _mapKey: string;
+    private _payloadObj: W;
+    private constructor(payloadObj: W) {
+        this._payloadObj = payloadObj;
+    }
 
-    public choosePrimaryKey(primaryMessageKey: string) {
+    //**Primary key for messages */
+    public chooseMessageRoutingKey(primaryMessageKey: string) {
         this._primaryKey = primaryMessageKey;
         return this as any as Pick<MessageResolver<W>, 'createMountMsgFn'>
+    }
+    //TODO check if data key exists
+    //**Map key from Payload Object */
+    public chooseMapKey(mapKey: string) {
+        this._mapKey = mapKey;
+        return this as any as Pick<MessageResolver<W>, 'chooseMessageRoutingKey'>
     }
 
     public createMountMsgFn() {
         //this should be destination key 
-        return (message: WebSocket.Data) => {
-            let payload = new PayloadWrapper<unknown, W>();
-            const msgErr = checkAgainstUndefined(message);
 
-            if (msgErr.err) return payload.overrideError(msgErr);
+        const primaryKey = this._primaryKey;
+        const mapperAccessor = this._payloadObj[this._mapKey];
+        const payload = new PayloadWrapper<unknown, W>();
+        const mapperErr = checkAgainstUndefined(mapperAccessor);
+
+        if (mapperErr.err) {
+            payload.overrideError(mapperErr);
+            return (message: WebSocket.Data) => {
+                return payload;
+            }
+        }
+
+        return (message: WebSocket.Data) => {
 
             //**Here is message take explicity as string */
             const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message as string) as [SCMessage, ErrPassingObj];
             if (maybeJsonErr.err) return payload.overrideError(maybeJsonErr);
 
-            const maybeMapper = this.payloadObj.mapper.get(maybeMsg[this._primaryKey]);
+            const maybeMapper = mapperAccessor.get(maybeMsg[primaryKey]);
             const maybeMapperErr = checkAgainstUndefined(maybeMapper);
-            if (maybeMapperErr.err)return payload.overrideError(maybeJsonErr);
+            if (maybeMapperErr.err) return payload.overrideError(maybeMapperErr);
 
-
-            return payload.assignMessage(maybeMsg)
+           let p = payload.assignMessage(maybeMsg)
                 .assignMapper(maybeMapper)
                 .clearErr();
+                console.log(p);
+                return p
         };
     }
 }

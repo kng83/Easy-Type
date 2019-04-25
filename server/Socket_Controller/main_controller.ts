@@ -12,6 +12,7 @@ let asyncMakeEchoCtrl = async (data: Promise<string>) => {
 
 //**Testing async workflow */
 let asyncFetchCtrl = async (data: Promise<string>) => {
+    console.log(data,'kkk');
     return await fetchSimulator(data);
 }
 
@@ -21,7 +22,7 @@ function fetchSimulator(data) {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(data)
-        }, 4000)
+        }, 1000)
     })
 }
 
@@ -43,7 +44,6 @@ let defaultPayload = {
     mapper: undefined
 }
 
-
 let payload = socketAnalyzer(objArr2)
     .setDataArrPrimaryKey('dest')
     .createMapperObj()
@@ -51,10 +51,12 @@ let payload = socketAnalyzer(objArr2)
 
 let msgFn = MessageResolver
             .mountPayload(payload)
-            .choosePrimaryKey('dest')
+            .chooseMapKey('mapper')
+            .chooseMessageRoutingKey('dest')
             .createMountMsgFn();
 
-
+let makePipe = pipe(convertPayloadToPromise, verifyUser, runCtrl, sendMessage)
+console.log(makePipe.toString());
 export default function mainController(message: WebSocket.Data) {
-   return pipe(convertPayloadToPromise, verifyUser, runCtrl, sendMessage)(msgFn(message));
+   return makePipe(msgFn(message));
 }

@@ -166,11 +166,6 @@ function convertErrStack(errStack: string) {
     let s = errStack.match(/(?<=\n\s+at\s+).*?(?=\s+at)/g);
     let sArr = [];
     s.forEach(el => {
-        //split string to module and link
-        //let [module, link] = el.split('(', 2);
-        //remove and bracelet;
-        //link = link.slice(0, link.length - 1);
-        //push module link object
         sArr.push(el);
     })
     return sArr;

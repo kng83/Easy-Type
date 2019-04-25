@@ -1,11 +1,14 @@
 import express from "express";
 import txt from './Text_Files/alpha.txt';
 import WebSocket from 'ws';
-import mainController from './Socket_Controller/Main_Controller';
 import {startErrorHandling} from './Socket_Controller/utilities/src/error_handling/error_handling'
 
-console.log('------------------------------------------------------------------------')
+//TODO this should be whenever
 startErrorHandling({errorLevel:'stack'});
+import mainController from './Socket_Controller/Main_Controller';
+
+console.log('------------------------------------------------------------------------')
+
 
 const app = express();
 const port = 3000;
