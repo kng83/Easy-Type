@@ -1,8 +1,8 @@
 import WebSocket from 'ws';
-import { sendMessage, convertPayloadToPromise, verifyUser, runCtrl } from './socket_analyzer'
-import { pipe } from './utilities/src/pipe/pipe';
-import { createMapFromArr } from "./createMapFromArr";
-import { MessageResolver } from "./MessageResolver";
+import { sendMessage, convertPayloadToPromise, verifyUser, runCtrl } from '../lib/socket_analyzer'
+import { pipe } from '../lib/utilities/pipe';
+import { createMapFromArr } from "../lib/utilities/createMapFromArr";
+import { MessageResolver } from "../lib/MessageResolver";
 
 
 

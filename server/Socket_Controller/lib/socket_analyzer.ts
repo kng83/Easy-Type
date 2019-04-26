@@ -1,4 +1,4 @@
-import {  tryFnRun, ErrPassingObj,asyncTryFnRun } from './utilities/src/error_handling/error_handling';
+import {  tryFnRun, ErrPassingObj,asyncTryFnRun } from '../../ErrorHandling/error_handling';
 
 export interface SCMessage {
     user?: string;

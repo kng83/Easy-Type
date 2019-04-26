@@ -1,11 +1,11 @@
 import express from "express";
 import txt from './Text_Files/alpha.txt';
 import WebSocket from 'ws';
-import {startErrorHandling} from './Socket_Controller/utilities/src/error_handling/error_handling'
+import {startErrorHandling} from './ErrorHandling/error_handling'
 
 //TODO this should be whenever
 startErrorHandling({errorLevel:'stack'});
-import mainController from './Socket_Controller/Main_Controller';
+import mainController from './Socket_Controller/src/main_controller';
 
 console.log('------------------------------------------------------------------------')
 
