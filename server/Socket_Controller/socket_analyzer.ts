@@ -1,4 +1,4 @@
-import {  tryFnRun, ErrPassingObj } from './utilities/src/error_handling/error_handling';
+import {  tryFnRun, ErrPassingObj,asyncTryFnRun } from './utilities/src/error_handling/error_handling';
 
 export interface SCMessage {
     user?: string;
@@ -116,13 +116,10 @@ export async function verifyUser<T>(payload: Promise<PayloadWrapper<T>>) {
 //**Running the asyncCtrl */
 export async function runCtrl<T>(payload: Promise<PayloadWrapper<T>>) {
     let p = await payload;
-   console.log(p.message.data,p.errorObj,p.mapper);
     if (p.hasError) return p.rollErr();
 
-    let [maybeData, maybeErr] = tryFnRun(p.mapper.ctrl, p.message.data);
-    console.log(maybeData,'sssss');
+    let [maybeData, maybeErr] = await asyncTryFnRun(p.mapper.ctrl, p.message.data);
     if (maybeErr.err) return p.overrideError(maybeErr);
-    
     return p.overrideData(maybeData);
 }
 
@@ -130,9 +127,10 @@ export async function runCtrl<T>(payload: Promise<PayloadWrapper<T>>) {
 //**Send async message */
 export async function sendMessage<T>(payload: Promise<PayloadWrapper<T>>) {
     let p = await payload;
+
     //** TODO make some error handling before sending */
     if (p.hasError) return JSON.stringify(p.errorObj);
-    return JSON.stringify(await p.acc);
+    return JSON.stringify(p.acc);
 }
 
 //**Converting payload to promise */

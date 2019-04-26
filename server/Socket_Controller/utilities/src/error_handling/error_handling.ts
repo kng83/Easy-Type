@@ -145,6 +145,17 @@ export function tryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D
     return [ans, passErrObj];
 }
 
+export async function asyncTryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): Promise<[R, ErrPassingObj]> {
+    let ans: R;
+    let passErrObj = EI.noError();
+    try {
+        ans = fn(...args);
+    } catch (e) {
+        passErrObj = EI.error(errorResolver(e));
+    }
+    return [await ans, await passErrObj];
+}
+
 //**Resole error and put to ErrorData object */
 function errorResolver(e: Error): ErrorData{
     let errName = e.name;

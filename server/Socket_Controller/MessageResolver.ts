@@ -1,4 +1,4 @@
-import {WebSocket} from 'ws';
+import WebSocket from 'ws';
 import { tryFnRun, ErrPassingObj, checkAgainstUndefined } from './utilities/src/error_handling/error_handling';
 import { PayloadWrapper, SCMessage, Payload, Mapper } from './socket_analyzer';
 
@@ -41,10 +41,12 @@ export class MessageResolver<M extends Map<string, Mapper>, D> {
             const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message as string) as [SCMessage, ErrPassingObj];
             if (maybeJsonErr.err)
                 return payload.overrideError(maybeJsonErr);
+
             const maybeMapper = mapperAccessor.get(maybeMsg[primaryKey]);
             const maybeMapperErr = checkAgainstUndefined(maybeMapper);
-            if (maybeMapperErr.err)
-                return payload.overrideError(maybeMapperErr);
+
+            if (maybeMapperErr.err) return payload.overrideError(maybeMapperErr);
+            
             let p = payload.assignMessage(maybeMsg)
                 .assignMapper(maybeMapper)
                 .clearErr();
