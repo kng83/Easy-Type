@@ -12,7 +12,6 @@ let asyncMakeEchoCtrl = async (data: Promise<string>) => {
 
 //**Testing async workflow */
 let asyncFetchCtrl = async (data: Promise<string>) => {
-    console.log(data,'kkk');
     return await fetchSimulator(data);
 }
 
@@ -47,11 +46,10 @@ let defaultPayload = {
 let payload = socketAnalyzer(objArr2)
     .setDataArrPrimaryKey('dest')
     .createMapperObj()
-    .mountPayloadObj(defaultPayload,'mapper');
+    .mountPayloadObj(defaultPayload);
 
 let msgFn = MessageResolver
             .mountPayload(payload)
-            .chooseMapKey('mapper')
             .chooseMessageRoutingKey('dest')
             .createMountMsgFn()
 
