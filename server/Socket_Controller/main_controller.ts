@@ -1,7 +1,8 @@
 import WebSocket from 'ws';
 import { sendMessage, convertPayloadToPromise, verifyUser, runCtrl } from './socket_analyzer'
 import { pipe } from './utilities/src/pipe/pipe';
-import {MessageResolver,createMapFromArr} from './SD';
+import { createMapFromArr } from "./createMapFromArr";
+import { MessageResolver } from "./MessageResolver";
 
 
 
@@ -54,7 +55,8 @@ let msgFn = MessageResolver
             .createMountMsgFn();
 
 let makePipe = pipe(msgFn,convertPayloadToPromise, runCtrl, sendMessage)
+
 export default function mainController(message: WebSocket.Data) {
-    return makePipe((message));
+    return makePipe(message);
 }
    

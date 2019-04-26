@@ -1,9 +1,4 @@
-import { pipe } from './utilities/src/pipe/pipe';
-import { checkForUndefined, tryFnRun, ErrPassingObj } from './utilities/src/error_handling/error_handling';
-//import { SD } from "./SD";
-
-
-
+import {  tryFnRun, ErrPassingObj } from './utilities/src/error_handling/error_handling';
 
 export interface SCMessage {
     user?: string;
@@ -20,16 +15,16 @@ export interface Mapper{
     ctrl?: (data:any)=>any;
 }
 
-export interface Acc<K> {
+export interface Acc<T> {
     Err: ErrPassingObj
-    data?: K;
+    data?: T;
 }
 
 //***passData is used also to pass errors */
-export interface Payload<K> {
+export interface Payload<T> {
     message?: SCMessage,
-    mapper?: Map<string,Mapper>
-    acc: Acc<K>,
+    mapper?: Mapper
+    acc: Acc<T>,
 }
 
 export interface SocketRouter {
@@ -38,58 +33,21 @@ export interface SocketRouter {
     ctrl: (data: any) => any;
 }
 
-/** Mounting router and return function which handles messages 
- * Use example:
- * 
- * let objArr2 = [
- *    { verifyUser: 'admin', dest: 'some', ctrl: asyncMakeEchoCtrl },
- *    { verifyUser: 'admin', dest: 'war', ctrl: asyncFetchCtrl },
- *    { verifyUser: 'admin', dest: 'other/some', ctrl: asyncMakeEchoCtrl },
- * ]
+export class PayloadWrapper<P>{
 
- * let msgFn = socketAnalyzer(objArr2)
- *      .mapObjToPrimaryKey('dest')
- *      .createMountMsgFn();
-
- * let messagePromise = pipe(convertPayloadToPromise,verifyUser,runCtrl,sendMessage)(msgFn(message));
-*/
-// export function socketAnalyzer(router: SocketRouter[]) {
-//     return SD.mountMappingArr(router)
-
-// }
-// public static mountMappingArr<T>(dataArr: T[]) {
-//     return new SD(dataArr) as Pick<SD<T>, 'setDataArrPrimaryKey'>;
-// }
-// //**Private variables */
-// private _mapper: Map<string, K>;
-// private _primaryKey: string;
-
-
-// private constructor(private readonly _objArr: K[]) { }
-export class PayloadWrapper<T, K>{
-
-
-    public static wrapPayload<T, K>(payloadObj: Payload<T, K>) {
-        return new PayloadWrapper(payloadObj) as PayloadWrapper<T, K>;
+    public static wrapPayload<T>(payloadObj: Payload<T>) {
+        return new PayloadWrapper(payloadObj) as PayloadWrapper<T>;
     }
-    private constructor(private _payloadObj: Payload<T, K>) { }
+    private constructor(private _payloadObj: Payload<P>) { }
 
-    public get hasError() {
-        return this._payloadObj.acc.Err.err;
-    }
-
-    //**Get data from Error, Acc, and mapper */
-    public get errorObj() {
-        return this._payloadObj.acc.Err;
-    }
-    public get accData() {
-        return this._payloadObj.acc.data;
-    }
     public get acc(){
         return this._payloadObj.acc;
     }
-    public get mapperData(){
+    public get mapper(){
         return this._payloadObj.mapper;
+    }
+    public get message(){
+        return this._payloadObj.message;
     }
     
     //**Override Error, Data . They belong */
@@ -97,14 +55,12 @@ export class PayloadWrapper<T, K>{
         this._payloadObj.acc.Err = err;
         return this;
     }
-    public overrideData(data: K) {
+    //**Only data which should be override is in Acc */
+    public overrideData(data: P) {
         this._payloadObj.acc.data = data;
         return this;
     }
 
-    public get messageData() {
-        return this._payloadObj.message.data;
-    }
     //Assign message, mapper and acc
     public assignMessage(message: SCMessage) {
         this._payloadObj.message = message;
@@ -114,9 +70,17 @@ export class PayloadWrapper<T, K>{
         this._payloadObj.mapper = mapper;
         return this;
     }
-    public assignAcc(acc: Acc<K>) {
+    public assignAcc(acc: Acc<P>) {
         this._payloadObj.acc = acc
         return this;
+    }
+
+    //Errors
+    public get hasError() {
+        return this._payloadObj.acc.Err.err;
+    }
+    public get errorObj() {
+        return this._payloadObj.acc.Err;
     }
     public clearErr() {
         this._payloadObj.acc.Err = {
@@ -130,85 +94,19 @@ export class PayloadWrapper<T, K>{
         this._payloadObj.acc.data = undefined;
         return this;
     }
+
+    //**Remove wrapping from object */
+    public unWrap():Payload<P>{
+        return {
+            message:this.message,
+            acc:this.acc,
+            mapper:this.mapper
+        }
+    }
 }
 
-// export class PayloadWrapper<T, K> implements Payload<T, K>{
-//     message?: SCMessage;
-//     mapper?: Mapper<T, K>;
-//     acc: Acc<K>;
-//     private get _default(): Payload<T, K> {
-//         return {
-//             acc: {
-//                 Err: {
-//                     err: false,
-//                     errorData: undefined
-//                 },
-//                 data: undefined
-//             },
-//             message: {},
-//             mapper: {}
-//         }
-//     }
-//     constructor() {
-//         this._initialize();
-//     }
-//     private _initialize() {
-//         this.acc = this._default.acc;
-//         this.message = this._default.message;
-//         this.mapper = this._default.mapper;
-//     }
-//     public get hasError() {
-//         return this.acc.Err.err;
-//     }
-
-//     public get getErrorObj() {
-//         return this.acc.Err;
-//     }
-//     public get getAccData() {
-//         return this.acc.data;
-//     }
-//     public overrideError(err: ErrPassingObj) {
-//         this.acc.Err = err;
-//         return this;
-//     }
-//     public overrideData(data: K) {
-//         this.acc.data = data;
-//         return this;
-//     }
-//     public set setError(err: ErrPassingObj) {
-//         this.acc.Err = err;
-//     }
-//     public getMessageData() {
-//         return this.message.data;
-//     }
-//     //Assign message, mapper and acc
-//     public assignMessage(message: SCMessage) {
-//         this.message = message;
-//         return this;
-//     }
-//     public assignMapper(mapper: Mapper<T, K>) {
-//         this.mapper = mapper;
-//         return this;
-//     }
-//     public assignAcc(acc: Acc<K>) {
-//         this.acc = acc
-//         return this;
-//     }
-//     public clearErr() {
-//         this.acc.Err = this._default.acc.Err;
-//         return this;
-//     }
-//     public rollErr() {
-//         this.message = {};
-//         this.mapper = {};
-//         this.acc.data = undefined;
-//         return this;
-//     }
-// }
-
-
 //**Verification for now is dummy */
-export async function verifyUser<T, K>(payload: Promise<PayloadWrapper<T, K>>) {
+export async function verifyUser<T>(payload: Promise<PayloadWrapper<T>>) {
     let p = await payload;
     if (p.hasError) return payload;
     //Todo some staff
@@ -216,26 +114,28 @@ export async function verifyUser<T, K>(payload: Promise<PayloadWrapper<T, K>>) {
 }
 
 //**Running the asyncCtrl */
-export async function runCtrl<T, K>(payload: Promise<PayloadWrapper<T, K>>) {
+export async function runCtrl<T>(payload: Promise<PayloadWrapper<T>>) {
     let p = await payload;
-    console.log(p._payloadObj);
-  
+   console.log(p.message.data,p.errorObj,p.mapper);
     if (p.hasError) return p.rollErr();
-    let [maybeData, maybeErr] = tryFnRun(p.mapperData.ctrl, p.messageData);
+
+    let [maybeData, maybeErr] = tryFnRun(p.mapper.ctrl, p.message.data);
+    console.log(maybeData,'sssss');
     if (maybeErr.err) return p.overrideError(maybeErr);
+    
     return p.overrideData(maybeData);
 }
 
 
 //**Send async message */
-export async function sendMessage<T, K>(payload: Promise<PayloadWrapper<T, K>>) {
+export async function sendMessage<T>(payload: Promise<PayloadWrapper<T>>) {
     let p = await payload;
     //** TODO make some error handling before sending */
     if (p.hasError) return JSON.stringify(p.errorObj);
-    return JSON.stringify(await p.accData);
+    return JSON.stringify(await p.acc);
 }
 
 //**Converting payload to promise */
-export function convertPayloadToPromise<T, K>(payload: PayloadWrapper<T, K>) {
+export function convertPayloadToPromise<T>(payload: PayloadWrapper<T>) {
     return Promise.resolve(payload);
 }
