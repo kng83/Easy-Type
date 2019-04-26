@@ -1,6 +1,6 @@
 import { pipe } from './utilities/src/pipe/pipe';
 import { checkForUndefined, tryFnRun, ErrPassingObj } from './utilities/src/error_handling/error_handling';
-import { SD } from "./SD";
+//import { SD } from "./SD";
 
 
 
@@ -26,7 +26,7 @@ export interface Acc<K> {
 }
 
 //***passData is used also to pass errors */
-export interface Payload<T, K> {
+export interface Payload<K> {
     message?: SCMessage,
     mapper?: Map<string,Mapper>
     acc: Acc<K>,
@@ -53,10 +53,10 @@ export interface SocketRouter {
 
  * let messagePromise = pipe(convertPayloadToPromise,verifyUser,runCtrl,sendMessage)(msgFn(message));
 */
-export function socketAnalyzer(router: SocketRouter[]) {
-    return SD.mountMappingArr(router)
+// export function socketAnalyzer(router: SocketRouter[]) {
+//     return SD.mountMappingArr(router)
 
-}
+// }
 // public static mountMappingArr<T>(dataArr: T[]) {
 //     return new SD(dataArr) as Pick<SD<T>, 'setDataArrPrimaryKey'>;
 // }
@@ -110,7 +110,7 @@ export class PayloadWrapper<T, K>{
         this._payloadObj.message = message;
         return this;
     }
-    public assignMapper(mapper: Map<string,Mapper>) {
+    public assignMapper(mapper: Mapper) {
         this._payloadObj.mapper = mapper;
         return this;
     }

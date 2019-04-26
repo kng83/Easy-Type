@@ -1,74 +1,41 @@
 import WebSocket from 'ws';
 import { tryFnRun, ErrPassingObj, checkAgainstUndefined } from './utilities/src/error_handling/error_handling';
-import { PayloadWrapper, SCMessage, Payload } from './socket_analyzer';
+import { PayloadWrapper, SCMessage, Payload ,Mapper} from './socket_analyzer';
 
 
 
 
-//TODO make better
-//***Socket Demultiplexer */
-export class CreateMapper<K> {
-
-    //**Create singleton instance */
-    public static mountMappingArr<T>(dataArr: T[]) {
-        return new CreateMapper(dataArr) as Pick<CreateMapper<T>, 'setDataArrPrimaryKey'>;
-    }
-
-    //**Private variables */
-    private mapObj: Map<string, K>;
-    private _primaryKey: string;
-    private constructor(private readonly _objArr: K[]) { }
-
-    //**Map object to primary key. Primary key is used for router powered by Map key value pairs*/
-    public setDataArrPrimaryKey(primaryObjKey: string) {
-        this._primaryKey = primaryObjKey;
-        return this as any as Pick<CreateMapper<K>, 'createMapperObj'>;
-    }
-
-    //**Append map key to Instance object. This key will hold converted Mapping Array */
-    public createMapperObj() {
-        this.mapObj = new Map<string, K>();
-        this._objArr.forEach(el => {
-            this.mapObj.set(el[this._primaryKey], el);
-        });
-        return this.mapObj;
-    }
-
-    // public mountPayloadObj<T,K>(payloadObj: Payload<T,K>) {
-    //     //Make copy of payloadObj and replace old property content with new content;
-    //     const payload = {...payloadObj};
-    //     payload.mapper = this.mapper;
-    //     return payload;
-    // }
+export function createMapFromArr<T extends any>(arr:T[],primaryKey:string):Map<string,T>{
+    const mapObj = new Map<string, T>();
+    arr.forEach(el=>{
+        mapObj.set(el[primaryKey],el);
+    })
+    return mapObj;
 }
 
-
-
-export class MessageResolver<T,K>{
+export class MessageResolver<M extends Map<string,Mapper>,D>{
     //**Bind function which returns [message,mappingElement] */
 
-    public static mountPayload<T,K>(payloadObj: Payload<T,K>) {
-        return new MessageResolver(payloadObj) as Pick<MessageResolver<T,K>, 'mountMapObj'>;
+    public static mountMapper<M extends Map<string,Mapper>>(mapperObj: M) {
+        return new MessageResolver(mapperObj) as Pick<MessageResolver<M,unknown>, 'mountPayloadObj'>;
     }
 
     private _primaryKey: string;
-    private _payloadObj: Payload<T,K>;
-    private _mapObj = undefined;
+    private _payloadObj: Payload<D>;
 
-    private constructor(payloadObj: Payload<T,K>) {
+    private constructor(private _mapperObj:M) {
+       return this;
+    }
+
+    public mountPayloadObj(payloadObj:Payload<D>){
         this._payloadObj = payloadObj;
+        return this as Pick<MessageResolver<M,unknown>, 'chooseMessageRoutingKey'>;
     }
-
-    public mountMapObj<M>(mapObj:M){
-        this._mapObj = mapObj;
-        return this as Pick<MessageResolver<T,K>, 'chooseMessageRoutingKey'>;
-    }
-
 
     //**Primary key for messages */
     public chooseMessageRoutingKey(primaryMessageKey: string) {
         this._primaryKey = primaryMessageKey;
-        return this as any as Pick<MessageResolver<T,K>, 'createMountMsgFn'>
+        return this as any as Pick<MessageResolver<M,D>, 'createMountMsgFn'>
     }
     //TODO check if data key exists
     //**Map key from Payload Object */
@@ -77,10 +44,10 @@ export class MessageResolver<T,K>{
         //this should be destination key 
 
         const primaryKey = this._primaryKey;
-        const mapperAccessor = this._mapObj;
+        const mapperAccessor = this._mapperObj;
         const payload = PayloadWrapper.wrapPayload(this._payloadObj);
-        const mapperErr = checkAgainstUndefined(mapperAccessor);
-
+         const mapperErr = checkAgainstUndefined(mapperAccessor);
+     
         if (mapperErr.err) {
             payload.overrideError(mapperErr);
             return (message: WebSocket.Data) => {

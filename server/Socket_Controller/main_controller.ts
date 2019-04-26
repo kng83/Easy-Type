@@ -1,7 +1,7 @@
 import WebSocket from 'ws';
-import { socketAnalyzer, sendMessage, convertPayloadToPromise, verifyUser, runCtrl } from './socket_analyzer'
+import { sendMessage, convertPayloadToPromise, verifyUser, runCtrl } from './socket_analyzer'
 import { pipe } from './utilities/src/pipe/pipe';
-import {MessageResolver} from './SD';
+import {MessageResolver,createMapFromArr} from './SD';
 
 
 
@@ -28,6 +28,7 @@ function fetchSimulator(data) {
 let objArr2 = [
     { verifyUser: 'admin', dest: 'some', ctrl: asyncMakeEchoCtrl },
     { verifyUser: 'admin', dest: 'bobo', ctrl: asyncFetchCtrl },
+    { verifyUser: 'admin', dest: 'koko', ctrl: asyncMakeEchoCtrl },
     { verifyUser: 'admin', dest: 'other/some', ctrl: asyncMakeEchoCtrl },
 ];
 
@@ -43,17 +44,17 @@ let defaultPayload = {
     mapper: undefined
 }
 
-let payload = socketAnalyzer(objArr2)
-    .setDataArrPrimaryKey('dest')
-    .createMapperObj()
-    .mountPayloadObj(defaultPayload);
+
+let destMapper = createMapFromArr(objArr2,'dest');
 
 let msgFn = MessageResolver
-            .mountPayload(payload)
+            .mountMapper(destMapper)
+            .mountPayloadObj(defaultPayload)
             .chooseMessageRoutingKey('dest')
-            .createMountMsgFn()
+            .createMountMsgFn();
 
-let makePipe = pipe(msgFn,convertPayloadToPromise,  runCtrl, sendMessage)
+let makePipe = pipe(msgFn,convertPayloadToPromise, runCtrl, sendMessage)
 export default function mainController(message: WebSocket.Data) {
-   return makePipe((message));
+    return makePipe((message));
 }
+   
