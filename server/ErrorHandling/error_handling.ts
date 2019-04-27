@@ -1,4 +1,4 @@
-import {overrideRight, mergeRight} from './lib/override';
+import { overrideRight, mergeRight } from './lib/override';
 
 let EI: ErrorHandling;
 
@@ -8,7 +8,6 @@ export interface ErrPassingObj {
 }
 //interface ErrorData extends Partial<Error> 
 interface ErrorData {
-    caller?: string | any;
     name?: string;
     message?: string;
     stack?: string | string[];
@@ -26,7 +25,6 @@ interface ErrorConfig {
     errorLevel: ErrorLevel
 }
 
-
 //TODO extract logger from Error handling
 class ErrorHandling {
     //**Create singleton instance */
@@ -39,33 +37,31 @@ class ErrorHandling {
         errorLevel: 'low'
     }
 
-
     //*** Getter i used to prevent mutation */
     private get _defaultErrorData(): ErrorData {
         return {
             name: '',
-            caller: '',
             message: '',
             stack: ''
         }
     }
+
     //**Override default values */
     private constructor(config?: ErrorConfig) {
         overrideRight(this._config, config);
         return this;
     }
-    
+
     //***Switch between logging options */
-    public logError(e: ErrorData) {
+    public logError({ name, message, stack }: ErrorData) {
         switch (this._config.errorLevel) {
             case 'none': break;
-            case 'low': console.log(e.message); break;
-            case 'caller': console.log(e.message, e.caller); break;
-            case 'stack': console.log(e.name, e.message, e.stack); break;
+            case 'low': console.log(message); break;
+            case 'caller': console.log(name, stack); break;
+            case 'stack': console.log(name, message, stack); break;
             default: ;
         }
     }
-    
 
     //** */
     public error(errorData: ErrorData): ErrPassingObj {
@@ -84,19 +80,16 @@ class ErrorHandling {
     }
 
     //*** Throw error when stack tracing is enabled config:{errorLevel:stack} */
-    public throwUserError(message: string, caller?: Function | string) {
+    public throwUserError(message: string) {
         let err: ErrorData = this._defaultErrorData;
 
-        if (this._config.errorLevel === 'stack') {
-            try {
-                throw Error(message)
-            } catch (e) {
-                err = mergeRight(errorResolver(e), { caller });
-                console.log(err,e,'ssssssssssssssssssss');
-            }   
+        if (this._config.errorLevel === 'stack') try {
+            throw Error(message)
+        } catch (e) {
+            err = errorResolver(e);
         } else {
-            console.log(err,'throwUserError');
-            err = mergeRight(err, { message, caller })
+            console.log(err, 'throwUserError');
+            err = mergeRight(err, { message })
         }
         return err;
     }
@@ -113,7 +106,7 @@ export function checkAgainstUndefined(value) {
     if (value) {
         return EI.noError();
     } else {
-        const e =EI.throwUserError('value is undefined')
+        const e = EI.throwUserError('value is undefined')
         console.log(e);
         return EI.error(e)
     }
@@ -121,8 +114,7 @@ export function checkAgainstUndefined(value) {
 
 //**Run function in safe environment and return error object if occurs*/
 export function tryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): [R, ErrPassingObj] {
-    let ans: R;
-    let passErrObj = EI.noError();
+    let ans: R, passErrObj = EI.noError();
     try {
         ans = fn(...args);
     } catch (e) {
@@ -131,10 +123,9 @@ export function tryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D
     return [ans, passErrObj];
 }
 
-//**Function to write async task in safety environment */
+//**Function to write async task in safety environment fn should by async */
 export async function asyncTryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): Promise<[R, ErrPassingObj]> {
-    let ans: R;
-    let passErrObj = EI.noError();
+    let ans: R, passErrObj = EI.noError();
     try {
         ans = fn(...args);
     } catch (e) {
@@ -144,17 +135,8 @@ export async function asyncTryFnRun<D extends any[], R>(fn: { (...args: D): R },
 }
 
 //**Resole error and put to ErrorData object */
-function errorResolver(e: Error): ErrorData{
-    let errName = e.name;
-    let errMessage = e.message;
-    let errStack = convertErrStack(e.stack);
-
-    return {
-            name: errName,
-            message: errMessage,
-            caller: '',
-            stack: errStack
-    }
+function errorResolver({ name, message, stack }: Error): ErrorData {
+    return { name, message, stack }
 }
 
 //**Convert error stack for better view */
