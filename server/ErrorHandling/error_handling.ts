@@ -1,9 +1,9 @@
 import { overrideRight, mergeRight } from './lib/override';
 
-let EI: ErrorHandling;
+let EI: ErrorInstance;
 
-export interface ErrPassingObj {
-    err: boolean | undefined;
+export interface ErrorPassingObj {
+    hasError: boolean | undefined;
     errorData?: ErrorData
 }
 //interface ErrorData extends Partial<Error> 
@@ -22,19 +22,33 @@ interface ErrorData {
 type ErrorLevel = 'none' | 'low' | 'caller' | 'stack';
 
 interface ErrorConfig {
-    errorLevel: ErrorLevel
+    errorLevel: ErrorLevel,
+    defaultNoErrorObj: ErrorPassingObj,
+    defaultErrorObj: ErrorPassingObj
 }
 
 //TODO extract logger from Error handling
-class ErrorHandling {
+class ErrorInstance {
     //**Create singleton instance */
     static initialize(config: ErrorConfig) {
-        return new ErrorHandling(config)
+        return new ErrorInstance(config)
     }
 
     //**Error configuration for logging and stacking */
     private _config: ErrorConfig = {
-        errorLevel: 'low'
+        errorLevel: 'low',
+        defaultNoErrorObj: {
+            hasError: false,
+            errorData:{}
+        },
+        defaultErrorObj: {
+            hasError: true,
+            errorData: {
+                name: 'empty name',
+                message: 'empty message',
+                stack: 'empty stack'
+            }
+        }
     }
 
     //*** Getter i used to prevent mutation */
@@ -51,30 +65,22 @@ class ErrorHandling {
         overrideRight(this._config, config);
         return this;
     }
-
-    //***Switch between logging options */
-    public logError({ name, message, stack }: ErrorData) {
-        switch (this._config.errorLevel) {
-            case 'none': break;
-            case 'low': console.log(message); break;
-            case 'caller': console.log(name, stack); break;
-            case 'stack': console.log(name, message, stack); break;
-            default: ;
-        }
+    //**Get error level config */
+    public get errorConfig() {
+        return this._config;
     }
 
     //** */
-    public error(errorData: ErrorData): ErrPassingObj {
+    public formIsErrorObj(errorData: ErrorData): ErrorPassingObj {
         return {
-            err: true,
+            hasError: true,
             errorData
         }
     }
-
     //** This is used when good error object is needed*/
-    public noError(): ErrPassingObj {
+    public formNoErrorObj(): ErrorPassingObj {
         return {
-            err: false,
+            hasError: false,
             errorData: this._defaultErrorData
         }
     }
@@ -97,46 +103,57 @@ class ErrorHandling {
 
 //**Make Global error handling instance for error state management */
 export function startErrorHandling(config: ErrorConfig) {
-    EI = ErrorHandling.initialize(config);
+    EI = ErrorInstance.initialize(config);
+}
+
+function throwUserError(message: string) {
+    let err: ErrorData = this._defaultErrorData;
+
+    if (this._config.errorLevel === 'stack') try {
+        throw Error(message)
+    } catch (e) {
+        err = errorResolver(e);
+    } else {
+        err = mergeRight(err, { message })
+    }
+    return err;
 }
 
 //**Check undefined value */
 export function checkAgainstUndefined(value) {
-    console.log(value);
-    if (value) {
-        return EI.noError();
-    } else {
+    if (value) return EI.formNoErrorObj();
+    else {
         const e = EI.throwUserError('value is undefined')
-        console.log(e);
-        return EI.error(e)
+        return EI.formIsErrorObj(e)
     }
 }
 
 //**Run function in safe environment and return error object if occurs*/
-export function tryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): [R, ErrPassingObj] {
-    let ans: R, passErrObj = EI.noError();
+export function tryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): [R, ErrorPassingObj] {
+    let ans: R, passErrObj = EI.formNoErrorObj();
     try {
         ans = fn(...args);
     } catch (e) {
-        passErrObj = EI.error(errorResolver(e));
+        passErrObj = EI.formIsErrorObj(errorResolver(e));
     }
     return [ans, passErrObj];
 }
 
 //**Function to write async task in safety environment fn should by async */
-export async function asyncTryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): Promise<[R, ErrPassingObj]> {
-    let ans: R, passErrObj = EI.noError();
+export async function asyncTryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): Promise<[R, ErrorPassingObj]> {
+    let ans: R, passErrObj = EI.formNoErrorObj();
     try {
         ans = fn(...args);
     } catch (e) {
-        passErrObj = EI.error(errorResolver(e));
+        const errorData = errorResolver(e);
+        passErrObj = EI.formIsErrorObj(errorData);
     }
     return [await ans, await passErrObj];
 }
 
-//**Resole error and put to ErrorData object */
+//**Resolve error and put to ErrorData object */
 function errorResolver({ name, message, stack }: Error): ErrorData {
-    return { name, message, stack }
+    return { name, message, stack: convertErrStack(stack) }
 }
 
 //**Convert error stack for better view */
@@ -150,3 +167,14 @@ function convertErrStack(errStack: string) {
     return sArr;
 }
 
+
+//***Switch between logging options */
+function logError({ name, message, stack }: ErrorData) {
+    switch (EI.errorConfig.errorLevel) {
+        case 'none': break;
+        case 'low': console.log(message); break;
+        case 'caller': console.log(name, stack); break;
+        case 'stack': console.log(name, message, stack); break;
+        default: ;
+    }
+}

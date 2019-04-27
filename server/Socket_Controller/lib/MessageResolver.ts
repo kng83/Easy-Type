@@ -1,5 +1,5 @@
 import WebSocket from 'ws';
-import { tryFnRun, ErrPassingObj, checkAgainstUndefined } from '../../ErrorHandling/error_handling';
+import { tryFnRun, ErrorPassingObj, checkAgainstUndefined } from '../../ErrorHandling/error_handling';
 import { PayloadWrapper, SCMessage, Payload, Mapper } from './socket_analyzer';
 
 
@@ -30,7 +30,7 @@ export class MessageResolver<M extends Map<string, Mapper>, D> {
         const mapperAccessor = this._mapperObj;
         const payload = PayloadWrapper.wrapPayload(this._payloadObj);
         const mapperErr = checkAgainstUndefined(mapperAccessor);
-        if (mapperErr.err) {
+        if (mapperErr.hasError) {
             payload.overrideError(mapperErr);
             return (message: WebSocket.Data) => {
                 return payload;
@@ -38,14 +38,14 @@ export class MessageResolver<M extends Map<string, Mapper>, D> {
         }
         return (message: WebSocket.Data) => {
             //**Here is message take explicity as string */
-            const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message as string) as [SCMessage, ErrPassingObj];
-            if (maybeJsonErr.err)
+            const [maybeMsg, maybeJsonErr] = tryFnRun(JSON.parse, message as string) as [SCMessage, ErrorPassingObj];
+            if (maybeJsonErr.hasError)
                 return payload.overrideError(maybeJsonErr);
 
             const maybeMapper = mapperAccessor.get(maybeMsg[primaryKey]);
             const maybeMapperErr = checkAgainstUndefined(maybeMapper);
 
-            if (maybeMapperErr.err) return payload.overrideError(maybeMapperErr);
+            if (maybeMapperErr.hasError) return payload.overrideError(maybeMapperErr);
             
             let p = payload.assignMessage(maybeMsg)
                 .assignMapper(maybeMapper)

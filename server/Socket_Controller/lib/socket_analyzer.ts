@@ -1,4 +1,4 @@
-import {  tryFnRun, ErrPassingObj,asyncTryFnRun } from '../../ErrorHandling/error_handling';
+import {  tryFnRun, ErrorPassingObj,asyncTryFnRun } from '../../ErrorHandling/error_handling';
 
 export interface SCMessage {
     user?: string;
@@ -16,7 +16,7 @@ export interface Mapper{
 }
 
 export interface Acc<T> {
-    Err: ErrPassingObj
+    Err: ErrorPassingObj
     data?: T;
 }
 
@@ -51,7 +51,7 @@ export class PayloadWrapper<P>{
     }
     
     //**Override Error, Data . They belong */
-    public overrideError(err: ErrPassingObj) {
+    public overrideError(err: ErrorPassingObj) {
         this._payloadObj.acc.Err = err;
         return this;
     }
@@ -77,14 +77,14 @@ export class PayloadWrapper<P>{
 
     //Errors
     public get hasError() {
-        return this._payloadObj.acc.Err.err;
+        return this._payloadObj.acc.Err.hasError;
     }
     public get errorObj() {
         return this._payloadObj.acc.Err;
     }
     public clearErr() {
         this._payloadObj.acc.Err = {
-            err: false
+            hasError: false
         }
         return this;
     }
@@ -119,7 +119,7 @@ export async function runCtrl<T>(payload: Promise<PayloadWrapper<T>>) {
     if (p.hasError) return p.rollErr();
 
     let [maybeData, maybeErr] = await asyncTryFnRun(p.mapper.ctrl, p.message.data);
-    if (maybeErr.err) return p.overrideError(maybeErr);
+    if (maybeErr.hasError) return p.overrideError(maybeErr);
     return p.overrideData(maybeData);
 }
 
