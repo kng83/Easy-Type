@@ -85,21 +85,6 @@ class ErrorInstance {
             errorData: this._runtimeConfig.noErrorObj.errorData
         }
     }
-
-    //*** Throw error when stack tracing is enabled config:{errorLevel:stack} */
-    public throwUserError(message: string) {
-        let err: ErrorData = this._runtimeConfig.isErrorObj.errorData;
-
-        if (this._defaultConfig.errorLevel === 'stack') try {
-            throw Error(message)
-        } catch (e) {
-            err = errorResolver(e);
-        } else {
-            console.log(err, 'throwUserError');
-            err = mergeRight(err, { message })
-        }
-        return err;
-    }
 }
 
 //**Make Global error handling instance for error state management */
