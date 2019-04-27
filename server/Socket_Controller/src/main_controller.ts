@@ -3,9 +3,12 @@ import { sendMessage, convertPayloadToPromise, verifyUser, runCtrl } from '../li
 import { pipe } from '../lib/utilities/pipe';
 import { createMapFromArr } from "../lib/utilities/createMapFromArr";
 import { MessageResolver } from "../lib/MessageResolver";
+import {checkAgainstUndefined} from '../../ErrorHandling/error_handling';
 
 
 
+let m = checkAgainstUndefined(undefined);
+console.log(m);
 
 let asyncMakeEchoCtrl = async (data: Promise<string>) => {
     return await data;
@@ -15,6 +18,7 @@ let asyncMakeEchoCtrl = async (data: Promise<string>) => {
 let asyncFetchCtrl = async (data: Promise<string>) => {
     return await fetchSimulator(data);
 }
+
 
 
 //**Using for testing async workflow */

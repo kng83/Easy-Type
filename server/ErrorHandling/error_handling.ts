@@ -1,3 +1,4 @@
+import {overrideRight, mergeRight} from './lib/override';
 
 let EI: ErrorHandling;
 
@@ -38,8 +39,9 @@ class ErrorHandling {
         errorLevel: 'low'
     }
 
+
     //*** Getter i used to prevent mutation */
-    private get _defaultError(): ErrorData {
+    private get _defaultErrorData(): ErrorData {
         return {
             name: '',
             caller: '',
@@ -48,23 +50,11 @@ class ErrorHandling {
         }
     }
     //**Override default values */
-    private constructor(private config?: ErrorConfig) {
-        this.override(this._config, this.config);
+    private constructor(config?: ErrorConfig) {
+        overrideRight(this._config, config);
         return this;
     }
-    //**Override existing object with fixed values  */
-    public overrideOne<R extends Partial<T>, T>(target: T, source: R) {
-        Object.keys(source).forEach((key) => {
-            target[key] = source[key]
-        })
-    }
-    public mergeLeft<R extends Partial<T>[], T>(pattern: T, ...source: R): T {
-        return Object.assign({}, pattern, ...source) as T;
-    }
-
-    public override<R extends Partial<T>[], T extends Object>(target: T, ...source: R) {
-        Object.assign(target, ...source);
-    }
+    
     //***Switch between logging options */
     public logError(e: ErrorData) {
         switch (this._config.errorLevel) {
@@ -75,9 +65,7 @@ class ErrorHandling {
             default: ;
         }
     }
-    public get defaultErrObj() {
-        return this._defaultError;
-    }
+    
 
     //** */
     public error(errorData: ErrorData): ErrPassingObj {
@@ -91,21 +79,24 @@ class ErrorHandling {
     public noError(): ErrPassingObj {
         return {
             err: false,
-            errorData: this._defaultError
+            errorData: this._defaultErrorData
         }
     }
 
     //*** Throw error when stack tracing is enabled config:{errorLevel:stack} */
     public throwUserError(message: string, caller?: Function | string) {
-        let err: ErrorData = this._defaultError;
+        let err: ErrorData = this._defaultErrorData;
+
         if (this._config.errorLevel === 'stack') {
             try {
                 throw Error(message)
             } catch (e) {
-                EI.override(err, e as Error, { caller });
-            }
+                err = mergeRight(errorResolver(e), { caller });
+                console.log(err,e,'ssssssssssssssssssss');
+            }   
         } else {
-            err = this.mergeLeft(err, { message, caller }) //TODO merge left is not working
+            console.log(err,'throwUserError');
+            err = mergeRight(err, { message, caller })
         }
         return err;
     }
@@ -116,20 +107,15 @@ export function startErrorHandling(config: ErrorConfig) {
     EI = ErrorHandling.initialize(config);
 }
 
-//** */
-export function checkForUndefined(value, fn) {
-    if (value) {
-        return EI.noError();
-    } else {
-        return EI.error(EI.throwUserError('value is undefined', fn))
-    }
-}
-
+//**Check undefined value */
 export function checkAgainstUndefined(value) {
+    console.log(value);
     if (value) {
         return EI.noError();
     } else {
-        return EI.error(EI.throwUserError('value is undefined'))
+        const e =EI.throwUserError('value is undefined')
+        console.log(e);
+        return EI.error(e)
     }
 }
 
@@ -145,6 +131,7 @@ export function tryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D
     return [ans, passErrObj];
 }
 
+//**Function to write async task in safety environment */
 export async function asyncTryFnRun<D extends any[], R>(fn: { (...args: D): R }, ...args: D): Promise<[R, ErrPassingObj]> {
     let ans: R;
     let passErrObj = EI.noError();
@@ -170,7 +157,7 @@ function errorResolver(e: Error): ErrorData{
     }
 }
 
-//** */
+//**Convert error stack for better view */
 function convertErrStack(errStack: string) {
     //make this simpler s{2,} means to or more spaces 
     let s = errStack.match(/(?<=\n\s+at\s+).*?(?=\s+at)/g);
