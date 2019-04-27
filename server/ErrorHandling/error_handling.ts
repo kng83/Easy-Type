@@ -22,9 +22,9 @@ interface ErrorData {
 type ErrorLevel = 'none' | 'low' | 'caller' | 'stack';
 
 interface ErrorConfig {
-    errorLevel: ErrorLevel,
-    defaultNoErrorObj: ErrorPassingObj,
-    defaultErrorObj: ErrorPassingObj
+    errorLevel?: ErrorLevel,
+    noErrorObj?: ErrorPassingObj,
+    isErrorObj?: ErrorPassingObj
 }
 
 //TODO extract logger from Error handling
@@ -35,13 +35,13 @@ class ErrorInstance {
     }
 
     //**Error configuration for logging and stacking */
-    private _config: ErrorConfig = {
+    private _defaultConfig: ErrorConfig = {
         errorLevel: 'low',
-        defaultNoErrorObj: {
+        noErrorObj: {
             hasError: false,
             errorData:{}
         },
-        defaultErrorObj: {
+        isErrorObj: {
             hasError: true,
             errorData: {
                 name: 'empty name',
@@ -50,46 +50,47 @@ class ErrorInstance {
             }
         }
     }
+    private _runtimeConfig:ErrorConfig ={};
 
-    //*** Getter i used to prevent mutation */
-    private get _defaultErrorData(): ErrorData {
-        return {
-            name: '',
-            message: '',
-            stack: ''
-        }
-    }
-
-    //**Override default values */
+     //**Override default values */
     private constructor(config?: ErrorConfig) {
-        overrideRight(this._config, config);
+        overrideRight(this._runtimeConfig,this._defaultConfig, config);
+        console.log(this._runtimeConfig);
         return this;
     }
     //**Get error level config */
     public get errorConfig() {
-        return this._config;
+        return this._runtimeConfig;
+    }
+    //** Get ErrorData model without errors*/
+    public get noErrorDataModel(){
+        return this._runtimeConfig.noErrorObj.errorData;
+    }
+    //**Get ErrorData model with errors */
+    public get isErrorDataModel(){
+        return this._defaultConfig.isErrorObj.errorData;
     }
 
     //** */
     public formIsErrorObj(errorData: ErrorData): ErrorPassingObj {
         return {
-            hasError: true,
+            hasError: this._runtimeConfig.isErrorObj.hasError,
             errorData
         }
     }
     //** This is used when good error object is needed*/
     public formNoErrorObj(): ErrorPassingObj {
         return {
-            hasError: false,
-            errorData: this._defaultErrorData
+            hasError: this._runtimeConfig.noErrorObj.hasError,
+            errorData: this._runtimeConfig.noErrorObj.errorData
         }
     }
 
     //*** Throw error when stack tracing is enabled config:{errorLevel:stack} */
     public throwUserError(message: string) {
-        let err: ErrorData = this._defaultErrorData;
+        let err: ErrorData = this._runtimeConfig.isErrorObj.errorData;
 
-        if (this._config.errorLevel === 'stack') try {
+        if (this._defaultConfig.errorLevel === 'stack') try {
             throw Error(message)
         } catch (e) {
             err = errorResolver(e);
@@ -107,9 +108,9 @@ export function startErrorHandling(config: ErrorConfig) {
 }
 
 function throwUserError(message: string) {
-    let err: ErrorData = this._defaultErrorData;
+    let err: ErrorData = EI.isErrorDataModel;
 
-    if (this._config.errorLevel === 'stack') try {
+    if (EI.errorConfig.errorLevel === 'stack') try {
         throw Error(message)
     } catch (e) {
         err = errorResolver(e);
@@ -123,7 +124,7 @@ function throwUserError(message: string) {
 export function checkAgainstUndefined(value) {
     if (value) return EI.formNoErrorObj();
     else {
-        const e = EI.throwUserError('value is undefined')
+        const e = throwUserError('value is undefined')
         return EI.formIsErrorObj(e)
     }
 }
@@ -166,7 +167,6 @@ function convertErrStack(errStack: string) {
     })
     return sArr;
 }
-
 
 //***Switch between logging options */
 function logError({ name, message, stack }: ErrorData) {
