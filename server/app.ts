@@ -1,10 +1,6 @@
+import './error.init';
 import express from "express";
-import txt from './Text_Files/alpha.txt';
 import WebSocket from 'ws';
-import {startErrorHandling} from './ErrorHandling/error_handling'
-
-//TODO this should be whenever
-startErrorHandling({errorLevel:'stack'});
 import mainController from './Socket_Controller/src/main_controller';
 
 console.log('------------------------------------------------------------------------')
@@ -13,7 +9,6 @@ console.log('-------------------------------------------------------------------
 const app = express();
 const port = 3000;
 app.get('/', (req, res) => res.send('Hello World!'))//
-
 
 const wss = new WebSocket.Server({
   port: 3001,

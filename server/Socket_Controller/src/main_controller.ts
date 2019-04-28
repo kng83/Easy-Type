@@ -40,7 +40,7 @@ let objArr2 = [
 let defaultPayload = {
     acc: {
         Err: {
-            err: false,
+            hasError: false,
             errorData: undefined
         },
         data: undefined

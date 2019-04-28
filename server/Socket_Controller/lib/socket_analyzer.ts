@@ -1,5 +1,5 @@
-import {  tryFnRun, ErrorPassingObj,asyncTryFnRun } from '../../ErrorHandling/error_handling';
-
+import { tryFnRun, asyncTryFnRun } from '../../ErrorHandling/error_handling';
+import {IErrorPassingStruct} from '../../ErrorHandling/error_handling';
 export interface SCMessage {
     user?: string;
     userType?: string;
@@ -16,7 +16,7 @@ export interface Mapper{
 }
 
 export interface Acc<T> {
-    Err: ErrorPassingObj
+    Err: IErrorPassingStruct
     data?: T;
 }
 
@@ -51,7 +51,7 @@ export class PayloadWrapper<P>{
     }
     
     //**Override Error, Data . They belong */
-    public overrideError(err: ErrorPassingObj) {
+    public overrideError(err: IErrorPassingStruct) {
         this._payloadObj.acc.Err = err;
         return this;
     }
