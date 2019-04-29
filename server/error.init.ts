@@ -1,2 +1,2 @@
-import {startErrorHandling} from './ErrorHandling/error_handling'
+import {startErrorHandling} from 'error-resolver';
 const  ErrorInstance  = startErrorHandling({errorLevel:'stack'});

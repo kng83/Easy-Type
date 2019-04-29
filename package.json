@@ -6,6 +6,7 @@
   },
   "private": true,
   "dependencies": {
+    "error-resolver": "^1.0.0",
     "express": "^4.16.2",
     "ws": "^6.2.1"
   },

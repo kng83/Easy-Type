@@ -1,5 +1,5 @@
 import WebSocket from 'ws';
-import { tryFnRun, checkAgainstUndefined, IErrorPassingStruct } from '../../ErrorHandling/error_handling';
+import { tryFnRun, checkAgainstUndefined, IErrorPassingStruct } from 'error-resolver';
 import { PayloadWrapper, SCMessage, Payload, Mapper } from './socket_analyzer';
 
 

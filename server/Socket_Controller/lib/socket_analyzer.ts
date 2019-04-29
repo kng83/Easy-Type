@@ -1,5 +1,5 @@
-import { tryFnRun, asyncTryFnRun } from '../../ErrorHandling/error_handling';
-import {IErrorPassingStruct} from '../../ErrorHandling/error_handling';
+import { tryFnRun, asyncTryFnRun } from 'error-resolver';
+import {IErrorPassingStruct} from 'error-resolver';
 export interface SCMessage {
     user?: string;
     userType?: string;
