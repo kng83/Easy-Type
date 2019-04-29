@@ -3,7 +3,7 @@ import { sendMessage, convertPayloadToPromise, verifyUser, runCtrl } from '../li
 import { pipe } from '../lib/utilities/pipe';
 import { createMapFromArr } from "../lib/utilities/createMapFromArr";
 import { MessageResolver } from "../lib/MessageResolver";
-import {checkAgainstUndefined} from '../../ErrorHandling/error_handling';
+import {checkAgainstUndefined} from 'error-resolver';
 
 
 

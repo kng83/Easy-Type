@@ -54,7 +54,7 @@ const config: webpack.Configuration = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   },
-  externals: nodeModules,
+ // externals: nodeModules,
   plugins: [
     new NodemonPlugin()
   ]
