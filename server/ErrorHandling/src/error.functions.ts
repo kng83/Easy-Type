@@ -1,6 +1,6 @@
 import { IErrorData, IErrorPassingStruct } from './Error.Interface';
 import { mergeRight } from '../lib/utilities';
-import {ErrorModel} from '../lib/Error.Model';
+import {ErrorModel} from '../lib/Error.model';
 
 
 //**Check undefined value */

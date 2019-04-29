@@ -1,2 +1,2 @@
 import {startErrorHandling} from './ErrorHandling/error_handling'
-startErrorHandling({errorLevel:'stack'});
+const  ErrorInstance  = startErrorHandling({errorLevel:'stack'});
