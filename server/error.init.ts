@@ -1,2 +1,2 @@
-import {startErrorHandling} from 'error-resolver';
-const  ErrorInstance  = startErrorHandling({errorLevel:'stack'});
+import {startErrorResolving} from 'error-resolver'
+const  ErrorInstance  = startErrorResolving({errorLevel:'stack'});
