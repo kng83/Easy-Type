@@ -8,7 +8,7 @@ const page = fs.readFileSync('./index.html');
 const apps = app./*SSL*/App({
   key_file_name: 'misc/39321665_localhost.key',
   cert_file_name: 'misc/39321665_localhost.cert',
-  passphrase: '1234'
+  passphrase: '1234',
 
 }).get('/id', (res, req) => {
   res.writeHeader('Content-Type','text/html; charset=utf-8');
@@ -40,9 +40,8 @@ const apps = app./*SSL*/App({
   /* Parameters */
   res.end('So you want candy? Have some ' + req.getParameter(0) + '!');
 }).get('/*', (res, req) => {
-  console.log(qs.parse(req.getQuery()))
-  
-  return res.end(page);
+  console.dir(res.end.toString());
+  res.end(page);
 }).listen(port, (token) => {
 
   if (token) {
