@@ -22,6 +22,10 @@ const config: webpack.Configuration = {
     aggregateTimeout: 100,
     poll: true
   },
+  node:{
+    __filename: false,
+    __dirname: false
+  },
   stats: {
     warningsFilter: /^(?!CriticalDependenciesWarning$)/ //used for compiling express app
   },
