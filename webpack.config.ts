@@ -2,6 +2,7 @@
 import path from 'path';
 import fs from 'fs';
 import NodemonPlugin = require('nodemon-webpack-plugin');
+import CopyPlugin = require('copy-webpack-plugin');
 import webpack from 'webpack';
 
 const nodeModules = {};
@@ -25,7 +26,7 @@ const config: webpack.Configuration = {
     warningsFilter: /^(?!CriticalDependenciesWarning$)/ //used for compiling express app
   },
   output: {
-    path: path.resolve(__dirname, "dist/server"),
+    path: path.resolve(__dirname, "dist"),
     filename: "server.js"
   },
   module: {
@@ -34,6 +35,12 @@ const config: webpack.Configuration = {
         test: /\.txt$/i,
         use: 'raw-loader',
       },
+      {
+        test: /\.js$/i,
+        use:'raw-loader'
+      },
+      
+
       {
         test: /\.tsx?$/,
         use: [
@@ -56,6 +63,9 @@ const config: webpack.Configuration = {
   devtool: 'source-map',
   externals: nodeModules,
   plugins: [
+    new CopyPlugin([
+      {from:'./server/public',to:'./public'}
+    ]),
     new NodemonPlugin()
   ]
 };
