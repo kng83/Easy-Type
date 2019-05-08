@@ -84,7 +84,12 @@ export class PayloadWrapper<P>{
     }
     public clearErr() {
         this._payloadObj.acc.Err = {
-            hasError: false
+            hasError: false,
+            errorData:{
+                name:'',
+                message:'',
+                stack:''
+            }
         }
         return this;
     }

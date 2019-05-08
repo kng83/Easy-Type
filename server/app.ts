@@ -4,6 +4,9 @@ import WebSocket from 'ws';
 import mainController from './Socket_Controller/src/main_controller';
 
 console.log('------------------------------------------------------------------------')
+//make ping pong 
+//make connection reestablishment
+//take verify once 
 
 
 const app = express();
@@ -14,10 +17,10 @@ const wss = new WebSocket.Server({
   port: 3001,
   verifyClient: (client) => {
     const { host } = client.req.headers;
-    console.log(host);
-    return true
+    return true;
   }
-}).on('connection', (ws) => {
+}).on('connection', (ws,req) => {
+  console.log( req.connection);
   ws.on('message', (message) => {
     mainController(message).then(msg => {
     //  console.log(msg);
@@ -25,8 +28,8 @@ const wss = new WebSocket.Server({
       ws.send(msg)
     }).catch(err => console.log(err))
   });
-}).on('close', (ws) => {
-// console.log('close connection');
+}).on('disconnection', (ws,req) => {
+ console.log('close connection',ws);
   ws.send('close')
 })
 //console.log(process.memoryUsage());
@@ -34,7 +37,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 function useOfMemory() {
   const used = process.memoryUsage();
- console.clear();
+  console.clear();
   for (let key in used) {
     console.log(`${key} ${Math.round(used[key] / 1024 / 1024 * 100) / 100} MB`);
   }
