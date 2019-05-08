@@ -8,7 +8,7 @@ import {checkAgainstUndefined} from 'error-resolver';
 
 
 let m = checkAgainstUndefined(undefined);
-console.log(m);
+
 
 let asyncMakeEchoCtrl = async (data: Promise<string>) => {
     return await data;

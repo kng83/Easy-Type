@@ -20,13 +20,13 @@ const wss = new WebSocket.Server({
 }).on('connection', (ws) => {
   ws.on('message', (message) => {
     mainController(message).then(msg => {
-      console.log(msg);
-     console.log(useOfMemory());
+    //  console.log(msg);
+      useOfMemory();
       ws.send(msg)
     }).catch(err => console.log(err))
   });
 }).on('close', (ws) => {
-  console.log('close connection');
+// console.log('close connection');
   ws.send('close')
 })
 //console.log(process.memoryUsage());
@@ -34,7 +34,9 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 function useOfMemory() {
   const used = process.memoryUsage();
+ console.clear();
   for (let key in used) {
     console.log(`${key} ${Math.round(used[key] / 1024 / 1024 * 100) / 100} MB`);
   }
+  return 0;
 }

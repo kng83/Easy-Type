@@ -5,14 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}\\dist\\server\\server.js"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\server\\Socket_Controller\\utilites\\src\\error_handling\\error_handling.ts",
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "outFiles": [
-                "${workspaceFolder}/dist/out-files/**/*.js"
-            ]
+            "program": "${workspaceFolder}\\dist\\server\\server.js"
         }
     ]
 }
