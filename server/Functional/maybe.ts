@@ -30,8 +30,14 @@ class Maybe {
 
  let one = add3.bind({},3);
  let two = one.bind({},4);
-
  console.log(two(5) ,"three");
+
+ function curry<T extends any,R extends any[]>(fn:T,...args:R){
+     return fn.bind(null,...args); 
+ }
+ let curryOne = curry(add3,4);
+ let curryTwo = curryOne(4);
+ console.log(curryTwo(5),'curry');
   //console.log(add3.length);
   //let two = one(4,4);
   //console.log("this is",two);
