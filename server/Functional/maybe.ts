@@ -22,16 +22,17 @@ class Maybe {
     }
   }
 
-  function curry(fn,...args){
-     function recurence(..._arg){
-          return fn(...args,..._arg);
-      }
-  }
+
   
-  function add3(a,b,c){
+  function add3(a:number,b:number,c:number){
       return a+b+c;
   }
-  let one = curry(add3,2);
+
+ let one = add3.bind({},3);
+ let two = one.bind({},4);
+
+ console.log(two(5) ,"three");
+  //console.log(add3.length);
   //let two = one(4,4);
   //console.log("this is",two);
 

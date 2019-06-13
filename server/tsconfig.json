@@ -8,6 +8,7 @@
     "noImplicitAny": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "strictBindCallApply":true,
     "target": "es6",
     "lib": [
       "dom",
