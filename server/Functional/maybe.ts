@@ -28,16 +28,17 @@ class Maybe {
       return a+b+c;
   }
 
- let one = add3.bind({},3);
- let two = one.bind({},4);
- console.log(two(5) ,"three");
+ let one = add3.bind({},3).bind({},5);
 
- function curry<T extends any,R extends any[]>(fn:T,...args:R){
-     return fn.bind(null,...args); 
+ console.log(one(5) ,"three");
+
+ function curry(fn,...args){
+      return fn.bind(curry,args[0]).bind(curry,args[1]);
  }
  let curryOne = curry(add3,4);
- let curryTwo = curryOne(4);
- console.log(curryTwo(5),'curry');
+ let curryTwo = curryOne(5);
+
+ console.log(curryTwo(5)()(),'curry');
   //console.log(add3.length);
   //let two = one(4,4);
   //console.log("this is",two);
