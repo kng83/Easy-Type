@@ -2,7 +2,7 @@ import express from "express";
 //import './Functional/functors';
 //import './Functional/maybe';
 //import './Functional/maybe_just_nothing.ts';
-import './Functional/maybe3';
+import './Functional/either.ts';
 const app = express();
 const port = 3000;
 
