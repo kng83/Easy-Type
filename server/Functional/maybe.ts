@@ -1,3 +1,5 @@
+import {curry} from './curry';
+
 class Maybe {
     $value:any;
 
@@ -22,23 +24,18 @@ class Maybe {
     }
   }
 
-
-  
   function add3(a:number,b:number,c:number){
       return a+b+c;
   }
 
  let one = add3.bind({},3).bind({},5);
 
- console.log(one(5) ,"three");
 
- function curry(fn,...args){
-      return fn.bind(curry,args[0]).bind(curry,args[1]);
- }
- let curryOne = curry(add3,4);
+
+ let curryOne = curry(add3,3);
  let curryTwo = curryOne(5);
 
- console.log(curryTwo(5)()(),'curry');
+ console.log(curryTwo(10),'curry');
   //console.log(add3.length);
   //let two = one(4,4);
   //console.log("this is",two);
