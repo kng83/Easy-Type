@@ -32,16 +32,6 @@ class Maybe {
 
 
 
- let curryOne = curry(add3,3);
- let curryTwo = curryOne(5);
-
- console.log(curryTwo(10),'curry');
-  //console.log(add3.length);
-  //let two = one(4,4);
-  //console.log("this is",two);
-
-
-
   let match = (reg) => (val:any)=> val.match(reg);
   let prop = (prop:any) =>(val) => val[prop];
   let add = (add:any) => (val:any) => val + add;
