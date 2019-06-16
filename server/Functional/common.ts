@@ -63,3 +63,10 @@ export const inspection = (x) => {
 
   return (typeof x === 'function') ? inspectFn(x) : inspectArgs(x);
 };
+
+// split :: String -> String -> [String]
+//export const split = curry((sep, str:string) => str.split(sep));
+export const split = (sep:string) => (str:string) => str.toString().split(sep);
+
+// head :: [a] -> a
+export const head = xs => xs[0];
