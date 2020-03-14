@@ -1,11 +1,13 @@
 import { executeStandardQuery } from '../db';
 import { Request, Response } from 'express';
+import {tryCatchWrap} from '../Controllers/utilities'
 
 
-export namespace ctrl {
+class UserCtrl {
 
     //*** Get all elements in table */
-    export const getAll = async (req: Request, res: Response) => {
+    getAll = async (req: any, res: Response) => {
+        let some = req.self.ohter.down()
 
         let data = await executeStandardQuery(/*sql*/`     
                 /*------------------------SQL-----------------------------*/
@@ -18,11 +20,11 @@ export namespace ctrl {
         return res.send(data)
     }
 
-
-    export const getByName = async (req: Request, res: Response) => {
+    //*** Get by name */
+    getByName = async (req: Request, res: Response) => {
         let result = await req.query;
         let firstName = '';
-        console.log(result);
+
         if (result?.name) {
             firstName = result.name;
         }
@@ -40,28 +42,24 @@ export namespace ctrl {
         return res.send(data);
     }
 
-    export const insertUser = async (req: Request, res: Response) => {
+    insertUser = async (req: Request, res: Response) => {
         let data = {};
-        try {
+
             let result = await req.query;
             const { firstName, lastName, age } = result;
-            checkIfAllValuesExist('not all values exists' ,firstName, lastName, age);
-
+            checkIfAllValuesExist('not all values exists', firstName, lastName, age);
+            console.log('insertUserr');
             data = await executeStandardQuery(/*sql*/`     
             
             /*------------------------SQL-----------------------------*/
     
-            INSERT INTO users (firstName,lastName,age)
+            INSERT INTO users (firstName1,lastName,age)
             Values ('${firstName}','${lastName}','${age}')
     
             /*------------------------END_SQL------------------------*/
             `
             )
-        } catch (e) {
-            data = e.message;
-        }
-
-        return res.send(data);
+        return data;
 
     }
 
@@ -69,7 +67,9 @@ export namespace ctrl {
 }
 
 
-function checkIfAllValuesExist<T extends any[]>(msg:string,...values: T) {
+export const userCtrl = tryCatchWrap(new UserCtrl());
+
+function checkIfAllValuesExist<T extends any[]>(msg: string, ...values: T) {
     if (values.some(value => value === null || value === undefined)) {
         throw new Error(msg);
     }

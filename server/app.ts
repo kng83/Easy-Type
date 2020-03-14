@@ -1,27 +1,29 @@
 import express from "express";
 import {Response} from 'express';
-import txt  from './Text_Files/alpha.txt';
-import {ctrl} from './Controllers/first.ctrl'
+import {userCtrl} from './Controllers/user.ctrl';
 import bodyParser from 'body-parser';
+import './db';
 
 
 const app = express();
 const port = 3000;
-console.log(txt);
+
 
 
 app.use(bodyParser.json({type:'application/*+json'}))
 app.get('/', (req, res:Response) =>{
-    //res.setHeader('X-Powered-By', null);
     res.removeHeader('X-Powered-By')
  res.send('Hello World!')
 });
-app.get('/getAll',ctrl.getAll)
-app.get('/getOldest',ctrl.getOldest);
-app.get('/getById/:id',ctrl.getById)
-app.get('/insertNewPet',ctrl.insertNewPet)
 
+try{
+    app.get('/getAll',userCtrl.getAll)
+    app.get('/getByName',userCtrl.getByName)
+    app.get('/insertUser',userCtrl.insertUser)
 
+}catch(e){
+    console.log(e);
+}
 
 
 

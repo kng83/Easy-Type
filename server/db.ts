@@ -1,31 +1,30 @@
-import * as mssql from 'mssql';
-import * as msnodesqlv8 from 'mssql/msnodesqlv8';
-import { sql } from './Tagged_Templates/sql_literals';
+
+import * as mysql from 'mysql2';
 
 
-const config: mssql.config = {
-    user: 'sa',
+export const pool: mysql.PoolOptions = {
+    host: 'localhost',
+    user: 'pawel',
     password: '12345',
-    server: 'localhost',
-    port: 49714,
-    database: 'Pyszczek',
-    connectionTimeout: 10000,
-    options: {
-        trustedConnection: true
-    }
+    database: 'alarmdb',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 };
 
-//*** Change function async function into smaller function */
-async function queryWrapper(config: mssql.config, queryString: any) {
-    try {
-        const connection = await new mssql.ConnectionPool(config).connect()
-        const result = await connection.query(queryString)    
-        connection.close();
-        return result.recordset;
+const promisePool = connectMysql(pool);
 
-    } catch (err) {
-        return err.message;
-    }
+
+async function connectMysql(mySqlPool: mysql.PoolOptions) {
+    const pool = await mysql.createPool(mySqlPool)
+    return  pool.promise();
 }
 
-export const  pyszczekQuery  = queryWrapper.bind(null,config);
+
+
+export const executeStandardQuery = async function(sqlText:string){
+     let pool = await promisePool;
+     let queryResult = await pool.query(sqlText);
+     return queryResult[0];
+}
+
