@@ -13,6 +13,8 @@ fs.readdirSync('node_modules')
     nodeModules[mod] = 'commonjs ' + mod;
   });
 
+
+
 const config: webpack.Configuration = {
   mode: 'development',
   entry: "./server/app.ts",
@@ -56,7 +58,7 @@ const config: webpack.Configuration = {
   devtool: 'source-map',
   externals: nodeModules,
   plugins: [
-    new NodemonPlugin()
+    new (<any>NodemonPlugin)()
   ]
 };
 

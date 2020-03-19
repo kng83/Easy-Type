@@ -7,17 +7,18 @@ class UserCtrl {
 
     //*** Get all elements in table */
     getAll = async (req: any, res: Response) => {
-        let some = req.self.ohter.down()
+       // let some = req.self.ohter.down()
+        console.log('some stuff');
 
         let data = await executeStandardQuery(/*sql*/`     
                 /*------------------------SQL-----------------------------*/
 
-                Select * from users;
+                Select * from "user";
 
                 /*------------------------END_SQL------------------------*/
                 `
         )
-        return res.send(data)
+        return data;
     }
 
     //*** Get by name */
