@@ -14,9 +14,6 @@ const pool = new Pool({
     connectionTimeoutMillis: 2000,
   })
 
-
-    //
-
 const mMap = new Map();
 async function poolHolder():Promise<PoolClient>{
     try{
@@ -33,7 +30,6 @@ export const executeStandardQuery = async function(sqlText:string){
     try{
         let connectionPool = await poolHolder();
         let queryResult = await connectionPool.query(sqlText);
-        console.log(pool.totalCount,'some');
         return queryResult.rows;
 
     } catch (e){

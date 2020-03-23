@@ -7,13 +7,10 @@ class UserCtrl {
 
     //*** Get all elements in table */
     getAll = async (req: any, res: Response) => {
-       // let some = req.self.ohter.down()
-        console.log('some stuff');
 
         let data = await executeStandardQuery(/*sql*/`     
                 /*------------------------SQL-----------------------------*/
-
-                Select * from "user";
+              select * from "user"
 
                 /*------------------------END_SQL------------------------*/
                 `
@@ -24,42 +21,42 @@ class UserCtrl {
     //*** Get by name */
     getByName = async (req: Request, res: Response) => {
         let result = await req.query;
-        let firstName = '';
+        let first_name = '';
 
         if (result?.name) {
-            firstName = result.name;
+            first_name = result.name;
         }
 
+        let a = first_name.match(/[a-z]|[A-Z]|ą|ó|ę|ś|ć|ń|Ś|ż|ź|Ż|Ź|Ó/g);
         let data = await executeStandardQuery(/*sql*/`     
         
         /*------------------------SQL-----------------------------*/
 
-        select * from users where firstName='${firstName}';
-
+        select * from "user" where first_name='${first_name}';
         /*------------------------END_SQL------------------------*/
         `
         )
-
-        return res.send(data);
+        return data;
     }
 
     insertUser = async (req: Request, res: Response) => {
         let data = {};
 
             let result = await req.query;
-            const { firstName, lastName, age } = result;
-            checkIfAllValuesExist('not all values exists', firstName, lastName, age);
-            console.log('insertUserr');
+            const { first_name, last_name} = result;
+            checkIfAllValuesExist('not all values exists', first_name, last_name);
+
             data = await executeStandardQuery(/*sql*/`     
             
             /*------------------------SQL-----------------------------*/
     
-            INSERT INTO users (firstName1,lastName,age)
-            Values ('${firstName}','${lastName}','${age}')
+            INSERT INTO "user"(first_name,last_name)
+            Values ('${first_name}','${last_name}')
     
             /*------------------------END_SQL------------------------*/
             `
             )
+        console.log(data);
         return data;
 
     }
