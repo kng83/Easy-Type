@@ -13,3 +13,7 @@ export function tryCatchWrap<T extends any>(object: T): T {
   return object;
   
 }
+
+export function log(...text:any[]){
+    console.log(...text);
+}

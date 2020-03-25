@@ -1,6 +1,7 @@
 import { executeStandardQuery } from '../db';
 import { Request, Response } from 'express';
-import {tryCatchWrap} from '../Controllers/utilities'
+import {tryCatchWrap} from '../Controllers/utilities';
+import {log} from '../Controllers/utilities';
 
 
 class UserCtrl {
@@ -56,7 +57,7 @@ class UserCtrl {
             /*------------------------END_SQL------------------------*/
             `
             )
-        console.log(data);
+        log(data);
         return data;
 
     }

@@ -3,6 +3,7 @@ import {Response} from 'express';
 import {userCtrl} from './Controllers/user.ctrl';
 import bodyParser from 'body-parser';
 import './db';
+import {log} from './Controllers/utilities';
 
 
 const app = express();
@@ -22,7 +23,7 @@ try{
     app.get('/insertUser',userCtrl.insertUser)
 
 }catch(e){
-    console.log(e);
+    log(e);
 }
 
 
