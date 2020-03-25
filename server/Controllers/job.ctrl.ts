@@ -1,40 +1,33 @@
 import { executeStandardQuery } from '../db';
 import { Request, Response } from 'express';
-import {tryCatchWrap} from '../Controllers/utilities';
-import {log} from '../Controllers/utilities';
+import {tryCatchWrap} from './utilities';
+import {log} from './utilities';
 import {checkIfAllValuesExist} from './utilities';
 
 
-class UserCtrl {
+class JobCtrl {
 
     //*** Get all elements in table */
     getAll = async (req: any, res: Response) => {
 
         let data = await executeStandardQuery(/*sql*/`     
-                /*------------------------SQL-----------------------------*/
-              select * from "user"
+            /*------------------------SQL-----------------------------*/
+            select * from "job"
 
-                /*------------------------END_SQL------------------------*/
-                `
+            /*------------------------END_SQL------------------------*/
+            `
         )
         return data;
     }
 
     //*** Get by name */
-    getByName = async (req: Request, res: Response) => {
-        let result = await req.query;
-        let first_name = '';
-
-        if (result?.name) {
-            first_name = result.name;
-        }
-
-        let a = first_name.match(/[a-z]|[A-Z]|ą|ó|ę|ś|ć|ń|Ś|ż|ź|Ż|Ź|Ó/g);
+    getJobWithUsers = async (req: Request, res: Response) => {
+      
         let data = await executeStandardQuery(/*sql*/`     
         
         /*------------------------SQL-----------------------------*/
 
-        select * from "user" where first_name='${first_name}';
+        select u.first_name , u.last_name ,j.title , j.jid  from  "job" j join "user" u  on j.user_id = u.uid;
         /*------------------------END_SQL------------------------*/
         `
         )
@@ -67,5 +60,5 @@ class UserCtrl {
 }
 
 
-export const userCtrl = tryCatchWrap(new UserCtrl());
+export const jobCtrl = tryCatchWrap(new JobCtrl());
 

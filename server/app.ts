@@ -4,6 +4,7 @@ import {userCtrl} from './Controllers/user.ctrl';
 import bodyParser from 'body-parser';
 import './db';
 import {log} from './Controllers/utilities';
+import {jobCtrl} from './Controllers/job.ctrl';
 
 
 const app = express();
@@ -18,9 +19,11 @@ app.get('/', (req, res:Response) =>{
 });
 
 try{
-    app.get('/getAll',userCtrl.getAll)
-    app.get('/getByName',userCtrl.getByName)
-    app.get('/insertUser',userCtrl.insertUser)
+    app.get('/user/getAll',userCtrl.getAll)
+    app.get('/user/getByName',userCtrl.getByName)
+    app.get('/user/insertUser',userCtrl.insertUser)
+    app.get('/job/getAll',jobCtrl.getAll)
+    app.get('/job/getJobWithUsers',jobCtrl.getJobWithUsers)
 
 }catch(e){
     log(e);
