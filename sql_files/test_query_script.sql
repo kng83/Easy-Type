@@ -48,6 +48,30 @@ set machine_status = 'working'
 where machine_status is null ;
 
 
+select row_to_json("user") as some from "user"; 
+
+select * from ticket t1 join ticket_notes t2 on  t1.tid=1 AND t1.tid = t2.tn_id;
+
+
+with cte as (
+select
+	json_build_object( 'messages', (t.reporting_title ), 'id', (t.tid )) as my_ticket
+	--(t.message ,t.id )
+from
+	ticket t where t.tid =4
+),
+cte_2 as (
+select 
+	json_build_object('ticket_notes',(tn.machine_status) ,'id',(tn.user_msg )) as my_ticket_notes
+from 
+	ticket_notes tn  where tn.tn_id = 4
+)
+select json_build_object('query_results',json_agg(cte)) from cte
+full join Cte_2 on null= null;
+
+
+
+
 
 insert into ticket_notes (
 		tn_id ,
