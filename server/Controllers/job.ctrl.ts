@@ -11,7 +11,7 @@ class JobCtrl {
     getAll = async (req: any, res: Response) => {
 
         let data = await executeStandardQuery(/*sql*/`     
-            /*------------------------SQL-----------------------------*/
+            /*------------------------SQL-------------------------------*/
             select * from ticket t1 join ticket_notes t2 on  t1.tid=1 AND t1.tid = t2.tn_id;
 
             /*------------------------END_SQL------------------------*/
