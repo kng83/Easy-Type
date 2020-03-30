@@ -25,10 +25,10 @@ class JobCtrl {
       
         let data = await executeStandardQuery(/*sql*/`     
         
-        /*------------------------SQL-----------------------------*/
+        /*------------------------SQL--------------------------------*/
 
         select u.first_name , u.last_name ,j.title , j.jid  from  "job" j join "user" u  on j.user_id = u.uid;
-        /*------------------------END_SQL------------------------*/
+        /*------------------------END_SQL----------------------------*/
         `
         )
         return data;
