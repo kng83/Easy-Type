@@ -24,10 +24,19 @@ alter table "ticket"
 
  alter type t_ticket_msg
  ALTER ATTRIBUTE new_msg_ts  TYPE timestamp(6) current_timestamp;
-	
 
 ALTER TYPE t_ticket_msg ADD ATTRIBUTE msg_ts timestamptz NOT NULL DEFAULT Current_Timestamp;
 
 
 
+--search in array for certain value 
+SELECT * FROM ticket_notes tn where 'kot'= any(tn.users_list) ;
+
+
+
 CREATE TYPE ts_1 AS  (new_msg_ts timestamp current_timestamp,some_id int);
+
+
+CREATE TYPE t_resp_req AS ENUM ('request','response');
+
+CREATE TYPE t_machine_status AS ENUM ('working','not working','temp working');
